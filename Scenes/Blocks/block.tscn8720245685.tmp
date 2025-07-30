@@ -1,22 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://h1s0cu3kw1e7"]
+[gd_scene load_steps=5 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/blocks_sheet.png" id="1_ffj44"]
+[ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/block.gd" id="1_p5g84"]
 [ext_resource type="FontFile" uid="uid://b5jdanr4fylo8" path="res://Assets/BigBlueTermPlusNerdFont-Regular.ttf" id="2_qfgok"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("2_qfgok")
 font_size = 11
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Block" type="Node2D"]
+script = ExtResource("1_p5g84")
 
 [node name="Top" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(13, -27)
+scale = Vector2(4.03125, 4.03125)
+texture = ExtResource("1_ffj44")
+centered = false
+region_enabled = true
+region_rect = Rect2(3.57125, 0, 25.015, 6.98363)
+
+[node name="Top2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(114, -27)
+scale = Vector2(4.03125, 4.03125)
+texture = ExtResource("1_ffj44")
+centered = false
+region_enabled = true
+region_rect = Rect2(28.2035, 0, 3.79651, 6.98363)
+
+[node name="Connector" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, -27)
 scale = Vector2(4.03125, 4.03125)
 texture = ExtResource("1_ffj44")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 6.98363)
+region_rect = Rect2(0, 0, 3.62049, 6.98363)
 
 [node name="Bottom" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -45,11 +67,11 @@ centered = false
 region_enabled = true
 region_rect = Rect2(5.02516, 7.96277, 6.02388, 3.05789)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 12.0
+[node name="Text" type="Label" parent="."]
+offset_left = 16.0
 offset_top = -23.0
-offset_right = 116.0
+offset_right = 163.0
 offset_bottom = -3.0
-text = "for int i = 0"
+text = "while enemy in range"
 label_settings = SubResource("LabelSettings_p5g84")
 vertical_alignment = 1

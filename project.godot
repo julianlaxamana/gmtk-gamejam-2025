@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="GMTK Gamejam 2025"
-run/main_scene="uid://h1s0cu3kw1e7"
+run/main_scene="uid://b051s7k4rtfht"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
