@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=6 format=3 uid="uid://b051s7k4rtfht"]
 
-[ext_resource type="Script" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
-[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="1_gol0p"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
+[ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://Scenes/Main/main.gd" id="1_5yls4"]
+[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://Scenes/Blocks/loop_block.tscn" id="1_gol0p"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://Scenes/Blocks/action_block.tscn" id="2_br8qb"]
 
 [sub_resource type="Curve2D" id="Curve2D_amr5s"]
 _data = {
@@ -11,6 +12,7 @@ _data = {
 point_count = 21
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_5yls4")
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_amr5s")
