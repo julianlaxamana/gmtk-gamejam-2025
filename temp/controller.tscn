@@ -10,8 +10,8 @@ script = ExtResource("1_yrwur")
 [node name="atk" type="Node2D" parent="."]
 script = ExtResource("2_t0owg")
 
-[node name="atk2" type="Node2D" parent="."]
+[node name="atk2" type="Node2D" parent="atk"]
 script = ExtResource("2_t0owg")
 
-[node name="atk3" type="Node2D" parent="."]
+[node name="atk3" type="Node2D" parent="atk/atk2"]
 script = ExtResource("2_t0owg")

@@ -11,4 +11,11 @@ func _process(delta):
 	pass
 	
 func fire():
-	print("pew")
+	print("pew" + self.name)
+	
+	# move the call down
+	var temp = get_child(0)
+	
+	if temp != null:
+		temp.fire()
+	
