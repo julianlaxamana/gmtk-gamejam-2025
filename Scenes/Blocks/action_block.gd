@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var state = "off"
 var offset
 
