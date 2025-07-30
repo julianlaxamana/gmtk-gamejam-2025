@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://csb5ul277w6tp" path="res://temp/controller.gd" id="1_yrwur"]
 [ext_resource type="Script" uid="uid://b4pdcai51s4ef" path="res://temp/block.gd" id="2_t0owg"]
 
-[node name="Controller" type="Timer"]
+[node name="Controller" type="Timer" groups=["Units"]]
 wait_time = 0.5
 script = ExtResource("1_yrwur")
 
