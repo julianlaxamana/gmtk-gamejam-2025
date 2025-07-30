@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
 
-[node name="BugAbstract" type="PathFollow2D"]
+[node name="BugAbstract" type="PathFollow2D" groups=["bugs"]]
 script = ExtResource("1_rp73j")
 
 [node name="Sprite" type="Sprite2D" parent="."]
