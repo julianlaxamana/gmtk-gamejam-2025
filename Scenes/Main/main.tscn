@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b051s7k4rtfht"]
 
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
-[ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://Scenes/Main/main.gd" id="1_5yls4"]
-[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://Scenes/Blocks/loop_block.tscn" id="1_gol0p"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://Scenes/Blocks/action_block.tscn" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/path.gd" id="1_1r6ip"]
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_5yls4"]
+[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="1_gol0p"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="2_br8qb"]
 
 [sub_resource type="Curve2D" id="Curve2D_amr5s"]
 _data = {
@@ -18,10 +18,13 @@ script = ExtResource("1_5yls4")
 curve = SubResource("Curve2D_amr5s")
 script = ExtResource("1_1r6ip")
 
-[node name="Block" parent="." instance=ExtResource("1_gol0p")]
-position = Vector2(208, 111)
-scale = Vector2(1.5, 1.5)
+[node name="Loop Block" parent="." instance=ExtResource("1_gol0p")]
+position = Vector2(190, 226)
 
-[node name="Node2D" parent="." instance=ExtResource("2_br8qb")]
-position = Vector2(54, 113)
-scale = Vector2(1.5, 1.5)
+[node name="Action Block" parent="." instance=ExtResource("2_br8qb")]
+position = Vector2(594, 297)
+scale = Vector2(2, 2)
+
+[node name="Action Block2" parent="." instance=ExtResource("2_br8qb")]
+position = Vector2(618, 396)
+scale = Vector2(2, 2)

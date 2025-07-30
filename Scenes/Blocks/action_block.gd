@@ -6,6 +6,7 @@ var offset
 var pressed = false
 var entered = false
 
+var loopBlock: Node2D
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
@@ -17,6 +18,7 @@ func _process(delta: float) -> void:
 
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
+		self.reparent(get_tree().root)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"
@@ -26,8 +28,15 @@ func _process(delta: float) -> void:
 		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
 		state = "on"
-	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
-		print("hi")
+	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true && loopBlock != null:
+		self.reparent(loopBlock)
+		
+		if loopBlock != null && loopBlock.name == "Loop Block":
+			self.position = Vector2(14.0, 25.5)
+		elif loopBlock != null && loopBlock.name == "Action Block":
+			print(loopBlock.name)
+			self.position = Vector2(1.1, 25.5)
+		pass
 	else:
 		Global.cursorGrab = false
 		
@@ -42,11 +51,13 @@ func _on_click_area_mouse_exited() -> void:
 	state = "off"
 	pass # Replace with function body.
 
-func _on_click_area_area_entered(area: Area2D) -> void:
+func _on_hole_area_area_entered(area: Area2D) -> void:
+	loopBlock = area.get_parent()
 	entered = true
 	pass # Replace with function body.
 
 
-func _on_click_area_area_exited(area: Area2D) -> void:
+func _on_hole_area_area_exited(area: Area2D) -> void:
+	loopBlock = null
 	entered = false
 	pass # Replace with function body.
