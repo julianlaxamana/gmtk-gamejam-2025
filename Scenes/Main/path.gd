@@ -3,7 +3,7 @@ extends Path2D
 
 
 const bug_dictionary: Dictionary = {
-	"bug_basic": preload("res://Scenes/bugBasic/BugBasic.tscn")
+	"bug_basic": preload("res://Scenes/Bugs/bug_generic.tscn")
 }
 
 # Called when the node enters the scene tree for the first time.
