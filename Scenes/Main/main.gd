@@ -17,3 +17,5 @@ func start_wave():
 			print("wave 1 has started")
 		2: 
 			print("wave 2 has started")
+	
+	wave += 1

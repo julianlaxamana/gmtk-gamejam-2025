@@ -1,10 +1,10 @@
 extends PathFollow2D
 
-var health: int = 100
-var value: int = 5 # money on death
-var speed: int = 2 # speed in pixels
-var damage: int = 10 # how much damage to deal
-var sprite_resource = preload("res://Assets/Bugs/bug_basic.png") # to be sent on init
+var health: int # health of unit
+var value: int  # money on death
+var speed: int # speed in pixels
+var damage: int  # how much damage to deal
+var sprite_resource # to be sent on init
 
 
 @onready var sprite = get_child(0) # sprite 2d node

@@ -33,5 +33,4 @@ func _input(event):
 # start() stop() starts and stops
 # pasued = t/f will preserve get_time_left()
 func _on_timeout():
-	for block in blocks:
-		block.fire()
+	get_child(0).fire()

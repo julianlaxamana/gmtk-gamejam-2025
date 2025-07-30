@@ -15,40 +15,52 @@ func _process(delta):
 	
 	
 func _input(event):
+	if event.is_action_pressed("debug_a"):
+		Engine.time_scale = 2
+	if event.is_action_pressed("debug_d"):
+		Engine.time_scale = 1
 	if event.is_action_pressed("debug_add_bug"):
-		var temp = bug_generic.instantiate()
-		temp.health = 0
-		temp.value = 0
-		temp.speed = 1
-		temp.damage = 1
-		temp.sprite_resource = 1
-		add_child(temp)
-	
-		
-		# the groups wil ALWAYS be ordered from closest to the end to the farthest
-		var nodes = get_tree().get_nodes_in_group("bugs")
-		for n in nodes:
-			print(n.progress_ratio)
+		start_wave(1)
+
+func start_wave(wave: int):
+	match wave:
+		1:
+			spawn_bug(0, "basic")
+			spawn_bug(5, "basic")
+			spawn_bug(10, "basic")
+
+
+#region helper functions
+
+func spawn_bug(delay, type: String):
+	get_tree().create_timer(delay).timeout.connect(create_bug.bind(type))
 
 func create_bug(type: String):
+	var temp = bug_generic.instantiate()
+	var string = "bug_" + type
+	connect_bug_signals(temp)
 	match type:
-		"type1":
-			#var temp = bug_generic.instantiate()
-			#temp.health = 0
-			#temp.value = 0
-			#temp.speed = 1
-			#temp.damage = 1
-			#temp.sprite_resource = 1
-			#add_child(temp)
-			#add_child(temp)
+		"basic":
+			temp.health = 20
+			temp.value = 5
+			temp.speed = 2
+			temp.damage = 1
+			temp.sprite_resource = Global.BUG_SPRITE_DICTIONARY[string]
 			pass
 		"type2":
 			pass
+	
+	# do for all bugs
+	add_child(temp)
+
 
 func connect_bug_signals(n):
 	n.bug_reached_end.connect(_on_bug_reached_end)
 	n.bug_died.connect(_on_bug_died)
-	
+
+#endregion
+
+#region bug signal logic
 func _on_bug_reached_end(damage: int):
 	# hurt the thing
 	# that's it
@@ -57,3 +69,5 @@ func _on_bug_reached_end(damage: int):
 func _on_bug_died(value: int):
 	# give gold to player
 	pass
+
+#endregion
