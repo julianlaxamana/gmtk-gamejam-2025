@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5bl0s1h5qh7x"]
+
+[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
+
+[node name="BugAbstract" type="PathFollow2D" groups=["bugs"]]
+script = ExtResource("1_rp73j")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

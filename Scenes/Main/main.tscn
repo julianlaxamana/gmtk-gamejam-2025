@@ -1,3 +1,6 @@
+[gd_scene load_steps=3 format=3 uid="uid://b051s7k4rtfht"]
+
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
 [gd_scene load_steps=4 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="1_gol0p"]
@@ -13,6 +16,7 @@ point_count = 21
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_amr5s")
+script = ExtResource("1_1r6ip")
 
 [node name="Block" parent="." instance=ExtResource("1_gol0p")]
 position = Vector2(208, 111)
