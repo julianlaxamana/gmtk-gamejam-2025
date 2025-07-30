@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b5jdanr4fylo8"
-path="res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-9a95a2dba03bff2660822145f9955a18.fontdata"
+path="res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-61d117794b6954102b4db4c355803ef0.fontdata"
 
 [deps]
 
-source_file="res://Assets/BigBlueTermPlusNerdFont-Regular.ttf"
-dest_files=["res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-9a95a2dba03bff2660822145f9955a18.fontdata"]
+source_file="res://Assets/Fonts/BigBlueTermPlusNerdFont-Regular.ttf"
+dest_files=["res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-61d117794b6954102b4db4c355803ef0.fontdata"]
 
 [params]
 

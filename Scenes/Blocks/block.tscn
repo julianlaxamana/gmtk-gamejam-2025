@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://h1s0cu3kw1e7"]
 
-[ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/blocks_sheet.png" id="1_ffj44"]
-[ext_resource type="FontFile" uid="uid://b5jdanr4fylo8" path="res://Assets/BigBlueTermPlusNerdFont-Regular.ttf" id="2_qfgok"]
+[ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_ffj44"]
+[ext_resource type="FontFile" uid="uid://b5jdanr4fylo8" path="res://Assets/Fonts/BigBlueTermPlusNerdFont-Regular.ttf" id="2_qfgok"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("2_qfgok")
