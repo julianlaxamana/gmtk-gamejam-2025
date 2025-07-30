@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h1s0cu3kw1e7"]
+[gd_scene load_steps=9 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_ffj44"]
 [ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/loop_block.gd" id="1_p5g84"]
@@ -18,6 +18,9 @@ size = Vector2(29, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1avow"]
 size = Vector2(143.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tttqk"]
+size = Vector2(29.5, 11.5)
 
 [node name="Loop Block" type="Node2D"]
 scale = Vector2(2, 2)
@@ -82,7 +85,7 @@ region_rect = Rect2(0, 7.90317, 3.91708, 10.9916)
 
 [node name="Nub" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(20, -3)
+position = Vector2(30.91, -3)
 scale = Vector2(4, 4)
 texture = ExtResource("1_ffj44")
 centered = false
@@ -90,6 +93,7 @@ region_enabled = true
 region_rect = Rect2(5.02516, 7.96277, 6.02388, 3.05789)
 
 [node name="ClickArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="Top" type="CollisionShape2D" parent="ClickArea"]
 position = Vector2(64, -13.5)
@@ -102,6 +106,13 @@ shape = SubResource("RectangleShape2D_7d3sh")
 [node name="Bottom" type="CollisionShape2D" parent="ClickArea"]
 position = Vector2(61.75, 58.5)
 shape = SubResource("RectangleShape2D_1avow")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(44.75, 7.25)
+shape = SubResource("RectangleShape2D_tttqk")
 
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]

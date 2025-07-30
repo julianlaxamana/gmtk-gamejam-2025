@@ -4,6 +4,7 @@ var state = "off"
 var offset
 
 var pressed = false
+var entered = false
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -25,6 +26,8 @@ func _process(delta: float) -> void:
 		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
 		state = "on"
+	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
+		print("hi")
 	else:
 		Global.cursorGrab = false
 		
@@ -37,4 +40,13 @@ func _on_click_area_mouse_entered() -> void:
 
 func _on_click_area_mouse_exited() -> void:
 	state = "off"
+	pass # Replace with function body.
+
+func _on_click_area_area_entered(area: Area2D) -> void:
+	entered = true
+	pass # Replace with function body.
+
+
+func _on_click_area_area_exited(area: Area2D) -> void:
+	entered = false
 	pass # Replace with function body.
