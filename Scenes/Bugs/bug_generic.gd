@@ -1,7 +1,7 @@
-class_name Bug extends PathFollow2D
+extends PathFollow2D
 
 
-const speed: int = 3 # speed in pixels
+const speed: int = 2 # speed in pixels
 const damage: int = 10 # how much damage to deal
 var sprite_resource = preload("res://Assets/Bugs/bugBasic.png") # to be sent on init
 
@@ -15,8 +15,8 @@ signal bug_reached_end
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite.texture = sprite_resource
-	pass # Replace with function body.
+	sprite.texture = sprite_resource # replace texture
+	#TODO replace with sprite sheet
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
