@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=3 format=3 uid="uid://b051s7k4rtfht"]
+
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
 
 [sub_resource type="Curve2D" id="Curve2D_amr5s"]
 _data = {
@@ -10,3 +12,4 @@ point_count = 21
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_amr5s")
+script = ExtResource("1_1r6ip")

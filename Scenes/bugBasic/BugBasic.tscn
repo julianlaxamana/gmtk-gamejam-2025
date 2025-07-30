@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://c5bl0s1h5qh7x"]
+[gd_scene load_steps=3 format=3 uid="uid://c5bl0s1h5qh7x"]
 
-[node name="BugBasic" type="Node2D"]
+[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/bugBasic/bug_basic.gd" id="1_l3v6y"]
+[ext_resource type="Texture2D" uid="uid://o1g04xcirh0j" path="res://Assets/Bugs/bugBasic.png" id="2_3gt46"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+script = ExtResource("1_l3v6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3gt46")
