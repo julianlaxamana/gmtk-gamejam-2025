@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://crrc11gx445cn"]
+[gd_scene load_steps=5 format=3 uid="uid://crrc11gx445cn"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_qwoef"]
 [ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://scenes/Blocks/action_block.gd" id="1_w3nc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3nc2"]
 size = Vector2(131, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aepio"]
+size = Vector2(7.35659, 3.51163)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_w3nc2")
@@ -18,10 +21,22 @@ region_enabled = true
 region_rect = Rect2(0, 20, 32, 7)
 
 [node name="ClickArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 position = Vector2(64.5, -14)
 shape = SubResource("RectangleShape2D_w3nc2")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(65, -14)
+scale = Vector2(4.03125, 4.03125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8.8876, -1.75581)
+shape = SubResource("RectangleShape2D_aepio")
+
+[connection signal="area_entered" from="ClickArea" to="." method="_on_click_area_area_entered"]
+[connection signal="area_exited" from="ClickArea" to="." method="_on_click_area_area_exited"]
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]
