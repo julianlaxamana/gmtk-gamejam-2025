@@ -12,6 +12,7 @@ var count = 0;
 var pos;
 var loopBlock: Node2D
 
+var location = "inventory"
 var type = "action"
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -24,9 +25,8 @@ func _process(delta: float) -> void:
 	if "count" in get_parent():
 		get_parent().count = count + 1
 	
-	
-	if get_child_count() > 7:
-		get_child(7).reparent(get_tree().root)
+	if get_child_count() > 8:
+		get_child(8).reparent(Global.editor)
 	
 	
 	# Dynamic Dragging
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		if "attached" in get_parent():
 			get_parent().attached = false;
 			get_parent().count = 0;
-		#self.reparent(Global.editor)
+		self.reparent(Global.editor)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"
@@ -49,9 +49,7 @@ func _process(delta: float) -> void:
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
 		click.pitch_scale = randf_range(0.9, 1.1)
 		click.play(0.0)
-		print("hi")
 		self.reparent(loopBlock)
-		print(get_parent())
 
 		if loopBlock != null:
 			loopBlock.attached = true
@@ -81,11 +79,11 @@ func _on_click_area_mouse_exited() -> void:
 
 func _on_hole_area_area_entered(area: Area2D) -> void:
 	loopBlock = area.get_parent()
+	print(loopBlock)
 	entered = true
 	pass # Replace with function body.
 
 
 func _on_hole_area_area_exited(area: Area2D) -> void:
-	loopBlock = null
 	entered = false
 	pass # Replace with function body.

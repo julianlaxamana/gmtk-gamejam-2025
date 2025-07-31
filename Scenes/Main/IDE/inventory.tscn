@@ -40,3 +40,6 @@ horizontal_alignment = 1
 
 [node name="Action Block" parent="." instance=ExtResource("1_712y7")]
 position = Vector2(24, 72)
+
+[node name="Action Block2" parent="." instance=ExtResource("1_712y7")]
+position = Vector2(169, 57)
