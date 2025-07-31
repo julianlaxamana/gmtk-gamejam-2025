@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7nqr5jp6d8gs"]
 
 [ext_resource type="Texture2D" uid="uid://dm3p1s4xym4yc" path="res://Assets/Particles/one.png" id="1_4uct2"]
-[ext_resource type="Script" uid="uid://u682ha6t71vp" path="res://scenes/IDE/camera_2d.gd" id="1_hv045"]
+[ext_resource type="Script" uid="uid://u682ha6t71vp" path="res://Scenes/Main/IDE/camera_2d.gd" id="1_hv045"]
 [ext_resource type="Texture2D" uid="uid://cyoa6ghrdarjh" path="res://Assets/Particles/zero.png" id="2_d5ggu"]
-[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="2_m6o6r"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="3_4uct2"]
+[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://Scenes/Blocks/loop_block.tscn" id="2_m6o6r"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://Scenes/Blocks/action_block.tscn" id="3_4uct2"]
 
 [sub_resource type="Gradient" id="Gradient_m6o6r"]
 offsets = PackedFloat32Array(0, 0.00666667, 0.02, 0.0333333, 0.44, 1)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=4 uid="uid://cmgf7skrjaw1y"]
 
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
-[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://scenes/Field/camera_2d.gd" id="1_yh2a8"]
+[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
 [ext_resource type="Texture2D" uid="uid://cv1gf3jq5ak8b" path="res://Assets/Tilemap/griddy.png" id="2_u50xy"]
-[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://scenes/Field/slide.gd" id="3_pp5yg"]
-[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://scenes/Field/griddy.gd" id="4_vyvae"]
+[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
+[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")

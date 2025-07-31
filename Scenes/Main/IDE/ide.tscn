@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt744m0awmxy1"]
 
-[ext_resource type="PackedScene" uid="uid://c7nqr5jp6d8gs" path="res://scenes/IDE/editor.tscn" id="1_t2xf5"]
+[ext_resource type="PackedScene" uid="uid://c7nqr5jp6d8gs" path="res://Scenes/Main/IDE/editor.tscn" id="1_t2xf5"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_a827d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8i2ax"]
