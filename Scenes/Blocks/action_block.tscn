@@ -65,10 +65,10 @@ text = "fireball();"
 label_settings = SubResource("LabelSettings_5t2f7")
 vertical_alignment = 1
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="NubArea" type="Area2D" parent="."]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NubArea"]
 position = Vector2(29, 2)
 shape = SubResource("RectangleShape2D_5t2f7")
 

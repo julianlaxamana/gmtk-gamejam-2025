@@ -1,10 +1,17 @@
 extends Node2D
+@onready var nubArea = $NubArea
+@onready var holeArea = $HoleArea
 
 var state = "off"
 var offset
 
 var pressed = false
 var entered = false
+
+var attached = false
+var count = 0; 
+
+var pos;
 
 var loopBlock: Node2D
 func _input(event):
@@ -15,9 +22,21 @@ func _ready():
 	print("read")
 
 func _process(delta: float) -> void:
-
+	nubArea.monitorable = !attached
+	if holeArea.monitoring == false:
+		self.position = lerp(self.position, pos, delta * 20)
+	if "count" in get_parent():
+		get_parent().count = count + 1
+	
 	# Dynamic Dragging
+	if get_child_count() > 7:
+		get_child(7).reparent(get_tree().root)
+		
 	if pressed && state == "on" && Global.cursorGrab == false:
+		holeArea.monitoring = true
+		if "attached" in get_parent():
+			get_parent().attached = false;
+			get_parent().count = 0;
 		self.reparent(get_tree().root)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
@@ -28,20 +47,23 @@ func _process(delta: float) -> void:
 		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
 		state = "on"
-	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true && loopBlock != null:
+		Global.cursorGrab = false
+	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
 		self.reparent(loopBlock)
+		if loopBlock != null:
+			loopBlock.attached = true
+		if get_parent().name == "Loop Block":
+			pos = Vector2(14.0, 25.5)
+			
+		elif get_parent().name.contains("Action Block"):
+			pos = Vector2(1.1, 25.5)
+			
+		holeArea.monitoring = false
 		
-		if loopBlock != null && loopBlock.name == "Loop Block":
-			self.position = Vector2(14.0, 25.5)
-		elif loopBlock != null && loopBlock.name == "Action Block":
-			print(loopBlock.name)
-			self.position = Vector2(1.1, 25.5)
-		pass
-	else:
+	if state == "on":
 		Global.cursorGrab = false
 		
 	pressed = false;
-
 
 func _on_click_area_mouse_entered() -> void:
 	state = "on"
