@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmgf7skrjaw1y" path="res://Scenes/Main/Field/battlefield.tscn" id="1_ig151"]
 
-[node name="SubViewportContainer" type="SubViewportContainer"]
+[node name="FieldViewport" type="SubViewportContainer"]
 anchors_preset = -1
 anchor_right = 23.0
 anchor_bottom = 18.0

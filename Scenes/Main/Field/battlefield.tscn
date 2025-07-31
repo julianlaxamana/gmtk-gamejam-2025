@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://cmgf7skrjaw1y"]
+[gd_scene load_steps=11 format=4 uid="uid://cmgf7skrjaw1y"]
 
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
 [ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
 [ext_resource type="Texture2D" uid="uid://cv1gf3jq5ak8b" path="res://Assets/Tilemap/griddy.png" id="2_u50xy"]
 [ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
 [ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/IDE/path.gd" id="6_57q4d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")
@@ -88,6 +89,12 @@ texture = ExtResource("2_u50xy")
 sources/0 = SubResource("TileSetAtlasSource_pp5yg")
 sources/1 = SubResource("TileSetAtlasSource_vyvae")
 
+[sub_resource type="Curve2D" id="Curve2D_q42ko"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -10, 166, 0, 0, 0, 0, 95, 239, 0, 0, 0, 0, 33, 256, 0, 0, 0, 0, 138, 329, 0, 0, 0, 0, 77, 346, 0, 0, 0, 0, 286, 493, 0, 0, 0, 0, 472, 443, 0, 0, 0, 0, 524, 480, 0, 0, 0, 0, 710, 430, 0, 0, 0, 0, 657, 393, 0, 0, 0, 0, 719, 377, 0, 0, 0, 0, 614, 303, 0, 0, 0, 0, 676, 286, 0, 0, 0, 0, 571, 213, 0, 0, 0, 0, 509, 230, 0, 0, 0, 0, 405, 157, 0, 0, 0, 0, 343, 173, 0, 0, 0, 0, 290, 136)
+}
+point_count = 18
+
 [node name="Battlefield" type="Node2D"]
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
@@ -142,3 +149,7 @@ tile_set = SubResource("TileSet_vyvae")
 position = Vector2(480, 366)
 zoom = Vector2(0.75, 0.75)
 script = ExtResource("1_yh2a8")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_q42ko")
+script = ExtResource("6_57q4d")
