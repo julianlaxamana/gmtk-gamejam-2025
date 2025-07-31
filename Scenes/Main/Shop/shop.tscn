@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh35vn223u34"]
+
+[ext_resource type="PackedScene" uid="uid://bs1i565yhtcck" path="res://scenes/Main/Shop/ShopBox.tscn" id="1_7so2v"]
+[ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="2_spp1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u48ok"]
+bg_color = Color(0.664783, 0.0894219, 0.670572, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.500124, 0.0418918, 0.506576, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jesjl"]
+bg_color = Color(0.936694, 0.535051, 0.929246, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.901961, 0.337255, 0.901961, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 2
+
+[node name="Shop" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -523.0
+offset_top = -821.0
+offset_right = 526.0
+offset_bottom = 563.0
+color = Color(0.371575, 0.0493679, 0.485158, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 20.0
+preprocess = 30.0
+speed_scale = 0.25
+randomness = 0.54
+emission_shape = 1
+emission_sphere_radius = 121.95
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angle_max = 60.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+color = Color(0.519779, 0.0973278, 0.671362, 1)
+hue_variation_min = -0.65
+hue_variation_max = 0.4
+
+[node name="Test" type="Node2D" parent="."]
+position = Vector2(-123, -315)
+
+[node name="ShopBox" parent="." instance=ExtResource("1_7so2v")]
+position = Vector2(-1.52588e-05, 107)
+
+[node name="ShopBox2" parent="." instance=ExtResource("1_7so2v")]
+position = Vector2(-1.52588e-05, -12)
+
+[node name="ShopBox3" parent="." instance=ExtResource("1_7so2v")]
+position = Vector2(-1.52588e-05, -123)
+
+[node name="Reroll" type="Button" parent="."]
+offset_left = -120.0
+offset_top = 202.0
+offset_right = 185.0
+offset_bottom = 285.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("2_spp1s")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jesjl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u48ok")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u48ok")
+text = "Reroll"

@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs1i565yhtcck"]
+
+[ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_5idpc"]
+[ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://scenes/Main/Shop/shop_box.gd" id="1_f6317"]
+[ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="1_uhh8t"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_wqq0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6317"]
+bg_color = Color(0.901961, 0.337255, 0.901961, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.74902, 0.141176, 0.752941, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhh8t"]
+bg_color = Color(0.936694, 0.535051, 0.929246, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.901961, 0.337255, 0.901961, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhh8t"]
+font = ExtResource("1_5idpc")
+font_size = 30
+outline_size = 3
+outline_color = Color(0.521514, 0.056665, 0.526085, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6317"]
+paragraph_spacing = -10.0
+font = ExtResource("1_5idpc")
+font_size = 20
+font_color = Color(0.427872, 0.0277346, 0.432117, 1)
+
+[node name="ShopBox" type="Node2D"]
+script = ExtResource("1_f6317")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -153.0
+offset_top = -40.0
+offset_right = 152.0
+offset_bottom = 43.0
+theme = ExtResource("1_uhh8t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhh8t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_f6317")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6317")
+
+[node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 9.0
+offset_right = 298.0
+offset_bottom = 74.0
+text = "Fireball
+"
+label_settings = SubResource("LabelSettings_uhh8t")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 41.0
+offset_right = 292.0
+offset_bottom = 76.0
+text = "Hole: Circle 
+Nub: Gay "
+label_settings = SubResource("LabelSettings_f6317")
+
+[node name="Label4" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 42.0
+offset_right = 289.0
+offset_bottom = 77.0
+text = "LEFT 
+LEFT "
+label_settings = SubResource("LabelSettings_f6317")
+
+[node name="Action Block" parent="Button" instance=ExtResource("1_wqq0w")]
+position = Vector2(15, 54)
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

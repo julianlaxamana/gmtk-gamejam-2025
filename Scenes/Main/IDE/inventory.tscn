@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqimrj4jsu43p"]
+
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_712y7"]
+[ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_uu1dl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v4b5"]
+bg_color = Color(0.187411, 0.414927, 0.357436, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdhdq"]
+font = ExtResource("2_uu1dl")
+font_size = 30
+
+[node name="Inventory" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -27.0
+offset_right = 357.0
+offset_bottom = 124.0
+mouse_filter = 2
+color = Color(0.231373, 0.494118, 0.427451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 27.0
+offset_top = -41.0
+offset_right = 323.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7v4b5")
+text = "Inventory"
+label_settings = SubResource("LabelSettings_xdhdq")
+horizontal_alignment = 1
+
+[node name="Action Block" parent="." instance=ExtResource("1_712y7")]
+position = Vector2(24, 72)

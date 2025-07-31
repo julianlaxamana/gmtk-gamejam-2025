@@ -5,23 +5,17 @@ extends Node2D
 
 var state = "off"
 var offset
-
 var pressed = false
 var entered = false
-
 var attached = false
 var count = 0; 
-
 var pos;
-var canvas;
 var loopBlock: Node2D
+
+var type = "action"
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
-		
-func _ready():
-	canvas = get_parent()
-	print("read")
 
 func _process(delta: float) -> void:
 	nubArea.monitorable = !attached
@@ -34,36 +28,38 @@ func _process(delta: float) -> void:
 	if get_child_count() > 7:
 		get_child(7).reparent(get_tree().root)
 	
+	
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
-		print("hi")
 		holeArea.monitoring = true
 		if "attached" in get_parent():
 			get_parent().attached = false;
 			get_parent().count = 0;
-		self.reparent(canvas)
+		#self.reparent(Global.editor)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"
 		Global.cursorGrab = true
-		
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
-		var mouse_position_global = get_viewport().get_mouse_position()
-		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
 		state = "on"
 		Global.cursorGrab = false
+	elif state == "dragging":
+		var mouse_position_global = get_viewport().get_mouse_position()
+		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
 		click.pitch_scale = randf_range(0.9, 1.1)
 		click.play(0.0)
 		print("hi")
 		self.reparent(loopBlock)
+		print(get_parent())
+
 		if loopBlock != null:
 			loopBlock.attached = true
-		if get_parent().name == "Loop Block":
+
+		if "type" in get_parent() and type == "loop":
 			pos = Vector2(14.0, 25.5)
 			
-		elif get_parent().name.contains("Action Block"):
+		elif "type" in get_parent() and type == "action":
 			pos = Vector2(1.1, 25.5)
 			
 		holeArea.monitoring = false
@@ -74,11 +70,13 @@ func _process(delta: float) -> void:
 	pressed = false;
 
 func _on_click_area_mouse_entered() -> void:
-	state = "on"
+	if state != "dragging":
+		state = "on"
 	pass # Replace with function body.
 
 func _on_click_area_mouse_exited() -> void:
-	state = "off"
+	if state != "dragging":
+		state = "off"
 	pass # Replace with function body.
 
 func _on_hole_area_area_entered(area: Area2D) -> void:
