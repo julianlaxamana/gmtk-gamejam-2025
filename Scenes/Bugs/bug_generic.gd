@@ -26,7 +26,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress += speed # move
+	progress += speed * delta * 60.0 # move
 	
 	if progress_ratio > .999:
 		self.queue_free()

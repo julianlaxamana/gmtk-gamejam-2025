@@ -46,6 +46,7 @@ func create_bug(type: String):
 			temp.speed = 2
 			temp.damage = 1
 			temp.sprite_resource = Global.BUG_SPRITE_DICTIONARY[string]
+			temp.scale = Vector2(.25, .25)
 			pass
 		"type2":
 			pass
