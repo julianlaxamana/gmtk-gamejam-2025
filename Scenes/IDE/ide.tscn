@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt744m0awmxy1"]
+
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="1_a827d"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_t2xf5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.002
+anchor_bottom = 1.005
+offset_right = -852.304
+offset_bottom = -3.23999
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+position = Vector2(151, 325)
+scale = Vector2(2.30469, 5.04688)
+texture = ExtResource("1_a827d")
+
+[node name="Action Block" parent="Node2D" instance=ExtResource("1_t2xf5")]
+position = Vector2(78, 129)

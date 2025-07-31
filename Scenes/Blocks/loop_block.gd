@@ -39,14 +39,15 @@ func _ready():
 	topArea.position.x = connector.position.x + topArea.shape.size.x / 2.0
 	bottomArea.position.x = bottom.position.x + bottom.region_rect.size.x * bottom.scale.x / 2.0
 	sideArea.position.x = connector.position.x + connector.region_rect.size.x * connector.scale.x / 2.0
+	side.scale.y = 2.2 * (count) + .1
 	
 
 func _process(delta: float) -> void:
 	nubArea.monitorable = !attached
 	if abs(side.scale.y - ( 2.2 * (count + 1))) > 0.001: 
-		side.scale.y = lerp(side.scale.y, 2.2 * (count + 1), delta * 3)
+		side.scale.y = lerp(side.scale.y, 2.2 * (count) + .1, delta * 3)
 	else:
-		side.scale.y = 2.2 * (count + 1)
+		side.scale.y = 2.2 * (count) + .2
 	
 	sideArea.position.y = side.position.y + side.scale.y * side.region_rect.size.y / 2
 	
