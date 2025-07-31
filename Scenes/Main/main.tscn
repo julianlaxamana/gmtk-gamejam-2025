@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=5 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/path.gd" id="1_1r6ip"]
 [ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://scenes/IDE/ide.tscn" id="2_br8qb"]
@@ -9,6 +9,9 @@ _data = {
 }
 point_count = 21
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_br8qb"]
+viewport_path = NodePath(".")
+
 [node name="Main" type="Node2D"]
 
 [node name="Path" type="Path2D" parent="."]
@@ -16,5 +19,11 @@ curve = SubResource("Curve2D_amr5s")
 script = ExtResource("1_1r6ip")
 
 [node name="Node2D" parent="." instance=ExtResource("2_br8qb")]
-offset_right = 0.0
-offset_bottom = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(768, 233)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(106, -25)
+scale = Vector2(711, 558)
+texture = SubResource("ViewportTexture_br8qb")

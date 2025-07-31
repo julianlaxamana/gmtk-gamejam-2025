@@ -12,13 +12,14 @@ var attached = false
 var count = 0; 
 
 var pos;
-
+var canvas;
 var loopBlock: Node2D
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
 		
 func _ready():
+	canvas = get_parent()
 	print("read")
 
 func _process(delta: float) -> void:
@@ -28,20 +29,23 @@ func _process(delta: float) -> void:
 	if "count" in get_parent():
 		get_parent().count = count + 1
 	
-	# Dynamic Dragging
+	
 	if get_child_count() > 7:
 		get_child(7).reparent(get_tree().root)
-		
+	
+	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
+		print("hi")
 		holeArea.monitoring = true
 		if "attached" in get_parent():
 			get_parent().attached = false;
 			get_parent().count = 0;
-		self.reparent(get_tree().root)
+		self.reparent(canvas)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"
 		Global.cursorGrab = true
+		
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
 		var mouse_position_global = get_viewport().get_mouse_position()
 		position = mouse_position_global + offset
