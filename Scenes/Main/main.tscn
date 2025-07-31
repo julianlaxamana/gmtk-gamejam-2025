@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=6 format=3 uid="uid://b051s7k4rtfht"]
 
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/path.gd" id="1_1r6ip"]
-[ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://scenes/IDE/ide.tscn" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
+[ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://Scenes/IDE/ide.tscn" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/IDE/camera_2d.gd" id="3_qw60k"]
 
 [sub_resource type="Curve2D" id="Curve2D_amr5s"]
 _data = {
@@ -14,14 +15,38 @@ viewport_path = NodePath(".")
 
 [node name="Main" type="Node2D"]
 
-[node name="Path" type="Path2D" parent="."]
-curve = SubResource("Curve2D_amr5s")
-script = ExtResource("1_1r6ip")
-
 [node name="Node2D" parent="." instance=ExtResource("2_br8qb")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(768, 233)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 360.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 23.0
+anchor_bottom = 18.0
+offset_right = -20240.0
+offset_bottom = -12240.0
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(920, 720)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Control/SubViewportContainer/SubViewport"]
+position = Vector2(480, 366)
+script = ExtResource("3_qw60k")
+
+[node name="Path" type="Path2D" parent="Control/SubViewportContainer/SubViewport"]
+position = Vector2(-150, 35)
+scale = Vector2(0.999032, 1.01155)
+curve = SubResource("Curve2D_amr5s")
+script = ExtResource("1_1r6ip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(106, -25)
