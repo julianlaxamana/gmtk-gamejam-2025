@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cue0bc06w0cio"]
+[gd_scene load_steps=3 format=3 uid="uid://cue0bc06w0cio"]
 
 [ext_resource type="PackedScene" uid="uid://cmgf7skrjaw1y" path="res://Scenes/Main/Field/battlefield.tscn" id="1_ig151"]
+[ext_resource type="Script" uid="uid://dah8inwvixh5l" path="res://Scenes/Main/field_viewport_propogater.gd" id="1_jtllr"]
 
 [node name="FieldViewport" type="SubViewportContainer"]
 anchors_preset = -1
@@ -8,6 +9,7 @@ anchor_right = 23.0
 anchor_bottom = 18.0
 offset_right = -20240.0
 offset_bottom = -12240.0
+script = ExtResource("1_jtllr")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false

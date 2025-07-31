@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=4 uid="uid://cmgf7skrjaw1y"]
 
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
+[ext_resource type="Script" uid="uid://cplmryxfw4ahy" path="res://Scenes/Main/Field/battlefield_propagator.gd" id="1_q42ko"]
 [ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
 [ext_resource type="Texture2D" uid="uid://cv1gf3jq5ak8b" path="res://Assets/Tilemap/griddy.png" id="2_u50xy"]
 [ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
 [ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/IDE/path.gd" id="6_57q4d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")
@@ -96,6 +96,7 @@ _data = {
 point_count = 18
 
 [node name="Battlefield" type="Node2D"]
+script = ExtResource("1_q42ko")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -152,4 +153,3 @@ script = ExtResource("1_yh2a8")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_q42ko")
-script = ExtResource("6_57q4d")
