@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_ffj44"]
-[ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/loop_block.gd" id="1_p5g84"]
+[ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://Scenes/Blocks/loop_block.gd" id="1_p5g84"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_tttqk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
