@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
 [ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")
 0:0/0 = 0
@@ -128,6 +129,14 @@ enabled = false
 tile_set = SubResource("TileSet_vyvae")
 script = ExtResource("4_vyvae")
 
+[node name="Path2D" type="Path2D" parent="TileMapLayer"]
+position = Vector2(-807.008, 51.699)
+rotation = -1.14691
+scale = Vector2(0.410725, 0.82665)
+skew = 0.279478
+curve = SubResource("Curve2D_q42ko")
+script = ExtResource("6_57q4d")
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 texture_filter = 3
 position = Vector2(-8.125, 1502.39)
@@ -150,6 +159,5 @@ tile_set = SubResource("TileSet_vyvae")
 position = Vector2(480, 366)
 zoom = Vector2(0.75, 0.75)
 script = ExtResource("1_yh2a8")
-
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_q42ko")
