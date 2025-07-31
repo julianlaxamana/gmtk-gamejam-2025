@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7nqr5jp6d8gs"]
 
-[ext_resource type="Script" uid="uid://dhuk7fh7hvw2d" path="res://scenes/Main/IDE/editor.gd" id="1_1yv15"]
+[ext_resource type="Script" uid="uid://dhuk7fh7hvw2d" path="res://Scenes/Main/IDE/editor.gd" id="1_1yv15"]
 [ext_resource type="Texture2D" uid="uid://dm3p1s4xym4yc" path="res://Assets/Particles/one.png" id="1_4uct2"]
-[ext_resource type="Script" uid="uid://u682ha6t71vp" path="res://scenes/Main/IDE/camera_2d.gd" id="1_hv045"]
+[ext_resource type="Script" uid="uid://u682ha6t71vp" path="res://Scenes/Main/IDE/camera_2d.gd" id="1_hv045"]
 [ext_resource type="Texture2D" uid="uid://cyoa6ghrdarjh" path="res://Assets/Particles/zero.png" id="2_d5ggu"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="3_4uct2"]
-[ext_resource type="PackedScene" uid="uid://7v2nmagk5hvs" path="res://scenes/Main/IDE/inventory.tscn" id="6_tsjlf"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://Scenes/Blocks/action_block.tscn" id="3_4uct2"]
+[ext_resource type="PackedScene" uid="uid://7v2nmagk5hvs" path="res://Scenes/Main/IDE/inventory.tscn" id="6_tsjlf"]
 
 [sub_resource type="Gradient" id="Gradient_m6o6r"]
 offsets = PackedFloat32Array(0, 0.00666667, 0.02, 0.0333333, 0.44, 1)

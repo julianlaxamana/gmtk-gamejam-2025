@@ -29,7 +29,7 @@ func start_wave():
 # Transporting Path2d script
 const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 
-@onready var path = $Control/FieldViewport.path
+@onready var path = Global.path_node
 	
 func _input(event):
 	if event.is_action_pressed("debug_a"):
