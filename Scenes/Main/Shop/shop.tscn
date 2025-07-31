@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh35vn223u34"]
 
-[ext_resource type="PackedScene" uid="uid://bs1i565yhtcck" path="res://scenes/Main/Shop/ShopBox.tscn" id="1_7so2v"]
+[ext_resource type="PackedScene" uid="uid://bs1i565yhtcck" path="res://Scenes/Main/Shop/ShopBox.tscn" id="1_7so2v"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="2_spp1s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u48ok"]
