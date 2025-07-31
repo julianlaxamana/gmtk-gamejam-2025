@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b5jdanr4fylo8"
-path="res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-61d117794b6954102b4db4c355803ef0.fontdata"
+uid="uid://ricvkaxjia5v"
+path="res://.godot/imported/Jersey15-Regular.ttf-d0d6ca0d55d4aff6003402a35c782d5e.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/BigBlueTermPlusNerdFont-Regular.ttf"
-dest_files=["res://.godot/imported/BigBlueTermPlusNerdFont-Regular.ttf-61d117794b6954102b4db4c355803ef0.fontdata"]
+source_file="res://Assets/Fonts/Jersey15-Regular.ttf"
+dest_files=["res://.godot/imported/Jersey15-Regular.ttf-d0d6ca0d55d4aff6003402a35c782d5e.fontdata"]
 
 [params]
 

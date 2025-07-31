@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_qwoef"]
 [ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://scenes/Blocks/action_block.gd" id="1_w3nc2"]
-[ext_resource type="FontFile" uid="uid://b5jdanr4fylo8" path="res://Assets/Fonts/BigBlueTermPlusNerdFont-Regular.ttf" id="3_aepio"]
+[ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="4_4aedn"]
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_5t2f7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3nc2"]
@@ -11,14 +11,16 @@ size = Vector2(131, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepio"]
 size = Vector2(7.35659, 3.51163)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5t2f7"]
-font = ExtResource("3_aepio")
-font_size = 22
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t2f7"]
 size = Vector2(29.5, 11.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vn2g7"]
+font = ExtResource("4_4aedn")
+font_size = 40
+font_color = Color(0.14192, 0.352316, 0.357119, 1)
+outline_color = Color(2.40654e-08, 0.345025, 0.356237, 1)
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(1.77, 1)
 
 [node name="Action Block" type="Node2D"]
 script = ExtResource("1_w3nc2")
@@ -56,16 +58,6 @@ collision_mask = 4
 position = Vector2(-8.8876, -1.75581)
 shape = SubResource("RectangleShape2D_aepio")
 
-[node name="Text" type="Label" parent="."]
-offset_left = 41.0
-offset_top = -20.0
-offset_right = 202.0
-offset_bottom = 3.0
-scale = Vector2(0.49, 0.49)
-text = "fireball();"
-label_settings = SubResource("LabelSettings_5t2f7")
-vertical_alignment = 1
-
 [node name="NubArea" type="Area2D" parent="."]
 collision_layer = 4
 
@@ -76,6 +68,17 @@ shape = SubResource("RectangleShape2D_5t2f7")
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5t2f7")
 volume_db = -2.0
+
+[node name="Text2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 45.0
+offset_top = -25.0
+offset_right = 257.0
+offset_bottom = 16.0
+scale = Vector2(0.49, 0.49)
+text = "fireball();"
+label_settings = SubResource("LabelSettings_vn2g7")
+vertical_alignment = 1
 
 [connection signal="area_entered" from="ClickArea" to="." method="_on_click_area_area_entered"]
 [connection signal="area_exited" from="ClickArea" to="." method="_on_click_area_area_exited"]

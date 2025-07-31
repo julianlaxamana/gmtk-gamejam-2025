@@ -1,21 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=8 format=3 uid="uid://b051s7k4rtfht"]
 
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/path.gd" id="1_1r6ip"]
-[ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://Scenes/IDE/ide.tscn" id="2_br8qb"]
-[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/IDE/camera_2d.gd" id="3_qw60k"]
+[ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://scenes/IDE/ide.tscn" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://gn63tvfxafh4" path="res://scenes/Main/Sidebar.gd" id="3_8gcrf"]
+[ext_resource type="PackedScene" uid="uid://cue0bc06w0cio" path="res://scenes/Field/field.tscn" id="4_8gcrf"]
+[ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="5_rdp1x"]
 
-[sub_resource type="Curve2D" id="Curve2D_amr5s"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 556, 18, 0, 0, 0, 0, 327, 39, 0, 0, 0, 0, 302, 103, 0, 0, 0, 0, 150, 45, 0, 0, 0, 0, 205, 143, 0, 0, 0, 0, 80, 249, 0, 0, 0, 0, 209, 347, 0, 0, 0, 0, 99, 452, 0, 0, 0, 0, 240, 559, 0, 0, 0, 0, 239, 624, 0, 0, 0, 0, 459, 534, 0, 0, 0, 0, 618, 620, 0, 0, 0, 0, 710, 512, 0, 0, 0, 0, 970, 613, 0, 0, 0, 0, 1059, 520, 0, 0, 0, 0, 1102, 390, 0, 0, 0, 0, 1007, 268, 0, 0, 0, 0, 1113, 115, 0, 0, 0, 0, 986, 54, 0, 0, 0, 0, 820, 70, 0, 0, 0, 0, 656, 21)
-}
-point_count = 21
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wuev"]
+bg_color = Color(0.293835, 0.598669, 0.520643, 1)
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(0.182882, 0.406572, 0.350067, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+
+[sub_resource type="Theme" id="Theme_5wuev"]
+default_font = ExtResource("5_rdp1x")
+default_font_size = 60
+Button/fonts/font = ExtResource("5_rdp1x")
+Button/styles/focus = SubResource("StyleBoxFlat_5wuev")
+Button/styles/hover = SubResource("StyleBoxFlat_5wuev")
+Button/styles/normal = SubResource("StyleBoxFlat_5wuev")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_br8qb"]
 viewport_path = NodePath(".")
 
 [node name="Main" type="Node2D"]
-
-[node name="Node2D" parent="." instance=ExtResource("2_br8qb")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -24,29 +34,40 @@ offset_left = 360.0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 23.0
-anchor_bottom = 18.0
-offset_right = -20240.0
-offset_bottom = -12240.0
+[node name="Control2" parent="Control" instance=ExtResource("4_8gcrf")]
+offset_left = -375.0
+offset_right = -317.47
+scale = Vector2(1.25, 1.25)
 
-[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
-handle_input_locally = false
-physics_object_picking = true
-size = Vector2i(920, 720)
-render_target_update_mode = 4
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_8gcrf")
 
-[node name="Camera2D" type="Camera2D" parent="Control/SubViewportContainer/SubViewport"]
-position = Vector2(480, 366)
-script = ExtResource("3_qw60k")
+[node name="Editor" parent="Control/Control" instance=ExtResource("2_br8qb")]
 
-[node name="Path" type="Path2D" parent="Control/SubViewportContainer/SubViewport"]
-position = Vector2(-150, 35)
-scale = Vector2(0.999032, 1.01155)
-curve = SubResource("Curve2D_amr5s")
-script = ExtResource("1_1r6ip")
+[node name="Button" type="Button" parent="Control/Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 300.0
+offset_right = 49.0
+offset_bottom = 420.0
+theme = SubResource("Theme_5wuev")
+text = "<"
+
+[node name="ColorRect" type="ColorRect" parent="Control/Control"]
+layout_mode = 2
+offset_right = 10.0
+offset_bottom = 720.0
+color = Color(0.554822, 0.881036, 0.791362, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Control"]
+layout_mode = 2
+offset_left = 6.975
+offset_right = 10.405
+offset_bottom = 720.0
+color = Color(0.232029, 0.495144, 0.42893, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(106, -25)
@@ -55,3 +76,5 @@ texture = SubResource("ViewportTexture_br8qb")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[connection signal="button_down" from="Control/Control/Button" to="Control/Control" method="_on_button_button_down"]

@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://bvim1r46o0ohr"]
+[gd_scene load_steps=2 format=3 uid="uid://0sp610i5rvx5"]
+
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="1_54h18"]
 
 [node name="Unit" type="Node2D"]
+rotation = -1.07338
+scale = Vector2(0.6, 1)
+skew = 0.261799
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_54h18")
