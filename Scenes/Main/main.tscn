@@ -52,3 +52,6 @@ script = ExtResource("1_1r6ip")
 position = Vector2(106, -25)
 scale = Vector2(711, 558)
 texture = SubResource("ViewportTexture_br8qb")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

@@ -1,6 +1,7 @@
 extends Node2D
 @onready var nubArea = $NubArea
 @onready var holeArea = $HoleArea
+@onready var click = $click
 
 var state = "off"
 var offset
@@ -53,6 +54,9 @@ func _process(delta: float) -> void:
 		state = "on"
 		Global.cursorGrab = false
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
+		click.pitch_scale = randf_range(0.9, 1.1)
+		click.play(0.0)
+		print("hi")
 		self.reparent(loopBlock)
 		if loopBlock != null:
 			loopBlock.attached = true
