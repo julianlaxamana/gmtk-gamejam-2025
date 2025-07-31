@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqimrj4jsu43p"]
+[gd_scene load_steps=6 format=3 uid="uid://bqimrj4jsu43p"]
 
 [ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_712y7"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_uu1dl"]
+[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="3_7v4b5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v4b5"]
 bg_color = Color(0.187411, 0.414927, 0.357436, 1)
@@ -38,8 +39,9 @@ text = "Inventory"
 label_settings = SubResource("LabelSettings_xdhdq")
 horizontal_alignment = 1
 
-[node name="Action Block" parent="." instance=ExtResource("1_712y7")]
-position = Vector2(24, 72)
+[node name="Loop Block" parent="." instance=ExtResource("3_7v4b5")]
+position = Vector2(194, 36)
+scale = Vector2(1, 1)
 
-[node name="Action Block2" parent="." instance=ExtResource("1_712y7")]
-position = Vector2(169, 57)
+[node name="Action Block" parent="." instance=ExtResource("1_712y7")]
+position = Vector2(53, 69)

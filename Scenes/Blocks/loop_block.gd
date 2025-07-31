@@ -21,6 +21,9 @@ var pressed = false
 var attached = false
 var count = 0; 
 
+var location = "inventory"
+var type = "loop"
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt744m0awmxy1"]
+[gd_scene load_steps=5 format=3 uid="uid://dt744m0awmxy1"]
 
+[ext_resource type="Script" uid="uid://cssdysgjljcmu" path="res://scenes/Main/IDE/ide.gd" id="1_7qxh7"]
 [ext_resource type="PackedScene" uid="uid://c7nqr5jp6d8gs" path="res://scenes/Main/IDE/editor.tscn" id="1_t2xf5"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_a827d"]
 
@@ -9,6 +10,7 @@ font_size = 40
 font_color = Color(0.28485, 0.28485, 0.28485, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_7qxh7")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = -1
@@ -54,3 +56,6 @@ offset_bottom = 62.0
 text = "SELECT a [UNIT]!"
 label_settings = SubResource("LabelSettings_8i2ax")
 horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="SubViewportContainer" to="." method="_on_sub_viewport_container_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer" to="." method="_on_sub_viewport_container_mouse_exited"]

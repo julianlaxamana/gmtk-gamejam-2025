@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://iog6rk6wy7ox"]
+[gd_scene load_steps=5 format=3 uid="uid://iog6rk6wy7ox"]
 
+[ext_resource type="Script" uid="uid://creq8ktd3siwj" path="res://scenes/Main/Shop/shop_field.gd" id="1_amoyn"]
 [ext_resource type="PackedScene" uid="uid://dh35vn223u34" path="res://scenes/Main/Shop/shop.tscn" id="1_xqw5g"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_2xooh"]
 
@@ -8,6 +9,7 @@ font = ExtResource("2_2xooh")
 font_size = 40
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_amoyn")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = -1
@@ -50,3 +52,6 @@ offset_bottom = 62.0
 text = "Shop"
 label_settings = SubResource("LabelSettings_8i2ax")
 horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="SubViewportContainer" to="." method="_on_sub_viewport_container_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer" to="." method="_on_sub_viewport_container_mouse_exited"]

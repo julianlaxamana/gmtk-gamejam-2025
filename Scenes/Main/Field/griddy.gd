@@ -5,6 +5,9 @@ var prevPos;
 @onready var tileMap = $TileMapLayer
 
 func _physics_process(delta):
+	if Global.disableMouse:
+		return
+		
 	var pos = local_to_map(get_local_mouse_position())
 	if pos.x <= -23 && pos.x >= -47 && pos.y <= 16 && pos.y >= -8:
 		set_cell(local_to_map(get_local_mouse_position()), 1, Vector2i(1, 0))

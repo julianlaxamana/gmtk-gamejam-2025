@@ -54,10 +54,10 @@ func _process(delta: float) -> void:
 		if loopBlock != null:
 			loopBlock.attached = true
 
-		if "type" in get_parent() and type == "loop":
+		if "type" in get_parent() and get_parent().type == "loop":
 			pos = Vector2(14.0, 25.5)
 			
-		elif "type" in get_parent() and type == "action":
+		elif "type" in get_parent() and get_parent().type == "action":
 			pos = Vector2(1.1, 25.5)
 			
 		holeArea.monitoring = false
