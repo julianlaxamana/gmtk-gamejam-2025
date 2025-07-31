@@ -3,8 +3,8 @@ extends Camera2D
 var previous_coordinates
 var is_dragging
 const pa = 1.11 # Area proportionality constant
-const zoom_min = .3
-const zoom_max = 4
+const zoom_min: float = pow(1.11, -22/2.0) #roughly .3
+const zoom_max: float = pow(1.11, 21/2.0) #roughly 2.9915
 const dx = 100
 
 # Called when the node enters the scene tree for the first time.
