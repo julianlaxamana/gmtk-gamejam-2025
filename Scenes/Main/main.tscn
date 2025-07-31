@@ -21,7 +21,7 @@ script = ExtResource("1_1r6ip")
 [node name="Node2D" parent="." instance=ExtResource("2_br8qb")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(768, 233)
+position = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(106, -25)
