@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dt744m0awmxy1"]
 
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="1_a827d"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://Scenes/Blocks/action_block.tscn" id="1_t2xf5"]
-[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://Scenes/Blocks/loop_block.tscn" id="3_8i2ax"]
-[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/IDE/camera_2d.gd" id="4_7ot8w"]
+[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_t2xf5"]
+[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="3_8i2ax"]
+[ext_resource type="Script" path="res://Scenes/IDE/camera_2d.gd" id="4_7ot8w"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
