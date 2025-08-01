@@ -30,8 +30,8 @@ func _process(delta):
 	progress += speed * Engine.time_scale * delta * 60.0 # move
 	
 	if progress_ratio > .999:
-		self.queue_free()
 		bug_reached_end.emit(damage)
+		self.queue_free()
 		
 	if health <= 0:
 		bug_died.emit(value)
