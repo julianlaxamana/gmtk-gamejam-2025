@@ -49,6 +49,7 @@ func spawn_bug(delay, type: String):
 func create_bug(type: String):
 	# things to apply for all bugs, like size
 	var bug = bug_generic.instantiate()
+	bug.type = type
 	bug.scale = Vector2(.25, .25) 
 	bug.sprite_resource = Global.BUG_SPRITE_DICTIONARY[type]
 	

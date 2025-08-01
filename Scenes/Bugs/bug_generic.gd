@@ -1,5 +1,6 @@
 extends PathFollow2D
 
+var type: String
 var health: int # health of unit
 var value: int  # money on death
 var speed: int # speed in pixels
