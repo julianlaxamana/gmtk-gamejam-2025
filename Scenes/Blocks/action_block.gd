@@ -1,4 +1,4 @@
-extends Node2D
+class_name Projectile extends Node2D
 @onready var nubArea = $NubArea
 @onready var holeArea = $HoleArea
 @onready var click = $click
