@@ -16,13 +16,17 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	# load scene
+	
 	if Global.selectedUnit != null && currScript != Global.unitScripts[Global.selectedUnit]:
 		if currScript != null:
-			remove_child(currScript)
+			currScript.scale = Vector2(0, 0)
 		currScript = Global.unitScripts[Global.selectedUnit]
 		# set scene as editor
 		Global.editor = currScript
-		add_child(currScript)
+		if currScript in get_children():
+			currScript.scale = Vector2(1, 1)
+		else:
+			add_child(currScript)
 
 	
 	if block != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block.location == "inventory":

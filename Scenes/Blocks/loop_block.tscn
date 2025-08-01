@@ -178,7 +178,10 @@ script = ExtResource("5_p03ba")
 
 [node name="outside" type="Node2D" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]
 [connection signal="area_entered" from="HoleArea" to="." method="_on_hole_area_area_entered"]
 [connection signal="area_exited" from="HoleArea" to="." method="_on_hole_area_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

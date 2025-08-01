@@ -33,17 +33,20 @@ var pos
 var holey = true
 var loopBlock = null
 var entered = false
-
+var delay = 5
 var unit
 var task := func (thing):
 		pass
 
+var test := func (obj):
+	pass
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
-		
-func _ready():
-	
+func startTimer():
+	$Timer.start()
+func update():
 	# Dynamic changing size of block based on text
 	top.scale.x = (text.size.x * text.scale.x / top.region_rect.size.x) * horizScale
 	var topPixelSize = top.region_rect.size.x * top.scale.x
@@ -66,10 +69,17 @@ func _ready():
 		hole.region_rect.size = Vector2(8, 7)
 		hole.region_rect.position = Vector2(10.0, 20)
 		holeArea.scale = Vector2(0, 0)
+	$Top/Text.text = functionName
+	$Bottom/Text.text = bottomText
 		
 	
+func _ready():
+	update()
 
 func _process(delta: float) -> void:
+	if unit != Global.selectedUnit:
+		return
+	$Timer.wait_time = delay
 	task.call(self)
 	count = $inside.count
 	attached = $inside.attached
@@ -169,4 +179,11 @@ func _on_hole_area_area_entered(area: Area2D) -> void:
 
 func _on_hole_area_area_exited(area: Area2D) -> void:
 	entered = false
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	if $inside.get_child_count() == 1:
+		$inside.get_child(0).test.call($inside.get_child(0))
+		print("shoot!")
 	pass # Replace with function body.

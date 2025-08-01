@@ -22,6 +22,7 @@ var location = ""
 var type = "action"
 
 var variable
+var unit
 
 var holey = true
 func _ready() -> void:
@@ -38,6 +39,8 @@ func _input(event):
 		pressed = event.pressed
 
 func _process(delta: float) -> void:
+	#if unit != Global.selectedUnit:
+	#	return
 	if holey:
 		hole.region_rect.size = Vector2(8, 7)
 		hole.region_rect.position = Vector2(3, 20)

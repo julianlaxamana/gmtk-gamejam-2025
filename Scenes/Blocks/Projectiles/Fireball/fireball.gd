@@ -1,4 +1,4 @@
-extends Projectile
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,3 +12,8 @@ func _process(delta):
 
 func _fire(mods: Array):
 	pass
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+	pass # Replace with function body.

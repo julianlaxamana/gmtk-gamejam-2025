@@ -27,3 +27,14 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Loop Block3" parent="." instance=ExtResource("1_aptal")]
 position = Vector2(49, 84)
+
+[node name="Loop Block4" parent="." instance=ExtResource("1_aptal")]
+position = Vector2(-137, 388)
+
+[node name="Action Block4" parent="." instance=ExtResource("2_cgmlp")]
+position = Vector2(343, 347)
+scale = Vector2(1.5, 1.5)
+
+[node name="Action Block5" parent="." instance=ExtResource("2_cgmlp")]
+position = Vector2(343, 347)
+scale = Vector2(1.5, 1.5)

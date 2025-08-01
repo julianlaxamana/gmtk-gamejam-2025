@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cogc4vrbxktxm"]
+
+[ext_resource type="Script" uid="uid://bw1s1hbyk52ty" path="res://scenes/Blocks/Projectiles/Fireball/fireball.gd" id="1_4wmdh"]
+[ext_resource type="Texture2D" uid="uid://cm8fhjq18n7fc" path="res://Assets/Bugs/bug.png" id="2_4wmdh"]
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_4wmdh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_4wmdh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
