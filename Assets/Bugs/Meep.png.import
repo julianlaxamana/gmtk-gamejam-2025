@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci1i7wci14sx"
-path="res://.godot/imported/Meep.png-0c994381f4f72bb4ecf1e92d94e595db.ctex"
+path="res://.godot/imported/meep.png-35b43379126aa30daccb31dba27673d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bugs/Meep.png"
-dest_files=["res://.godot/imported/Meep.png-0c994381f4f72bb4ecf1e92d94e595db.ctex"]
+source_file="res://Assets/Bugs/meep.png"
+dest_files=["res://.godot/imported/meep.png-35b43379126aa30daccb31dba27673d1.ctex"]
 
 [params]
 
