@@ -10,8 +10,8 @@ func _ready() -> void:
 	$"Action Block2".location = "editor"
 	$"Action Block2".unit = Global.selectedUnit
 	
-	$"Action Block3".functionName = "5.0"
-	$"Action Block3".variable = 5.0
+	$"Action Block3".functionName = "0.5"
+	$"Action Block3".variable = 0.5
 	$"Action Block3".location = "editor"
 	$"Action Block3".unit = Global.selectedUnit
 	

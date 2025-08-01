@@ -10,6 +10,7 @@ var unitScripts = {
 }
 
 var path_node
+var battlefield
 
 const BUG_SPRITE_DICTIONARY = {
 	"meep": preload("res://Assets/Bugs/meep.png"),

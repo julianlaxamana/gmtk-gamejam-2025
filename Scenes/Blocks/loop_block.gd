@@ -33,7 +33,7 @@ var pos
 var holey = true
 var loopBlock = null
 var entered = false
-var delay = 5
+var delay = 0.5
 var unit
 var task := func (thing):
 		pass
