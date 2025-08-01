@@ -3,6 +3,10 @@ extends Node2D
 @onready var holeArea = $HoleArea
 @onready var click = $click
 
+@onready var funct = $Function
+
+var functionName = ""
+
 var state = "off"
 var offset
 var pressed = false
@@ -12,14 +16,18 @@ var count = 0;
 var pos;
 var loopBlock: Node2D
 
-var location = "inventory"
+var location = ""
 var type = "action"
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
 
 func _process(delta: float) -> void:
+	funct.text = functionName
 	nubArea.monitorable = !attached
+	if location == "inventory":
+		self.position = lerp(self.position, pos, delta * 10)
 	if holeArea.monitoring == false:
 		self.position = lerp(self.position, pos, delta * 20)
 	if "count" in get_parent():
@@ -35,7 +43,8 @@ func _process(delta: float) -> void:
 		if "attached" in get_parent():
 			get_parent().attached = false;
 			get_parent().count = 0;
-		self.reparent(Global.editor)
+		if location == "editor":
+			self.reparent(Global.editor)
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"

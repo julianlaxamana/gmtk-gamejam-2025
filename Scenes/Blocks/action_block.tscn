@@ -69,7 +69,7 @@ shape = SubResource("RectangleShape2D_5t2f7")
 stream = ExtResource("4_5t2f7")
 volume_db = -2.0
 
-[node name="Text2" type="Label" parent="."]
+[node name="Function" type="Label" parent="."]
 texture_filter = 1
 offset_left = 45.0
 offset_top = -25.0
@@ -79,6 +79,7 @@ scale = Vector2(0.49, 0.49)
 text = "fireball();"
 label_settings = SubResource("LabelSettings_vn2g7")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="ClickArea" to="." method="_on_click_area_area_entered"]
 [connection signal="area_exited" from="ClickArea" to="." method="_on_click_area_area_exited"]

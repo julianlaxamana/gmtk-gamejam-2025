@@ -1,12 +1,14 @@
 extends Node2D
 var bought = false
 var up = false
+var test = ["a", "b", "c"]
 func _on_button_button_down() -> void:
 	bought = true
 	Global.inventory.append($"Button/Action Block")
-	print(Global.inventory)
 	pass # Replace with function body.
 	
+func _ready() -> void:
+	$"Button/Action Block".functionName = test[randi_range(0, 2)]
 func _process(delta: float) -> void:
 	if bought:
 		if !up:

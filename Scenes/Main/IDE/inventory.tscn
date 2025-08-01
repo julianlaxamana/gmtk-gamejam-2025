@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://7v2nmagk5hvs"]
 
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_712y7"]
+[ext_resource type="Script" uid="uid://xwx6u8d14hs4" path="res://scenes/Main/IDE/inventory.gd" id="1_uu1dl"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_uu1dl"]
-[ext_resource type="PackedScene" uid="uid://h1s0cu3kw1e7" path="res://scenes/Blocks/loop_block.tscn" id="3_7v4b5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v4b5"]
 bg_color = Color(0.187411, 0.414927, 0.357436, 1)
@@ -20,9 +19,14 @@ corner_detail = 2
 font = ExtResource("2_uu1dl")
 font_size = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu1dl"]
+bg_color = Color(0.231373, 0.494118, 0.427451, 1)
+
 [node name="Inventory" type="Node2D"]
+script = ExtResource("1_uu1dl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_top = -27.0
 offset_right = 357.0
 offset_bottom = 124.0
@@ -39,9 +43,34 @@ text = "Inventory"
 label_settings = SubResource("LabelSettings_xdhdq")
 horizontal_alignment = 1
 
-[node name="Loop Block" parent="." instance=ExtResource("3_7v4b5")]
-position = Vector2(194, 36)
-scale = Vector2(1, 1)
+[node name="Label2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 110.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7v4b5")
+label_settings = SubResource("LabelSettings_xdhdq")
+horizontal_alignment = 1
 
-[node name="Action Block" parent="." instance=ExtResource("1_712y7")]
-position = Vector2(53, 69)
+[node name="Button" type="Button" parent="."]
+offset_left = 286.0
+offset_top = 4.0
+offset_right = 328.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("2_uu1dl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_uu1dl")
+text = ">"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("2_uu1dl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_uu1dl")
+text = "<"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

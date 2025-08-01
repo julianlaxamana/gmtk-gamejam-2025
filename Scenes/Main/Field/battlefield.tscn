@@ -154,5 +154,4 @@ tile_set = SubResource("TileSet_vyvae")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(480, 366)
-zoom = Vector2(0.75, 0.75)
 script = ExtResource("1_yh2a8")

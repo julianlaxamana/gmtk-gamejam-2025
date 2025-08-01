@@ -5,6 +5,7 @@ var block = null
 func _ready() -> void:
 	Global.editor = self
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("hi")
 	block = area.get_parent()
 	pass # Replace with function body.
 
