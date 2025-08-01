@@ -5,6 +5,11 @@ var inventory = []
 var editor
 var disableMouse = false
 
+var selectedUnit
+var unitScripts = {
+	
+}
+
 var path_node
 
 const BUG_SPRITE_DICTIONARY = {

@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 	if get_child_count() > 8:
 		get_child(8).reparent(Global.editor)
 	
-	print(nubArea.monitoring)
+
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
 		holeArea.monitoring = true

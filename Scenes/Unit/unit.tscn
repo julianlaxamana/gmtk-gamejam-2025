@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://0sp610i5rvx5"]
+[gd_scene load_steps=3 format=3 uid="uid://0sp610i5rvx5"]
 
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="1_54h18"]
+[ext_resource type="Script" uid="uid://ctuv4yxpuhksb" path="res://scenes/Unit/unit.gd" id="1_i8q7a"]
 
 [node name="Unit" type="Node2D"]
 rotation = -1.07338
 scale = Vector2(0.6, 1)
 skew = 0.261799
+script = ExtResource("1_i8q7a")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
