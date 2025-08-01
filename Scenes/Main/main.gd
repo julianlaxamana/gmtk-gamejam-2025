@@ -15,9 +15,10 @@ func start_wave():
 	match wave:
 		1:
 			print("wave 1 has started")
-			spawn_bug(0, "basic")
-			spawn_bug(5, "basic")
-			spawn_bug(10, "basic")
+			spawn_bug(0, "meep")
+			spawn_bug(1, "fob")
+			spawn_bug(2, "borf")
+			spawn_bug(2, "zonk")
 		2: 
 			print("wave 2 has started")
 	
@@ -29,7 +30,7 @@ func start_wave():
 # Transporting Path2d script
 const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 
-@onready var path = $Control/FieldViewport.path
+@onready var path = Global.path_node
 	
 func _input(event):
 	if event.is_action_pressed("debug_a"):
@@ -46,23 +47,50 @@ func spawn_bug(delay, type: String):
 	get_tree().create_timer(delay).timeout.connect(create_bug.bind(type))
 
 func create_bug(type: String):
-	var temp = bug_generic.instantiate()
-	var string = "bug_" + type
-	connect_bug_signals(temp)
+	# things to apply for all bugs, like size
+	var bug = bug_generic.instantiate()
+	bug.scale = Vector2(.25, .25) 
+	bug.sprite_resource = Global.BUG_SPRITE_DICTIONARY[type]
+	
+	connect_bug_signals(bug)
 	match type:
-		"basic":
-			temp.health = 20
-			temp.value = 5
-			temp.speed = 2
-			temp.damage = 1
-			temp.sprite_resource = Global.BUG_SPRITE_DICTIONARY[string]
-			temp.scale = Vector2(.25, .25) 
+		"meep":
+			bug.health = 20
+			bug.value = 8 
+			bug.speed = 1.578 # good
+			bug.damage = 20
+		"fob":
+			bug.health = 10
+			bug.value = 5
+			bug.speed = 3.5
+			bug.damage = 10
+		"borf":
+			bug.health = 75
+			bug.value = 25
+			bug.speed = 1.276
+			bug.damage = 50
+		"spoid":
 			pass
-		"type2":
+		"tiny_spoid":
+			pass
+		"bleep":
+			pass
+		"zonk":
+			bug.health = 5
+			bug.value = 40
+			bug.speed = 4.32
+			bug.damage = 30
+		"lez_tail":
+			pass
+		"lez_middle":
+			pass
+		"lez_head":
+			pass
+		"smorg":
 			pass
 	
 	# do for all bugs
-	path.add_child(temp)
+	path.add_child(bug)
 
 
 func connect_bug_signals(n):

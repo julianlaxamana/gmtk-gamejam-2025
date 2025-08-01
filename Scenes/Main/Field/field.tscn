@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cue0bc06w0cio"]
 
-[ext_resource type="PackedScene" uid="uid://cmgf7skrjaw1y" path="res://scenes/Main/Field/battlefield.tscn" id="1_ig151"]
+[ext_resource type="PackedScene" uid="uid://cmgf7skrjaw1y" path="res://Scenes/Main/Field/battlefield.tscn" id="1_ig151"]
 
 [node name="FieldViewport" type="SubViewportContainer"]
 anchors_preset = -1
