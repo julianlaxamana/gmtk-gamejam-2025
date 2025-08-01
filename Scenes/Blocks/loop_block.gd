@@ -40,6 +40,7 @@ var task := func (thing):
 
 var test := func (obj):
 	pass
+var variable
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

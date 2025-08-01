@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxubg82tvpmvm"]
+
+[ext_resource type="Script" uid="uid://ndqrnqphtfni" path="res://scenes/Blocks/Projectiles/Ranged/ranged.gd" id="1_g82wv"]
+[ext_resource type="Texture2D" uid="uid://cm8fhjq18n7fc" path="res://Assets/Bugs/bug.png" id="2_pp0k8"]
+
+[node name="FireballProj" type="Node2D"]
+script = ExtResource("1_g82wv")
+
+[node name="Bug" type="Sprite2D" parent="."]
+position = Vector2(-3, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_pp0k8")
+
+[node name="Area2D" type="Area2D" parent="Bug"]

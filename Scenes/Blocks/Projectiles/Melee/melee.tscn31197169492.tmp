@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c05fskwlgyegw"]
+
+[ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_nxhs3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
+radius = 100.0
+
+[node name="Bullet" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_j3vgy")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(2.51728e-08, -5.57863e-08)
+rotation = 0.610865
+skew = 0.698132
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+position = Vector2(1, -1.23028e-07)
+scale = Vector2(1, 1)
+texture = ExtResource("2_nxhs3")
+
+[node name="Timer" type="Timer" parent="Node2D"]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(-2.51728e-08, 5.57863e-08)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CircleShape2D_8u35o")
+
+[connection signal="timeout" from="Node2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]

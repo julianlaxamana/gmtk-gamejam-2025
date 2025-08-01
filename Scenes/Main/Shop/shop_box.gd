@@ -3,8 +3,9 @@ var bought = false
 var up = false
 var test = ["a", "b", "c"]
 func _on_button_button_down() -> void:
+	if !bought:
+		Global.inventory.append($"Button/Action Block")
 	bought = true
-	Global.inventory.append($"Button/Action Block")
 	pass # Replace with function body.
 	
 func _ready() -> void:
