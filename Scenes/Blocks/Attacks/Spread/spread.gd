@@ -2,6 +2,7 @@ extends Node2D
 
 var MAX_TARGETS = 1
 var NUM_PROJECTILES = 5
+var MAX_ANGLE = deg_to_rad(20.0)
 
 var targets = []
 var projectile
@@ -31,7 +32,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		targets.append(area.get_parent().get_parent())
 		
 		for x in range(NUM_PROJECTILES):
-			var direction = Vector2(sin(2 * PI * x / NUM_PROJECTILES), cos(2 * PI * x / NUM_PROJECTILES))
+			randomize()
+			var angleShift = randf_range(-MAX_ANGLE, MAX_ANGLE)
+			print(angleShift)
 			# create a projectile
 			var newProjectile = projectile.instantiate()
 			if "speed" in newProjectile:
@@ -39,19 +42,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if "target" in newProjectile:
 				newProjectile.target = area.get_parent().get_parent()
 			Global.battlefield.call_deferred("add_child", newProjectile)
-			call_deferred("test", newProjectile, direction)
+			call_deferred("test", newProjectile, angleShift)
 		
 		queue_free()
 	pass # Replace with function body.
 
 
-func test(proj, dir) -> void:
+func test(proj, angle) -> void:
 	proj.global_position = global_position
 	if "origin" in proj:
 		proj.origin= global_position
+	if "set_direction" in proj:
+		proj.set_direction()
+		proj.dir = proj.dir.rotated(angle)
 		
-	if "dir" in proj:
-		print(dir)
-		proj.dir = dir
 		
 	pass # Replace with function body.
