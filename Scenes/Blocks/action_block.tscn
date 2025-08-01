@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://crrc11gx445cn"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_qwoef"]
-[ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://scenes/Blocks/action_block.gd" id="1_w3nc2"]
+[ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://Scenes/Blocks/action_block.gd" id="1_w3nc2"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="4_4aedn"]
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_5t2f7"]
 
@@ -27,20 +27,20 @@ script = ExtResource("1_w3nc2")
 
 [node name="Top" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(65, -14)
-scale = Vector2(4.03125, 4.03125)
+position = Vector2(64, -14)
+scale = Vector2(4, 4)
 texture = ExtResource("1_qwoef")
 region_enabled = true
 region_rect = Rect2(0, 20, 32, 7)
 
 [node name="Nub" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(18, -4)
+position = Vector2(16, 0)
 scale = Vector2(4, 4)
 texture = ExtResource("1_qwoef")
 centered = false
 region_enabled = true
-region_rect = Rect2(5.02516, 7.96277, 6.02388, 3.05789)
+region_rect = Rect2(5, 8, 6.024, 3.058)
 
 [node name="ClickArea" type="Area2D" parent="."]
 
