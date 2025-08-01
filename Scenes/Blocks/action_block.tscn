@@ -35,8 +35,8 @@ region_rect = Rect2(0, 20, 32, 7)
 
 [node name="Nub" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(18, -4)
-scale = Vector2(4, 4)
+position = Vector2(16.47, -4.175)
+scale = Vector2(4.1, 4.1)
 texture = ExtResource("1_qwoef")
 centered = false
 region_enabled = true

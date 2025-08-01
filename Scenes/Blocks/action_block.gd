@@ -19,6 +19,7 @@ var loopBlock: Node2D
 var location = ""
 var type = "action"
 
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 	nubArea.monitorable = !attached
 	if location == "inventory":
 		self.position = lerp(self.position, pos, delta * 10)
-	if holeArea.monitoring == false:
+	if holeArea.monitoring == false && holeArea.monitorable == true:
 		self.position = lerp(self.position, pos, delta * 20)
 	if "count" in get_parent():
 		get_parent().count = count + 1
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 	if get_child_count() > 8:
 		get_child(8).reparent(Global.editor)
 	
-	
+	print(nubArea.monitoring)
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
 		holeArea.monitoring = true
@@ -67,7 +68,7 @@ func _process(delta: float) -> void:
 			pos = Vector2(14.0, 25.5)
 			
 		elif "type" in get_parent() and get_parent().type == "action":
-			pos = Vector2(1.1, 25.5)
+			pos = Vector2(0.0, 25.5)
 			
 		holeArea.monitoring = false
 		
@@ -87,9 +88,9 @@ func _on_click_area_mouse_exited() -> void:
 	pass # Replace with function body.
 
 func _on_hole_area_area_entered(area: Area2D) -> void:
-	loopBlock = area.get_parent()
-	print(loopBlock)
-	entered = true
+	if location == "editor":
+		loopBlock = area.get_parent()
+		entered = true
 	pass # Replace with function body.
 
 

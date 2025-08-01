@@ -9,6 +9,7 @@ func _on_button_button_down() -> void:
 	
 func _ready() -> void:
 	$"Button/Action Block".functionName = test[randi_range(0, 2)]
+	
 func _process(delta: float) -> void:
 	if bought:
 		if !up:

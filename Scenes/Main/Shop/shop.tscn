@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh35vn223u34"]
 
-[ext_resource type="PackedScene" uid="uid://bs1i565yhtcck" path="res://scenes/Main/Shop/ShopBox.tscn" id="1_7so2v"]
+[ext_resource type="Script" uid="uid://bymmwvhri72eu" path="res://scenes/Main/Shop/shop.gd" id="1_u48ok"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="2_spp1s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u48ok"]
@@ -32,6 +32,7 @@ corner_radius_bottom_left = 20
 corner_detail = 2
 
 [node name="Shop" type="Node2D"]
+script = ExtResource("1_u48ok")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -61,17 +62,7 @@ color = Color(0.519779, 0.0973278, 0.671362, 1)
 hue_variation_min = -0.65
 hue_variation_max = 0.4
 
-[node name="Test" type="Node2D" parent="."]
-position = Vector2(-123, -315)
-
-[node name="ShopBox" parent="." instance=ExtResource("1_7so2v")]
-position = Vector2(-1.52588e-05, 107)
-
-[node name="ShopBox2" parent="." instance=ExtResource("1_7so2v")]
-position = Vector2(-1.52588e-05, -12)
-
-[node name="ShopBox3" parent="." instance=ExtResource("1_7so2v")]
-position = Vector2(-1.52588e-05, -123)
+[node name="Boxes" type="Node2D" parent="."]
 
 [node name="Reroll" type="Button" parent="."]
 offset_left = -120.0
@@ -92,3 +83,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u48ok")
 text = "Reroll"
+
+[connection signal="button_down" from="Reroll" to="." method="_on_reroll_button_down"]
