@@ -2,6 +2,7 @@ class_name Projectile extends Node2D
 @onready var nubArea = $NubArea
 @onready var holeArea = $HoleArea
 @onready var click = $click
+@onready var hole = $BG/Hole
 
 @onready var funct = $Function
 
@@ -15,16 +16,37 @@ var attached = false
 var count = 0; 
 var pos;
 var loopBlock: Node2D
+var areaName
 
 var location = ""
 var type = "action"
 
+var variable
 
+var holey = true
+func _ready() -> void:
+	if holey:
+		hole.region_rect.size = Vector2(8, 7)
+		hole.region_rect.position = Vector2(3, 20)
+	else:
+		hole.region_rect.size = Vector2(8, 7)
+		hole.region_rect.position = Vector2(10.0, 20)
+		holeArea.scale = Vector2(0, 0)
+		
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		pressed = event.pressed
 
 func _process(delta: float) -> void:
+	if holey:
+		hole.region_rect.size = Vector2(8, 7)
+		hole.region_rect.position = Vector2(3, 20)
+	else:
+		hole.region_rect.size = Vector2(8, 7)
+		hole.region_rect.position = Vector2(10.0, 20)
+		holeArea.scale = Vector2(0, 0)
+		
+		
 	funct.text = functionName
 	nubArea.monitorable = !attached
 	if location == "inventory":
@@ -46,6 +68,7 @@ func _process(delta: float) -> void:
 			get_parent().count = 0;
 		if location == "editor":
 			self.reparent(Global.editor)
+			
 		var mouse_position_global = get_viewport().get_mouse_position()
 		offset = position - mouse_position_global
 		state = "dragging"
@@ -63,9 +86,14 @@ func _process(delta: float) -> void:
 
 		if loopBlock != null:
 			loopBlock.attached = true
-
-		if "type" in get_parent() and get_parent().type == "loop":
+		
+		if "type" in get_parent() and get_parent().type == "loop" && areaName == "NubArea2":
+			self.reparent(get_parent().get_child(10))
+			pos = Vector2(2, 55)
+		elif "type" in get_parent() and get_parent().type == "loop":
+			self.reparent(get_parent().get_child(9))
 			pos = Vector2(14.0, 25.5)
+			
 			
 		elif "type" in get_parent() and get_parent().type == "action":
 			pos = Vector2(0.0, 25.5)
@@ -90,6 +118,7 @@ func _on_click_area_mouse_exited() -> void:
 func _on_hole_area_area_entered(area: Area2D) -> void:
 	if location == "editor":
 		loopBlock = area.get_parent()
+		areaName = area.name
 		entered = true
 	pass # Replace with function body.
 

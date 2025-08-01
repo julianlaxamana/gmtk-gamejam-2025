@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://h1s0cu3kw1e7"]
+[gd_scene load_steps=11 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_ffj44"]
 [ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/loop_block.gd" id="1_p5g84"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_tttqk"]
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_4865h"]
-[ext_resource type="Script" uid="uid://bt0jeb1kt5k1d" path="res://scenes/Blocks/inside.gd" id="5_p03ba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("3_tttqk")
@@ -93,11 +92,11 @@ region_rect = Rect2(0, 0, 32, 6.98363)
 
 [node name="Text" type="Label" parent="Bottom"]
 texture_filter = 1
-offset_left = 8.187
-offset_top = 5.578
-offset_right = 207.187
-offset_bottom = 46.578
-scale = Vector2(0.1, -0.1)
+offset_left = 41.5
+offset_top = -24.0
+offset_right = 238.5
+offset_bottom = 17.0
+scale = Vector2(0.49, 0.49)
 text = "sleep(delay) }"
 label_settings = SubResource("LabelSettings_p5g84")
 vertical_alignment = 1
@@ -172,11 +171,6 @@ shape = SubResource("RectangleShape2D_4865h")
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4865h")
 volume_db = -2.0
-
-[node name="inside" type="Node2D" parent="."]
-script = ExtResource("5_p03ba")
-
-[node name="outside" type="Node2D" parent="."]
 
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]

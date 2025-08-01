@@ -7,7 +7,6 @@ var disableMouse = false
 
 var selectedUnit
 var unitScripts = {
-	
 }
 
 var path_node

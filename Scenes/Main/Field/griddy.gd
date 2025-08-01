@@ -19,7 +19,6 @@ func _physics_process(delta):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			if tileSet.has(map_to_local(local_to_map(get_local_mouse_position()))):
 				Global.selectedUnit = tileSet[map_to_local(local_to_map(get_local_mouse_position()))]
-				print(Global.selectedUnit)
 			else:
 				var newUnit = unit.instantiate()
 				newUnit.position = map_to_local(local_to_map(get_local_mouse_position()))
@@ -27,6 +26,5 @@ func _physics_process(delta):
 				add_child(newUnit)
 				tileSet[newUnit.position] = newUnit
 				Global.selectedUnit = newUnit
-				print(Global.selectedUnit)
 			
 		prevPos = pos
