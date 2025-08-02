@@ -42,10 +42,6 @@ const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 @onready var path = Global.path_node
 	
 func _input(event):
-	if event.is_action_pressed("debug_a"):
-		Engine.time_scale = 2
-	if event.is_action_pressed("debug_d"):
-		Engine.time_scale = 1
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
 
@@ -75,7 +71,6 @@ func create_bug(type: String):
 	# things to apply for all bugs, like size
 	var bug = bug_generic.instantiate()
 	bug.type = type
-	bug.scale = Vector2(.25, .25) 
 	
 	connect_bug_signals(bug)
 	match type:
