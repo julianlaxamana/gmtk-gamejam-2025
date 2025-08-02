@@ -10,6 +10,8 @@ var damage: int  # how much damage to deal
 # status effect variables
 @onready var fire_timer = $FireTimer
 @onready var fire_ticker = $FireTimer/FireTicker
+@onready var poison_particles = $PoisonParticles
+@onready var fire_particles = $FireParticles
 var is_on_fire = false
 
 var fire_damage = 3
@@ -79,6 +81,7 @@ func _process(delta):
 
 
 func apply_poison():
+	poison_particles.visible = true
 	var timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = false
@@ -91,9 +94,11 @@ func apply_poison_tick():
 	health -= poison_damage
 
 func poison_clear(timer_node):
+	poison_particles.visible = false
 	timer_node.queue_free()
 	
 func apply_fire():
+	fire_particles.visible = true
 	if not is_on_fire:
 		fire_ticker.start()
 		apply_fire_tick()
@@ -105,6 +110,7 @@ func apply_fire_tick():
 		damage -= fire_damage
 
 func fire_clear():
+	fire_particles.visible = false
 	is_on_fire = false
 	fire_timer.stop()
 	fire_ticker.stop()
