@@ -171,7 +171,7 @@ func _input(event):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
 		print("a pressed")
-		bug = create_bug("meep")
+		bug = create_bug("borf")
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()

@@ -12,6 +12,8 @@ var damage: int  # how much damage to deal
 @onready var fire_ticker = $FireTimer/FireTicker
 @onready var poison_particles = $PoisonParticles
 @onready var fire_particles = $FireParticles
+@onready var flash_animator = $Sprite/FlashAnimation
+
 var is_on_fire = false
 
 var fire_damage = 3
@@ -81,7 +83,7 @@ func _process(delta):
 
 
 func apply_poison():
-	poison_particles.visible = true
+	poison_particles.emitting = true
 	var timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = false
@@ -91,14 +93,17 @@ func apply_poison():
 	apply_poison_tick()
 
 func apply_poison_tick():
+	print("POISON TICK")
+	flash_animator.stop(true)
+	flash_animator.play("poison_flash")
 	health -= poison_damage
 
 func poison_clear(timer_node):
-	poison_particles.visible = false
+	poison_particles.emitting = false
 	timer_node.queue_free()
 	
 func apply_fire():
-	fire_particles.visible = true
+	fire_particles.emitting = true
 	if not is_on_fire:
 		fire_ticker.start()
 		apply_fire_tick()
@@ -107,10 +112,14 @@ func apply_fire():
 
 func apply_fire_tick():
 	if is_on_fire:
+		flash_animator.stop(true)
+		flash_animator.play("fire_flash")
 		damage -= fire_damage
+		print("FIRE TICK")
+	
 
 func fire_clear():
-	fire_particles.visible = false
+	fire_particles.emitting = false
 	is_on_fire = false
 	fire_timer.stop()
 	fire_ticker.stop()
