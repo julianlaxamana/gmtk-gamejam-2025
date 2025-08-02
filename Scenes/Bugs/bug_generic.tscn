@@ -20,3 +20,8 @@ script = ExtResource("1_rp73j")
 shape = SubResource("CapsuleShape2D_1ouse")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FireTicker" type="Timer" parent="FireTimer"]

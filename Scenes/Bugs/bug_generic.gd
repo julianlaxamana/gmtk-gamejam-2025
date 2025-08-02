@@ -6,7 +6,25 @@ var value: int  # money on death
 var speed: int # speed in pixels
 var damage: int  # how much damage to deal
 
-@onready var sprite = get_child(0) # sprite 2d node
+
+# status effect variables
+@onready var fire_timer = $FireTimer
+@onready var fire_ticker = $FireTimer/FireTicker
+var is_on_fire = false
+
+var fire_damage = 3
+var poison_damage = 2 
+
+var fire_length = 5
+var poison_length = 2.5
+
+var poison_tick_frequency = .5# in seconds
+var fire_tick_frequency = .2 # in seconds
+
+var fire_speed_change = .253
+var posion_speed_change = .047 
+
+@onready var sprite = $Sprite # sprite 2d node
 
 # activates when a bug reaches the end of the track
 # despawns itself
@@ -20,6 +38,8 @@ signal bug_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	fire_timer.timeout.connect(fire_clear)
+	fire_ticker.timeout.connect(apply_fire_tick)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,3 +75,36 @@ func _process(delta):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
 	else:
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+
+
+
+func apply_poison():
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = false
+	timer.start(poison_tick_frequency / Global.timeScale)
+	timer.timeout.connect(apply_poison_tick)
+	get_tree().create_timer(poison_length / Global.timeScale).timeout.connect(poison_clear.bind(timer))
+	apply_poison_tick()
+
+func apply_poison_tick():
+	health -= poison_damage
+
+func poison_clear(timer_node):
+	timer_node.queue_free()
+	
+func apply_fire():
+	if not is_on_fire:
+		fire_ticker.start()
+		apply_fire_tick()
+	is_on_fire = true
+	fire_timer.start(fire_length / Global.timeScale)
+
+func apply_fire_tick():
+	if is_on_fire:
+		damage -= fire_damage
+
+func fire_clear():
+	is_on_fire = false
+	fire_timer.stop()
+	fire_ticker.stop()

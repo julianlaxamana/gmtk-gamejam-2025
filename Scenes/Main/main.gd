@@ -163,10 +163,21 @@ func lost_game():
 # Transporting Path2d script
 const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 
+
+var bug
 @onready var path = Global.path_node
 func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
+	if event.is_action_pressed("debug_a"):
+		print("a pressed")
+		bug = create_bug("meep")
+	if event.is_action_pressed("debug_d"):
+		print("d pressed")
+		bug.apply_poison()
+	if event.is_action_pressed("debug_s"):
+		print("s pressed")
+		bug.apply_fire()
 
 
 #region bug signal logic
@@ -272,6 +283,7 @@ func create_bug(type: String):
 	
 	# do for all bugs
 	path.add_child(bug)
+	return bug
 
 
 func connect_bug_signals(n):
