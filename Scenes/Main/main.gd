@@ -14,20 +14,142 @@ func _ready():
 func _process(delta):
 	pass
 
+var wave_list = [
+	"1", # 1
+	"2", # 2
+	"3", # 3
+	"4", # 4
+	"5", #5
+	"6", #6
+	"7", #7
+	"8", #8
+	"9", #9
+	"10", #10
+	"11", #11
+	"12", #12
+	"13", #13
+	"14", #14
+	"15", #15
+	"16", #16
+	"17", #17
+	"18", #18
+	"19", #19
+	"20", #20
+	"21", #21
+	"22", #22
+	"23", #23
+	"24", #24
+	"25", #25
+	"26", #26
+	"27", #27
+	"28", #28
+	"29", #29
+	"30", #30
+	"31", #31
+	"32", #32
+	"33", #33
+	"34", #34
+	"35", #35
+	"36", #36
+	"37", #37
+	"38", #38
+	"39", #39
+	"40", #40
+]
+
+
+
 #region wavelist
 func start_wave():
-	match wave:
-		1:
+	# this works by wave is going from 1 onwards
+	# wave_list returns a string based on index
+	# to insert a wave, instead just insert a new string
+	# to make switching around waves easier than manually changing
+	# all the integers past a certain point up a number
+	
+	match wave_list[wave - 1]:
+		"1": # 20 basic
 			print("wave 1 has started")
-			var i = 0
-			while i <= 1.25 * 20 + .5:
-				spawn_bug(i, "meep")
-				i += 1.25
-		2: 
-			print("wave 2 has started")
-			spawn_bug(1, "fob")
-			spawn_bug(2, "borf")
-			spawn_bug(2, "zonk")
+			spawn_many_bugs(0, 1.25, 20, "meep")
+		"2": # 20 basic 30 swarm
+			spawn_many_bugs(0, 1.25, 20, "meep")
+			spawn_many_bugs(0, 1.5, 30, "fob")
+		"3":
+			pass
+		"4":
+			pass
+		"5":
+			pass
+		"6":
+			pass
+		"7":
+			pass
+		"8":
+			pass
+		"9":
+			pass
+		"10":
+			pass
+		"11":
+			pass
+		"12":
+			pass
+		"13":
+			pass
+		"14":
+			pass
+		"15":
+			pass
+		"16":
+			pass
+		"17":
+			pass
+		"18":
+			pass
+		"19":
+			pass
+		"20":
+			pass
+		"21":
+			pass
+		"22":
+			pass
+		"23":
+			pass
+		"24":
+			pass
+		"25":
+			pass
+		"26":
+			pass
+		"27":
+			pass
+		"28":
+			pass
+		"29":
+			pass
+		"30":
+			pass
+		"31":
+			pass
+		"32":
+			pass
+		"33":
+			pass
+		"34":
+			pass
+		"35":
+			pass
+		"36":
+			pass
+		"37":
+			pass
+		"38":
+			pass
+		"39":
+			pass
+		"40":
+			pass
 	
 	wave += 1
 
@@ -42,7 +164,6 @@ func lost_game():
 const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 
 @onready var path = Global.path_node
-	
 func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
@@ -78,6 +199,26 @@ func _on_bug_died(value: int, type: String, death_position):
 
 
 #region helper functions
+# will produce equally spaced outbugs given a count and seconds inbetween each
+# initial_delay how long to wait before the chain starts spawning
+# how many seconds to wait inbetween each one
+# how many to spawn
+func spawn_many_bugs(initial_delay, step, count, type: String):
+	var i = 0
+	while i < step * count:
+		spawn_bug(i + initial_delay, type)
+		i += step
+
+# will produce equall spaced out bugs given duration and count
+# initial delay how long to wait before starting to spawn the chain
+# how long it should go on for
+# how many to spawn
+func spawn_bugs_in_timeframe(initial_delay, duration, count, type: String):
+	var i = 0
+	var step = duration / float(count)
+	while i < step * count:
+		spawn_bug(i + initial_delay, type)
+		i += step
 
 func spawn_bug(delay, type: String):
 	get_tree().create_timer(delay).timeout.connect(create_bug.bind(type))
