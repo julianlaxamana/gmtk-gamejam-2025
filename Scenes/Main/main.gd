@@ -3,6 +3,7 @@ extends Node2D
 var wave = 1
 var bits = 0
 var base_health = 100
+var wave_started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,10 +28,13 @@ func start_wave():
 			spawn_bug(2, "borf")
 			spawn_bug(2, "zonk")
 	
-	#wave += 1
+	wave += 1
 	
 
-
+func lost_game():
+	#TODO reset board and all units
+	# queue_free it all
+	pass
 
 # Transporting Path2d script
 const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
@@ -46,6 +50,22 @@ func _input(event):
 		start_wave()
 
 
+#region bug signal logic
+func _on_bug_reached_end(damage: int):
+	# hurt the thing
+	base_health -= damage
+	
+	if base_health <= 0:
+		lost_game()
+	pass
+	
+func _on_bug_died(value: int):
+	# give gold to player
+	bits += value
+
+#endregion
+
+
 #region helper functions
 
 func spawn_bug(delay, type: String):
@@ -56,7 +76,6 @@ func create_bug(type: String):
 	var bug = bug_generic.instantiate()
 	bug.type = type
 	bug.scale = Vector2(.25, .25) 
-	bug.sprite_resource = Global.BUG_SPRITE_DICTIONARY[type]
 	
 	connect_bug_signals(bug)
 	match type:
@@ -102,18 +121,5 @@ func create_bug(type: String):
 func connect_bug_signals(n):
 	n.bug_reached_end.connect(_on_bug_reached_end)
 	n.bug_died.connect(_on_bug_died)
-
-#endregion
-
-#region bug signal logic
-func _on_bug_reached_end(damage: int):
-	# hurt the thing
-	base_health -= damage
-	pass
-	
-func _on_bug_died(value: int):
-	# give gold to player
-	bits += value
-	print("death")
 
 #endregion

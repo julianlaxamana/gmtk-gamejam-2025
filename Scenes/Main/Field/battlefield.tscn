@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=4 uid="uid://cmgf7skrjaw1y"]
 
-[ext_resource type="Script" uid="uid://kss4wmpvnccg" path="res://scenes/Main/Field/battlefield.gd" id="1_01cof"]
+[ext_resource type="Script" uid="uid://kss4wmpvnccg" path="res://Scenes/Main/Field/battlefield.gd" id="1_01cof"]
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
-[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
+[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
 [ext_resource type="Texture2D" uid="uid://cv1gf3jq5ak8b" path="res://Assets/Tilemap/griddy.png" id="2_u50xy"]
-[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://scenes/Main/Field/slide.gd" id="3_pp5yg"]
-[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://scenes/Main/Field/griddy.gd" id="4_vyvae"]
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/IDE/path.gd" id="6_57q4d"]
+[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
+[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/IDE/path.gd" id="6_57q4d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")

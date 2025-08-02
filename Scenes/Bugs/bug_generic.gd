@@ -5,7 +5,6 @@ var health: int # health of unit
 var value: int  # money on death
 var speed: int # speed in pixels
 var damage: int  # how much damage to deal
-var sprite_resource # to be sent on init
 
 
 @onready var sprite = get_child(0) # sprite 2d node
@@ -22,12 +21,20 @@ signal bug_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite.texture = sprite_resource # replace texture
-	#TODO replace with sprite sheet
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress += speed * Engine.time_scale * delta * 60.0 # move
+	# determine velocity direction
+	var previous_position = position
+	
+	# standard movement
+	progress += speed * Engine.time_scale * delta * 60.0
+	
+	# resume computation
+	var new_position = position
+	var velocity = new_position - previous_position
+	var theta = atan2(velocity.y, velocity.x)
 	
 	if progress_ratio > .999:
 		bug_reached_end.emit(damage)
@@ -36,3 +43,15 @@ func _process(delta):
 	if health <= 0:
 		bug_died.emit(value)
 		self.queue_free()
+	
+	if theta <= deg_to_rad(-167.5):
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+	elif theta <= deg_to_rad(-40):
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UL"]
+	elif theta <= deg_to_rad(7.5):
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UR"]
+	elif theta <= deg_to_rad(105):
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
+	else:
+		print("downleft")
+	
