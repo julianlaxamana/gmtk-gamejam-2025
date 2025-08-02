@@ -14,7 +14,8 @@ var unitScripts = {
 var path_node
 var battlefield
 var grid
-## Weights
+
+#region Weights
 var blockTypeWeights = {
 	"attack": 0.5,
 	"projectile": 0.25,
@@ -45,8 +46,9 @@ var augmentWeights = {
 	"explode" = 1.0 / 7.0,
 	"projectile" = 1.0 / 7.0
 }
+#endregion spawning weights
 
-## BLOCKS
+#region BLOCKS
 
 var BLOCKS_DICTIONARY = {
 	"attack" = {
@@ -233,7 +235,9 @@ var BLOCKS_DICTIONARY = {
 	return block
 			)
 			}
- 	}
+	}
+#endregion blocks
+
 const BUG_SPRITE_DICTIONARY = {
 	"meep": {
 		"DR": preload("res://Assets/Bugs/meep.png"),
