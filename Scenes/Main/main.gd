@@ -19,7 +19,7 @@ func start_wave():
 		1:
 			print("wave 1 has started")
 			var i = 0
-			while i <= 10:
+			while i <= 1.25 * 20 + .5:
 				spawn_bug(i, "meep")
 				i += 1.25
 		2: 
