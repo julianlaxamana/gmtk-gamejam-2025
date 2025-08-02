@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if getPos:
 		var thing = randf_range(-75.0, 75.0)
-		var closestOffset = Global.path_node.curve.get_closest_offset(Global.path_node.to_local(global_position + dir * 100.0))
+		var closestOffset = Global.path_node.curve.get_closest_offset(Global.path_node.to_local(global_position + dir * 50.0))
 		pos = Global.path_node.to_global(Global.path_node.curve.sample_baked(closestOffset + thing))
 		if (global_position - Global.path_node.to_global(Global.path_node.curve.sample_baked(closestOffset))).length() > 500.0:
 			queue_free()
