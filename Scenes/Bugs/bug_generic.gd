@@ -27,7 +27,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress += speed * Engine.time_scale * delta * 60.0 # move
+	# determine velocity direction
+	var previous_position = position
+	
+	# standard movement
+	progress += speed * Engine.time_scale * delta * 60.0 * 4
+	
+	# resume computation
+	var new_position = position
+	var velocity = new_position - previous_position
+	var theta = atan2(velocity.y, velocity.x)
 	
 	if progress_ratio > .999:
 		bug_reached_end.emit(damage)
@@ -36,3 +45,15 @@ func _process(delta):
 	if health <= 0:
 		bug_died.emit(value)
 		self.queue_free()
+	
+	if theta <= deg_to_rad(-167.5):
+		print("downleft")
+	elif theta <= deg_to_rad(-40):
+		print("upleft")
+	elif theta <= deg_to_rad(7.5):
+		print("upright")
+	elif theta <= deg_to_rad(105):
+		print("downright")
+	else:
+		print("downleft")
+	

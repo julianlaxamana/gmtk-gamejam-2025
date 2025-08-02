@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_ffj44"]
-[ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/loop_block.gd" id="1_p5g84"]
+[ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://Scenes/Blocks/loop_block.gd" id="1_p5g84"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_tttqk"]
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_4865h"]
-[ext_resource type="Script" uid="uid://bt0jeb1kt5k1d" path="res://scenes/Blocks/inside.gd" id="5_p03ba"]
+[ext_resource type="Script" uid="uid://bt0jeb1kt5k1d" path="res://Scenes/Blocks/inside.gd" id="5_p03ba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("3_tttqk")
