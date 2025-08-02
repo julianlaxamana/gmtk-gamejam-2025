@@ -7,7 +7,6 @@ var wave_started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_bug(4, "meep")
 	pass # Replace with function body.
 
 
@@ -77,7 +76,6 @@ func create_bug(type: String):
 	var bug = bug_generic.instantiate()
 	bug.type = type
 	bug.scale = Vector2(.25, .25) 
-	bug.sprite_resource = Global.BUG_SPRITE_DICTIONARY[type]
 	
 	connect_bug_signals(bug)
 	match type:
