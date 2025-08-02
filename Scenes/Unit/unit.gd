@@ -18,7 +18,7 @@ func get_target():
 
 func _process(delta):
 	$Target.visible =false
-	if Input.is_action_pressed("debug_a"):
+	if Input.is_action_pressed("debug_a") && self == Global.selectedUnit:
 		$Target.position = get_local_mouse_position()
 	queue_redraw()
 	

@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c05fskwlgyegw"]
+[gd_scene load_steps=5 format=3 uid="uid://bjiggyyiqwnjt"]
 
-[ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_nxhs3"]
+[ext_resource type="Script" uid="uid://d5pk3afcdve7" path="res://scenes/Blocks/Projectiles/Chain/chain.gd" id="1_wkl7m"]
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_iaq3q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
 radius = 100.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkl7m"]
+radius = 200.0
+
 [node name="Bullet" type="Node2D"]
 scale = Vector2(0.4, 0.4)
-script = ExtResource("1_j3vgy")
+script = ExtResource("1_wkl7m")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(2.51728e-08, -5.57863e-08)
@@ -17,7 +20,7 @@ skew = 0.698132
 
 [node name="Icon" type="Sprite2D" parent="Node2D"]
 position = Vector2(1, -1.23028e-07)
-texture = ExtResource("2_nxhs3")
+texture = ExtResource("2_iaq3q")
 
 [node name="Timer" type="Timer" parent="Node2D"]
 wait_time = 0.1
@@ -29,5 +32,12 @@ position = Vector2(-2.51728e-08, 5.57863e-08)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource("CircleShape2D_8u35o")
 
+[node name="Area2D2" type="Area2D" parent="Node2D"]
+position = Vector2(-2.51728e-08, 5.57863e-08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
+shape = SubResource("CircleShape2D_wkl7m")
+
 [connection signal="timeout" from="Node2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Node2D/Area2D2" to="." method="_on_area_2d_2_area_entered"]

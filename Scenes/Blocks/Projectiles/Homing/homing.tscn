@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfms065sgqgof"]
+
+[ext_resource type="Script" uid="uid://cccsg78u2c48f" path="res://scenes/Blocks/Projectiles/Homing/homing.gd" id="1_oldo5"]
+[ext_resource type="Texture2D" uid="uid://cm8fhjq18n7fc" path="res://Assets/Bugs/bug.png" id="2_m01wd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oldo5"]
+radius = 200.0
+
+[node name="FireballProj" type="Node2D"]
+script = ExtResource("1_oldo5")
+
+[node name="Bug" type="Sprite2D" parent="."]
+position = Vector2(-3, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_m01wd")
+
+[node name="Area2D" type="Area2D" parent="Bug"]
+
+[node name="homingArea" type="Area2D" parent="Bug"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bug/homingArea"]
+shape = SubResource("CircleShape2D_oldo5")
+
+[connection signal="area_entered" from="Bug/homingArea" to="." method="_on_homing_area_area_entered"]

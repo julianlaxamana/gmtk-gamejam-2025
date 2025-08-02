@@ -17,6 +17,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if projectile.get_state().get_node_name(0) == "spike":
+		# create a projectile
+		var newProjectile = projectile.instantiate()
+		Global.battlefield.call_deferred("add_child", newProjectile)
+		call_deferred("test", newProjectile)
+		queue_free()
+	pass
 	unit.enable_target()
 	pass
 

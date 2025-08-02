@@ -17,14 +17,16 @@ skew = 0.698132
 
 [node name="Icon" type="Sprite2D" parent="Node2D"]
 position = Vector2(1, -1.23028e-07)
+scale = Vector2(1, 1)
 texture = ExtResource("2_nxhs3")
 
 [node name="Timer" type="Timer" parent="Node2D"]
-wait_time = 0.1
+wait_time = 2.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
 position = Vector2(-2.51728e-08, 5.57863e-08)
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource("CircleShape2D_8u35o")

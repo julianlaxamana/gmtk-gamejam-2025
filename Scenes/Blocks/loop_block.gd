@@ -79,7 +79,9 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if unit != Global.selectedUnit:
+		visible = false
 		return
+	visible = true
 	$Timer.wait_time = delay
 	task.call(self)
 	count = $inside.count
@@ -87,7 +89,8 @@ func _process(delta: float) -> void:
 	$Top/Text.text = functionName
 	$Bottom/Text.text = bottomText
 	nubArea.monitorable = !attached
-	if abs(side.scale.y - ( 2.2 * (count + 1))) > 0.001: 
+	
+	if abs(side.scale.y - ( 2.2 * (count + 1))) > 0.01: 
 		side.scale.y = lerp(side.scale.y, 2.2 * (count) + .1, delta * 3)
 	else:
 		side.scale.y = 2.2 * (count) + .2
@@ -103,9 +106,15 @@ func _process(delta: float) -> void:
 	$outside.position.y = nubArea2.position.y - 25
 	
 	if location == "inventory":
-		self.position = lerp(self.position, pos, delta * 10)
+		if sqrt((self.position.x - pos.x)**2 + (self.position.y - pos.y)**2) < 0.1:
+			self.position = pos
+		else:
+			self.position = lerp(self.position, pos, delta * 10)
 	if holeArea.monitoring == false && holeArea.monitorable == true:
-		self.position = lerp(self.position, pos, delta * 20)
+		if sqrt((self.position.x - pos.x)**2 + (self.position.y - pos.y)**2) < 0.1:
+			self.position = pos
+		else:
+			self.position = lerp(self.position, pos, delta * 20)
 		
 	if $outside.get_child_count() > 1:
 		$outside.get_child(1).reparent(Global.editor)

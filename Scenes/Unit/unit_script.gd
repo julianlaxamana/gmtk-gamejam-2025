@@ -40,10 +40,9 @@ func _ready() -> void:
 			#projectile.reparent(obj.unit)
 		pass
 	$"Loop Block4".bottomText = ")"
-	
-	$"Loop Block5".functionName = "gatling_shoot ("
+	$"Loop Block5".functionName = "basic_shoot ("
 	$"Loop Block5".unit = Global.selectedUnit
-	$"Loop Block5".variable = preload("res://scenes/Blocks/Attacks/Gatling/gatling.tscn")
+	$"Loop Block5".variable = preload("res://scenes/Blocks/Attacks/Basic/basic.tscn")
 	$"Loop Block5".test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
@@ -57,8 +56,8 @@ func _ready() -> void:
 	$"Loop Block".startTimer()
 	$"Loop Block".unit = Global.selectedUnit
 	
-	$"Action Block4".functionName = "\"ranged\""
-	$"Action Block4".variable = preload("res://scenes/Blocks/Projectiles/Ranged/ranged.tscn")
+	$"Action Block4".functionName = "\"homing\""
+	$"Action Block4".variable = preload("res://scenes/Blocks/Projectiles/Spike/spike.tscn")
 	$"Action Block4".location = "editor"
 	$"Action Block4".unit = Global.selectedUnit
 	

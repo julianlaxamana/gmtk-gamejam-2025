@@ -16,6 +16,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if projectile.get_state().get_node_name(0) == "spike":
+		# create a projectile
+		for x in range(NUM_PROJECTILES):
+			randomize()
+			var angleShift = randf_range(-MAX_ANGLE, MAX_ANGLE)
+			print(angleShift)
+			# create a projectile
+			var newProjectile = projectile.instantiate()
+			if "speed" in newProjectile:
+				newProjectile.speed = 1000
+			Global.battlefield.call_deferred("add_child", newProjectile)
+			call_deferred("test", newProjectile, angleShift)
+		queue_free()
 	pass
 
 func _fire(mods: Array):

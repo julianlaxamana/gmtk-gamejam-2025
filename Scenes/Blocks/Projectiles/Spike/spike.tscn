@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c05fskwlgyegw"]
+[gd_scene load_steps=4 format=3 uid="uid://ckqubtmlg6vu"]
 
-[ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_nxhs3"]
+[ext_resource type="Script" uid="uid://dowq4m47os2w3" path="res://scenes/Blocks/Projectiles/Spike/spike.gd" id="1_1eilg"]
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_na6ix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
 radius = 100.0
 
-[node name="Bullet" type="Node2D"]
+[node name="spike" type="Node2D"]
 scale = Vector2(0.4, 0.4)
-script = ExtResource("1_j3vgy")
+script = ExtResource("1_1eilg")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(2.51728e-08, -5.57863e-08)
@@ -17,10 +17,10 @@ skew = 0.698132
 
 [node name="Icon" type="Sprite2D" parent="Node2D"]
 position = Vector2(1, -1.23028e-07)
-texture = ExtResource("2_nxhs3")
+texture = ExtResource("2_na6ix")
 
 [node name="Timer" type="Timer" parent="Node2D"]
-wait_time = 0.1
+wait_time = 20.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="Node2D"]

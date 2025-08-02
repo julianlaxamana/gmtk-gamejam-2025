@@ -39,8 +39,10 @@ func _input(event):
 		pressed = event.pressed
 
 func _process(delta: float) -> void:
-	#if unit != Global.selectedUnit:
-	#	return
+	if unit != Global.selectedUnit:
+		visible = false
+		return
+	visible = true
 	if holey:
 		hole.region_rect.size = Vector2(8, 7)
 		hole.region_rect.position = Vector2(3, 20)
@@ -53,9 +55,15 @@ func _process(delta: float) -> void:
 	funct.text = functionName
 	nubArea.monitorable = !attached
 	if location == "inventory":
-		self.position = lerp(self.position, pos, delta * 10)
+		if sqrt((self.position.x - pos.x)**2 + (self.position.y - pos.y)**2) < 0.1:
+			self.position = pos
+		else:
+			self.position = lerp(self.position, pos, delta * 10)
 	if holeArea.monitoring == false && holeArea.monitorable == true:
-		self.position = lerp(self.position, pos, delta * 20)
+		if sqrt((self.position.x - pos.x)**2 + (self.position.y - pos.y)**2) < 0.1:
+			self.position = pos
+		else:
+			self.position = lerp(self.position, pos, delta * 20)
 	if "count" in get_parent():
 		get_parent().count = count + 1
 	
