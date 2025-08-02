@@ -15,46 +15,46 @@ func _process(delta):
 	pass
 
 var wave_list = [
-	"1", # 1
-	"2", # 2
-	"3", # 3
-	"4", # 4
-	"5", #5
-	"6", #6
-	"7", #7
-	"8", #8
-	"9", #9
-	"10", #10
-	"11", #11
-	"12", #12
-	"13", #13
-	"14", #14
-	"15", #15
-	"16", #16
-	"17", #17
-	"18", #18
-	"19", #19
-	"20", #20
-	"21", #21
-	"22", #22
-	"23", #23
-	"24", #24
-	"25", #25
-	"26", #26
-	"27", #27
-	"28", #28
-	"29", #29
-	"30", #30
-	"31", #31
-	"32", #32
-	"33", #33
-	"34", #34
-	"35", #35
-	"36", #36
-	"37", #37
-	"38", #38
-	"39", #39
-	"40", #40
+	1, # 1
+	2, # 2
+	3, # 3
+	4, # 4
+	5, #5
+	6, #6
+	7, #7
+	8, #8
+	9, #9
+	10, #10
+	11, #11
+	12, #12
+	13, #13
+	14, #14
+	15, #15
+	16, #16
+	17, #17
+	18, #18
+	19, #19
+	20, #20
+	21, #21
+	22, #22
+	23, #23
+	24, #24
+	25, #25
+	26, #26
+	27, #27
+	28, #28
+	29, #29
+	30, #30
+	31, #31
+	32, #32
+	33, #33
+	34, #34
+	35, #35
+	36, #36
+	37, #37
+	38, #38
+	39, #39
+	40, #40
 ]
 
 
@@ -68,89 +68,99 @@ func start_wave():
 	# all the integers past a certain point up a number
 	
 	match wave_list[wave - 1]:
-		"1": # 20 basic
+		1: # 20 basic
 			print("wave 1 has started")
 			spawn_many_bugs(0, 1.25, 20, "meep")
-		"2": # 20 basic 30 swarm
+		2: # 20 basic 30 swarm
 			spawn_many_bugs(0, 1.25, 20, "meep")
-			spawn_many_bugs(0, 1.5, 30, "fob")
-		"3":
+			spawn_many_bugs(10, 1.5, 30, "fob")
+		3:
+			spawn_many_bugs(0, 1, 30, "meep")
+			spawn_many_bugs(0, 2, 5, "borf")
+		4:
+			spawn_many_bugs(0, 1, 30, "meep")
+			spawn_many_bugs(0, 1.25, 40, "fob")
+			spawn_many_bugs(0, 1, 10, "borf")
+			spawn_bugs_in_timeframe(13, 10, 9, "borf")
 			pass
-		"4":
+		5:
+			for i in range(10):
+				spawn_bugs_in_timeframe(i, 10, 20, "meep")
 			pass
-		"5":
+		6:
+			var i = 0
+			while i < .47 * 10:
+				spawn_bugs_in_timeframe(i, 5, 20, "fob")
+				i += .47
 			pass
-		"6":
+		7:
 			pass
-		"7":
+		8:
 			pass
-		"8":
+		9:
 			pass
-		"9":
+		10:
 			pass
-		"10":
+		11:
 			pass
-		"11":
+		12:
 			pass
-		"12":
+		13:
 			pass
-		"13":
+		14:
 			pass
-		"14":
+		15:
 			pass
-		"15":
+		16:
 			pass
-		"16":
+		17:
 			pass
-		"17":
+		18:
 			pass
-		"18":
+		19:
 			pass
-		"19":
+		20:
 			pass
-		"20":
+		21:
 			pass
-		"21":
+		22:
 			pass
-		"22":
+		23:
 			pass
-		"23":
+		24:
 			pass
-		"24":
+		25:
 			pass
-		"25":
+		26:
 			pass
-		"26":
+		27:
 			pass
-		"27":
+		28:
 			pass
-		"28":
+		29:
 			pass
-		"29":
+		30:
 			pass
-		"30":
+		31:
 			pass
-		"31":
+		32:
 			pass
-		"32":
+		33:
 			pass
-		"33":
+		34:
 			pass
-		"34":
+		35:
 			pass
-		"35":
+		36:
 			pass
-		"36":
+		37:
 			pass
-		"37":
+		38:
 			pass
-		"38":
+		39:
 			pass
-		"39":
+		40:
 			pass
-		"40":
-			pass
-	
 	wave += 1
 
 #endregion wave list
@@ -232,7 +242,7 @@ func spawn_bugs_in_timeframe(initial_delay, duration, count, type: String):
 		i += step
 
 func spawn_bug(delay, type: String):
-	get_tree().create_timer(delay).timeout.connect(create_bug.bind(type))
+	get_tree().create_timer(delay / Global.timeScale).timeout.connect(create_bug.bind(type))
 
 func create_bug(type: String):
 	# things to apply for all bugs, like size

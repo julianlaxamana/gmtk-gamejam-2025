@@ -30,6 +30,8 @@ var posion_speed_change = .047
 
 @onready var sprite = $Sprite # sprite 2d node
 
+var pixel_offset_range = 20 # 10pixels left and right, up and down
+
 # activates when a bug reaches the end of the track
 # despawns itself
 # @emits an int, how much damage the bug does
@@ -42,6 +44,8 @@ signal bug_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
 	fire_timer.timeout.connect(fire_clear)
 	fire_ticker.timeout.connect(apply_fire_tick)
 	pass
@@ -79,6 +83,7 @@ func _process(delta):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
 	else:
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+		
 
 
 
