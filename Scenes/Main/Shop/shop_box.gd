@@ -29,6 +29,8 @@ func _ready() -> void:
 		blockName = gen_rand(Global.attackWeights)
 	elif blockType == "projectile":
 		blockName = gen_rand(Global.projectileWeights)
+	elif blockType == "augment":
+		blockName = gen_rand(Global.augmentWeights)
 	block = Global.BLOCKS_DICTIONARY[blockType][blockName].call()
 	block.scale = Vector2(1.0, 1.0)
 	if block.type == "loop":

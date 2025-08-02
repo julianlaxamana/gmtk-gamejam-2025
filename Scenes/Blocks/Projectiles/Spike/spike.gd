@@ -9,7 +9,8 @@ var getPos = true
 var target
 var pos
 # Called when the node enters the scene tree for the first time.
-	
+var augments
+
 func _ready():
 	#global_position =Global.path_node.to_global(closestOffset)
 	pass # Replace with function body.

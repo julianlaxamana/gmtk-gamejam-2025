@@ -7,6 +7,8 @@ var newProjectile
 
 var unit
 
+var augments
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(augments)
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
 		newProjectile = projectile.instantiate()

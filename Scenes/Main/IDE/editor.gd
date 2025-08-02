@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Global.currBlock == area.get_parent() && area.get_parent().count == 0:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Global.currBlock == area.get_parent() && area.get_parent().count == 0 && area.get_parent().storable:
 		block2 = area.get_parent()
 	pass # Replace with function body.
 

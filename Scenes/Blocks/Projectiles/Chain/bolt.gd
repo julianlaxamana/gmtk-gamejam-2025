@@ -1,5 +1,7 @@
 extends Node2D
 var test = []
+var augments
+
 func _draw():
 	var thing = PackedVector2Array()
 	for i in range(test.size() - 1):

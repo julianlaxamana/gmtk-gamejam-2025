@@ -6,6 +6,7 @@ var speed
 var homingTarget
 
 var dir
+var augments
 
 func set_direction() -> void:
 	dir = (target.global_position - global_position).normalized()

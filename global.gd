@@ -17,7 +17,8 @@ var grid
 ## Weights
 var blockTypeWeights = {
 	"attack": 0.5,
-	"projectile": 0.5
+	"projectile": 0.25,
+	"augment": 0.25
 }
 
 var attackWeights = {
@@ -33,6 +34,16 @@ var projectileWeights = {
 	"melee": 0.20,
 	"ranged": 0.20,
 	"spike": 0.20
+}
+
+var augmentWeights = {
+	"poison" = 1.0 / 7.0,
+	"slow" = 1.0 / 7.0,
+	"burn" = 1.0 / 7.0,
+	"ice" = 1.0 / 7.0,
+	"big" = 1.0 / 7.0,
+	"explode" = 1.0 / 7.0,
+	"projectile" = 1.0 / 7.0
 }
 
 ## BLOCKS
@@ -51,6 +62,10 @@ var BLOCKS_DICTIONARY = {
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.projectile = obj.get_child(9).get_child(0).variable
+			
+			var attackBlock = obj.get_child(9).get_child(0)
+			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
+				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
 	return block		
 	),
@@ -143,6 +158,80 @@ var BLOCKS_DICTIONARY = {
 	return block
 			),
 			
+			},
+			"augment" = {
+				"slow": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"slow\""
+	block.variable = ["slow"]
+	block.location = "shop"
+	block.typeOf = "augment"
+	return block
+			),
+			"pierce": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"pierce\""
+	block.variable = ["pierce"]
+	block.location = "shop"
+	block.typeOf = "augment"
+	return block
+			),
+			"burn": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"burn\""
+	block.variable = ["burn"]
+	block.location = "shop"
+	block.typeOf = "augment"
+	return block
+			),
+			"poison": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"poison\""
+	block.variable = ["poison"]
+	block.typeOf = "augment"
+	block.location = "shop"
+	return block
+			),
+			"ice": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"ice\""
+	block.variable = ["ice"]
+	block.typeOf = "augment"
+	block.location = "shop"
+	return block
+			),
+			"big": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"big\""
+	block.variable = ["big"]
+	block.typeOf = "augment"
+	block.location = "shop"
+	return block
+			),
+			"explode": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"explode\""
+	block.variable = ["explode"]
+	block.typeOf = "augment"
+	block.location = "shop"
+	return block
+			),
+			"projectile": (func ():
+	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
+	var block = blockScene.instantiate()
+	block.functionName = "\"projectile_add\""
+	block.variable = ["projectile"]
+	block.typeOf = "augment"
+	block.location = "shop"
+	return block
+			)
 			}
  	}
 const BUG_SPRITE_DICTIONARY = {

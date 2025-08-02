@@ -5,6 +5,9 @@ var speed
 
 var dir
 
+var augments
+
+
 func set_direction() -> void:
 	dir = (target.global_position - global_position).normalized()
 func set_pos(pos):

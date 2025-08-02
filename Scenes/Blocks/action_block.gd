@@ -20,11 +20,14 @@ var areaName
 
 var location = ""
 var type = "action"
+var typeOf = ""
 
 var variable
+var augments
 var unit
 
 var holey = true
+var storable = true
 func _ready() -> void:
 	if holey:
 		hole.region_rect.size = Vector2(8, 7)
@@ -44,6 +47,7 @@ func _process(delta: float) -> void:
 		return
 	if location == "editor":
 		visible = true
+	
 	if holey:
 		hole.region_rect.size = Vector2(8, 7)
 		hole.region_rect.position = Vector2(3, 20)
@@ -71,7 +75,12 @@ func _process(delta: float) -> void:
 	if get_child_count() > 8:
 		get_child(8).reparent(Global.editor)
 	
-
+	if typeOf == "augment":
+		augments = variable.duplicate()
+		if get_child_count() == 7 && get_child(6) != null && get_child(6).typeOf == "augment":
+			augments.append_array(get_child(6).augments)
+		
+		
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
 		holeArea.monitoring = true

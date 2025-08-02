@@ -7,6 +7,8 @@ var speed
 var origin
 var damage
 
+var augments
+
 var target
 # Called when the node enters the scene tree for the first time.
 

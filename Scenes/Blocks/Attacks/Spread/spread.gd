@@ -7,6 +7,8 @@ var MAX_ANGLE = deg_to_rad(20.0)
 var targets = []
 var projectile
 var unit
+var augments
+
 
 
 # Called when the node enters the scene tree for the first time.
