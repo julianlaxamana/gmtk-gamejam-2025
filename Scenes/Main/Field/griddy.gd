@@ -14,12 +14,16 @@ func _physics_process(delta):
 		
 	var pos = local_to_map(get_local_mouse_position())
 	if pos.x <= -23 && pos.x >= -47 && pos.y <= 16 && pos.y >= -8:
-		set_cell(local_to_map(get_local_mouse_position()), 1, Vector2i(1, 0))
 		
-		if prevPos != pos && prevPos != null && tileMap != null:
-			set_cell(prevPos, 1, tileMap.get_cell_atlas_coords(prevPos))
+		for i in range(-47, -23):
+			for j in range(-8, 16):
+				set_cell(Vector2(i, j), 1, tileMap.get_cell_atlas_coords(Vector2(i, j)))
 		
-		if Input.is_action_just_pressed("click"):
+		if tileMap.get_cell_atlas_coords(pos).x > 3:
+			set_cell(local_to_map(get_local_mouse_position()), 1, Vector2i(1, 0))
+		
+		print(tileMap.get_cell_atlas_coords(pos).x)
+		if Input.is_action_just_pressed("click") && tileMap.get_cell_atlas_coords(pos).x > 3:
 			if tileSet.has(map_to_local(local_to_map(get_local_mouse_position()))):
 				Global.selectedUnit = tileSet[map_to_local(local_to_map(get_local_mouse_position()))]
 			else:
