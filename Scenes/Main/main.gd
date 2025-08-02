@@ -14,6 +14,7 @@ func _ready():
 func _process(delta):
 	pass
 
+#region wavelist
 func start_wave():
 	match wave:
 		1:
@@ -29,7 +30,8 @@ func start_wave():
 			spawn_bug(2, "zonk")
 	
 	wave += 1
-	
+
+#endregion wave list
 
 func lost_game():
 	#TODO reset board and all units
@@ -55,9 +57,22 @@ func _on_bug_reached_end(damage: int):
 		lost_game()
 	pass
 	
-func _on_bug_died(value: int):
+func _on_bug_died(value: int, type: String, death_position):
 	# give gold to player
 	bits += value
+	
+	if type == "spoid":
+		for i in range(3):
+			var bug = bug_generic.instantiate()
+			bug.type = "tini_spoid"
+			bug.position = position
+			# stats
+			bug.health = 40
+			bug.value = 1
+			bug.speed = 3.578
+			bug.damage = 4
+			path.add_child(bug)
+			path.add_child(bug)
 
 #endregion
 
@@ -71,34 +86,39 @@ func create_bug(type: String):
 	# things to apply for all bugs, like size
 	var bug = bug_generic.instantiate()
 	bug.type = type
-	
 	connect_bug_signals(bug)
 	match type:
 		"meep":
-			bug.health = 20
-			bug.value = 8 
+			bug.health = 50
+			bug.value = 2
 			bug.speed = 1.578 # good
-			bug.damage = 20
+			bug.damage = 3
 		"fob":
-			bug.health = 10
-			bug.value = 5
+			bug.health = 30
+			bug.value = 1
 			bug.speed = 3.5
-			bug.damage = 10
+			bug.damage = 1
 		"borf":
-			bug.health = 75
-			bug.value = 25
-			bug.speed = 1.276
-			bug.damage = 50
+			bug.health = 200
+			bug.value = 5
+			bug.speed = 1.236
+			bug.damage = 10
 		"spoid":
-			pass
-		"tiny_spoid":
+			bug.health = 80
+			bug.value = 2
+			bug.speed = 1.276
+			bug.damage = 4
 			pass
 		"bleep":
+			bug.health = 65
+			bug.value = 8
+			bug.speed = 2.11
+			bug.damage = 4
 			pass
 		"zonk":
-			bug.health = 5
-			bug.value = 40
-			bug.speed = 4.32
+			bug.health = 25
+			bug.value = 10
+			bug.speed = 5.8
 			bug.damage = 30
 		"lez_tail":
 			pass

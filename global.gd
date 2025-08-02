@@ -261,7 +261,7 @@ const BUG_SPRITE_DICTIONARY = {
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
-	"tiny_spoid": {
+	"tini_spoid": {
 		"DR": preload("res://Assets/Bugs/bug_basic.png"),
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
@@ -276,17 +276,17 @@ const BUG_SPRITE_DICTIONARY = {
 		"DL": preload("res://Assets/Bugs/zonk.png"),
 		"UL": preload("res://Assets/Bugs/zonk.png"),
 		"UR": preload("res://Assets/Bugs/zonk.png")},
-	"lez_tail": {
+	"lezzz_tail": {
 		"DR": preload("res://Assets/Bugs/bug_basic.png"),
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
-	"lez_middle": {
+	"lezzz_middle": {
 		"DR": preload("res://Assets/Bugs/bug_basic.png"),
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
-	"lez_head": {
+	"lezzz_head": {
 		"DR": preload("res://Assets/Bugs/bug_basic.png"),
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),

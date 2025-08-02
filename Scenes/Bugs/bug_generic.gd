@@ -6,7 +6,6 @@ var value: int  # money on death
 var speed: int # speed in pixels
 var damage: int  # how much damage to deal
 
-
 @onready var sprite = get_child(0) # sprite 2d node
 
 # activates when a bug reaches the end of the track
@@ -41,7 +40,9 @@ func _process(delta):
 		self.queue_free()
 		
 	if health <= 0:
-		bug_died.emit(value)
+		# cant write tini_spoid spawn logic here because each bug needs to be tied
+		# to various signals in main
+		bug_died.emit(value, type, position) 
 		self.queue_free()
 	
 	if theta <= deg_to_rad(-167.5):
@@ -53,5 +54,4 @@ func _process(delta):
 	elif theta <= deg_to_rad(105):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
 	else:
-		print("downleft")
-	
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
