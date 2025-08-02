@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 		block.scale = Vector2(1.5, 1.5)
 		
 	if block2 != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block2.location == "editor":
-		print(block2.location)
 		block2.location = "inventory"
 		block2.z_index = 3
 		block2.unit = null
@@ -50,7 +49,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Global.currBlock == area.get_parent() && area.get_parent().count == 0:
 		block2 = area.get_parent()
 	pass # Replace with function body.
 

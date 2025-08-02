@@ -5,6 +5,8 @@ var inventory = []
 var editor
 var disableMouse = false
 
+var currBlock;
+
 var selectedUnit
 var unitScripts = {
 }

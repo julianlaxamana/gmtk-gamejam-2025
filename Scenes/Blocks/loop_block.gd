@@ -141,6 +141,7 @@ func _process(delta: float) -> void:
 		state = "dragging"
 		Global.cursorGrab = true
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && state == "dragging":
+		Global.currBlock = self
 		var mouse_position_global = get_viewport().get_mouse_position()
 		position = mouse_position_global + offset
 	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && entered == true:
