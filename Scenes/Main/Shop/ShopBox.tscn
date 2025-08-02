@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs1i565yhtcck"]
+[gd_scene load_steps=8 format=3 uid="uid://bs1i565yhtcck"]
 
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_5idpc"]
 [ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://scenes/Main/Shop/shop_box.gd" id="1_f6317"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="1_uhh8t"]
-[ext_resource type="PackedScene" uid="uid://crrc11gx445cn" path="res://scenes/Blocks/action_block.tscn" id="1_wqq0w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6317"]
 bg_color = Color(0.901961, 0.337255, 0.901961, 1)
@@ -96,8 +95,5 @@ offset_bottom = 77.0
 text = "LEFT 
 LEFT "
 label_settings = SubResource("LabelSettings_f6317")
-
-[node name="Action Block" parent="Button" instance=ExtResource("1_wqq0w")]
-position = Vector2(15, 54)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

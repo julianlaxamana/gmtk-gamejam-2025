@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7nqr5jp6d8gs"]
+[gd_scene load_steps=9 format=3 uid="uid://c7nqr5jp6d8gs"]
 
 [ext_resource type="Script" uid="uid://dhuk7fh7hvw2d" path="res://scenes/Main/IDE/editor.gd" id="1_1yv15"]
 [ext_resource type="Texture2D" uid="uid://dm3p1s4xym4yc" path="res://Assets/Particles/one.png" id="1_4uct2"]
@@ -12,6 +12,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.151586, 0.151586, 0.151586, 1, 0.174324,
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lix3n"]
 size = Vector2(746, 534.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yv15"]
+size = Vector2(705, 172)
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_1yv15")
@@ -77,7 +80,6 @@ position = Vector2(180, 150)
 script = ExtResource("1_hv045")
 
 [node name="Inventory" parent="Camera2D" instance=ExtResource("6_tsjlf")]
-z_index = 1
 position = Vector2(-180, 236)
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]
@@ -89,5 +91,16 @@ monitorable = false
 position = Vector2(175, -314)
 shape = SubResource("RectangleShape2D_lix3n")
 
+[node name="Area2D2" type="Area2D" parent="Camera2D"]
+z_index = -1
+position = Vector2(-181, 236)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D2"]
+position = Vector2(209.5, 56)
+shape = SubResource("RectangleShape2D_1yv15")
+
 [connection signal="area_entered" from="Camera2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Camera2D/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Camera2D/Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_exited" from="Camera2D/Area2D2" to="." method="_on_area_2d_2_area_exited"]

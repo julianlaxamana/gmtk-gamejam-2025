@@ -7,8 +7,13 @@ func _process(delta: float) -> void:
 		if node != null:
 			inventory.append(node)
 			node.reparent($Label2)
-			node.position = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)
-			node.pos = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)
+
+			if node.type == "action":
+				node.position = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)
+				node.pos = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)
+			elif node.type == "loop":
+				node.position = Vector2($Label2.size.x / 2.0 - 80, $Label2.size.y / 2.0)
+				node.pos = Vector2($Label2.size.x / 2.0 - 80, $Label2.size.y / 2.0)
 			node.location = "inventory"
 			Global.inventory.pop_front()
 	

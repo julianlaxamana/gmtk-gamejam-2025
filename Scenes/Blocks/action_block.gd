@@ -39,10 +39,11 @@ func _input(event):
 		pressed = event.pressed
 
 func _process(delta: float) -> void:
-	if unit != Global.selectedUnit:
+	if unit != Global.selectedUnit && location == "editor":
 		visible = false
 		return
-	visible = true
+	if location == "editor":
+		visible = true
 	if holey:
 		hole.region_rect.size = Vector2(8, 7)
 		hole.region_rect.position = Vector2(3, 20)

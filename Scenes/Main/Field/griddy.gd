@@ -19,7 +19,7 @@ func _physics_process(delta):
 		if prevPos != pos && prevPos != null && tileMap != null:
 			set_cell(prevPos, 1, tileMap.get_cell_atlas_coords(prevPos))
 		
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if Input.is_action_just_pressed("click"):
 			if tileSet.has(map_to_local(local_to_map(get_local_mouse_position()))):
 				Global.selectedUnit = tileSet[map_to_local(local_to_map(get_local_mouse_position()))]
 			else:

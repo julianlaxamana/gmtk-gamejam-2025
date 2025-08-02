@@ -8,12 +8,15 @@ extends Node2D
 @onready var side = $Side
 @onready var bottom = $Bottom
 
+@onready var outside = $outside
+@onready var inside = $inside
+
 @onready var click = $click
 @onready var topArea = $ClickArea/Top
 @onready var sideArea = $ClickArea/Side
 @onready var bottomArea = $ClickArea/Bottom
 
-@onready var nubArea = $NubArea
+@onready var nubArea = $NubArea3
 @onready var nubArea2 = $NubArea2
 @onready var holeArea = $HoleArea
 var state = "off"
@@ -27,7 +30,7 @@ var pressed = false
 var attached = false
 var count = 0; 
 
-var location = "editor"
+var location = "shop"
 var type = "loop"
 var pos
 var holey = true
@@ -78,17 +81,20 @@ func _ready():
 	update()
 
 func _process(delta: float) -> void:
-	if unit != Global.selectedUnit:
+	if unit != Global.selectedUnit && location == "editor":
 		visible = false
 		return
-	visible = true
+	if location == "editor":
+		visible = true
 	$Timer.wait_time = delay
 	task.call(self)
 	count = $inside.count
 	attached = $inside.attached
 	$Top/Text.text = functionName
 	$Bottom/Text.text = bottomText
-	nubArea.monitorable = !attached
+	
+	nubArea.monitorable = !inside.attached
+	nubArea2.monitorable = !outside.attached
 	
 	if abs(side.scale.y - ( 2.2 * (count + 1))) > 0.01: 
 		side.scale.y = lerp(side.scale.y, 2.2 * (count) + .1, delta * 3)
@@ -144,7 +150,12 @@ func _process(delta: float) -> void:
 		self.reparent(loopBlock)
 
 		if loopBlock != null:
-			loopBlock.attached = true
+			if areaName == "NubArea2":
+				loopBlock.outside.attached = true
+			elif areaName == "NubArea3":
+				loopBlock.inside.attached = true
+			else:
+				loopBlock.attached = true 
 
 		if "type" in get_parent() and get_parent().type == "loop" && areaName == "NubArea2":
 			self.reparent(get_parent().get_child(10))

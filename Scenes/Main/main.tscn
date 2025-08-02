@@ -65,7 +65,8 @@ text = "<"
 
 [node name="ColorRect" type="ColorRect" parent="Control/EditorBar"]
 layout_mode = 2
-offset_right = 10.0
+offset_left = -4.0
+offset_right = 9.0
 offset_bottom = 720.0
 color = Color(0.554822, 0.881036, 0.791362, 1)
 
@@ -96,6 +97,7 @@ text = "<"
 
 [node name="ColorRect" type="ColorRect" parent="Control/ShopBar"]
 layout_mode = 2
+offset_left = -18.0
 offset_right = 10.0
 offset_bottom = 720.0
 color = Color(0.91, 0.3549, 0.91, 1)
@@ -111,8 +113,17 @@ color = Color(0.447644, 0.0719742, 0.582081, 1)
 offset = Vector2(920, 0)
 transform = Transform2D(1, 0, 0, 1, 920, 0)
 
+[connection signal="mouse_entered" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_exited"]
 [connection signal="button_down" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_button_down"]
 [connection signal="button_down" from="Control/EditorBar/Button" to="Control/ShopBar" method="_on_button_button_down"]
-[connection signal="mouse_entered" from="Control/ShopBar" to="Control/FieldViewport" method="_on_shop_bar_mouse_entered"]
+[connection signal="mouse_entered" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="Control/EditorBar/ColorRect" to="Control/EditorBar" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Control/EditorBar/ColorRect" to="Control/EditorBar" method="_on_color_rect_mouse_exited"]
 [connection signal="button_down" from="Control/ShopBar/ShopButton" to="Control/EditorBar" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_button_down"]
+[connection signal="mouse_entered" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_mouse_exited"]
+[connection signal="mouse_entered" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_exited"]

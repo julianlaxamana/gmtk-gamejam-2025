@@ -30,6 +30,7 @@ size = Vector2(143.5, 30)
 size = Vector2(7.35659, 3.51163)
 
 [node name="Loop Block" type="Node2D"]
+z_index = 3
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_p5g84")
 
@@ -152,10 +153,10 @@ shape = SubResource("RectangleShape2D_7d3sh")
 position = Vector2(61.75, 58.5)
 shape = SubResource("RectangleShape2D_1avow")
 
-[node name="NubArea" type="Area2D" parent="."]
+[node name="NubArea3" type="Area2D" parent="."]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NubArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NubArea3"]
 position = Vector2(44.75, 7.25)
 shape = SubResource("RectangleShape2D_tttqk")
 
@@ -177,6 +178,7 @@ volume_db = -2.0
 script = ExtResource("5_p03ba")
 
 [node name="outside" type="Node2D" parent="."]
+script = ExtResource("5_p03ba")
 
 [node name="Timer" type="Timer" parent="."]
 

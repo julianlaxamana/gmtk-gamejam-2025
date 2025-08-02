@@ -23,10 +23,11 @@ font_size = 30
 bg_color = Color(0.231373, 0.494118, 0.427451, 1)
 
 [node name="Inventory" type="Node2D"]
+z_index = 1
 script = ExtResource("1_uu1dl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
+z_index = 1
 offset_top = -27.0
 offset_right = 357.0
 offset_bottom = 124.0
@@ -35,6 +36,7 @@ color = Color(0.231373, 0.494118, 0.427451, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 offset_left = 27.0
 offset_top = -41.0
 offset_right = 323.0
@@ -44,6 +46,7 @@ label_settings = SubResource("LabelSettings_xdhdq")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+z_index = 1
 offset_left = 64.0
 offset_top = 4.0
 offset_right = 281.0
@@ -53,6 +56,7 @@ label_settings = SubResource("LabelSettings_xdhdq")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
+z_index = 2
 offset_left = 286.0
 offset_top = 4.0
 offset_right = 328.0
@@ -63,6 +67,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uu1dl")
 text = ">"
 
 [node name="Button2" type="Button" parent="."]
+z_index = 2
 offset_left = 18.0
 offset_top = 5.0
 offset_right = 60.0

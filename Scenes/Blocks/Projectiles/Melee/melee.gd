@@ -33,9 +33,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		
 		# bug hit
-		for bug in targets:
-			bug.health -= damage
-			pass
+		#for bug in targets:
+		#	bug.health -= damage
+		#	pass
 		
 		queue_free()
 	pass # Replace with function body.
