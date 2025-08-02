@@ -15,8 +15,8 @@ func _physics_process(delta):
 	var pos = local_to_map(get_local_mouse_position())
 	if pos.x <= -23 && pos.x >= -47 && pos.y <= 16 && pos.y >= -8:
 		
-		for i in range(-47, -23):
-			for j in range(-8, 16):
+		for i in range(-47, -22):
+			for j in range(-9, 17):
 				set_cell(Vector2(i, j), 1, tileMap.get_cell_atlas_coords(Vector2(i, j)))
 		
 		if tileMap.get_cell_atlas_coords(pos).x > 3:

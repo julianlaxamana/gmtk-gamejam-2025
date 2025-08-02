@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=14 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://Scenes/Main/main.gd" id="1_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://Scenes/Main/IDE/ide.tscn" id="2_br8qb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c7jrv7iomocsm" path="res://Scenes/Main/Shopbar.gd" id="5_5wuev"]
 [ext_resource type="PackedScene" uid="uid://iog6rk6wy7ox" path="res://Scenes/Main/Shop/shop_field.tscn" id="5_nyu32"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="5_rdp1x"]
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="9_k7uo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0isb"]
 bg_color = Color(0.68864, 0.202679, 0.874568, 1)
@@ -26,6 +27,19 @@ Button/styles/focus = SubResource("StyleBoxFlat_w0isb")
 Button/styles/hover = SubResource("StyleBoxFlat_w0isb")
 Button/styles/normal = SubResource("StyleBoxFlat_w0isb")
 Button/styles/pressed = SubResource("StyleBoxFlat_w0isb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0isb"]
+font = ExtResource("5_rdp1x")
+font_size = 120
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_k7uo0"]
+font = ExtResource("5_rdp1x")
+font_size = 60
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y3v7k")
@@ -112,6 +126,47 @@ color = Color(0.447644, 0.0719742, 0.582081, 1)
 [node name="Shop" parent="Control/ShopBar" instance=ExtResource("5_nyu32")]
 offset = Vector2(920, 0)
 transform = Transform2D(1, 0, 0, 1, 920, 0)
+
+[node name="Label" type="Label" parent="Control/ShopBar"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 599.0
+offset_right = 740.0
+offset_bottom = 720.0
+scale = Vector2(-1, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_w0isb")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Control/ShopBar"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 4.0
+offset_right = 1002.0
+offset_bottom = 125.0
+scale = Vector2(-1, 1)
+text = "test_case: "
+label_settings = SubResource("LabelSettings_k7uo0")
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/ShopBar/Label2"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 49.0
+offset_right = 487.0
+offset_bottom = 170.0
+text = "0"
+label_settings = SubResource("LabelSettings_w0isb")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/ShopBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 624.0
+offset_right = 160.0
+offset_bottom = 752.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_k7uo0")
 
 [connection signal="mouse_entered" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_exited"]
