@@ -49,3 +49,14 @@ func _on_color_rect_mouse_entered() -> void:
 func _on_color_rect_mouse_exited() -> void:
 	Global.disableMouse = false
 	pass # Replace with function body.
+
+
+func _on_button_2_mouse_entered() -> void:
+	Global.disableMouse = true
+	pass # Replace with function body.
+	
+
+
+func _on_button_2_mouse_exited() -> void:
+	Global.disableMouse = false
+	pass # Replace with function body.

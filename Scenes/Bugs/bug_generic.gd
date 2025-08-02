@@ -29,7 +29,7 @@ func _process(delta):
 	var previous_position = position
 	
 	# standard movement
-	progress += speed * Engine.time_scale * delta * 60.0
+	progress += speed * Global.timeScale * delta * 60.0
 	
 	# resume computation
 	var new_position = position

@@ -25,7 +25,7 @@ func _process(delta):
 		if (global_position - Global.path_node.to_global(Global.path_node.curve.sample_baked(closestOffset))).length() > 500.0:
 			queue_free()
 		getPos = false
-	global_position = lerp(global_position, pos, 2 * delta)
+	global_position = lerp(global_position, pos, 2 * delta * Global.timeScale)
 	#global_position = origin + dir * 50
 	pass
 

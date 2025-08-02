@@ -16,7 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(augments)
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
 		newProjectile = projectile.instantiate()

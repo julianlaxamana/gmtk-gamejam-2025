@@ -16,9 +16,9 @@ func set_pos(pos):
 	
 func _process(delta: float) -> void:
 	if homingTarget != null:
-		dir = lerp(dir,  (homingTarget.global_position - global_position).normalized(), delta)
+		dir = lerp(dir,  (homingTarget.global_position - global_position).normalized(), delta * Global.timeScale)
 	if dir != null:
-		global_position += dir * speed * delta 
+		global_position += dir * speed * delta * Global.timeScale
 
 
 func _on_homing_area_area_entered(area: Area2D) -> void:

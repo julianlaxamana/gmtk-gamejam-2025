@@ -5,6 +5,8 @@ var inventory = []
 var editor
 var disableMouse = false
 
+var timeScale = 1.0
+
 var currBlock;
 
 var selectedUnit
