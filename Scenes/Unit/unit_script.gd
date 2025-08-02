@@ -41,12 +41,13 @@ func _ready() -> void:
 		pass
 	$"Loop Block4".bottomText = ")"
 	
-	$"Loop Block5".functionName = "spread_shoot ("
+	$"Loop Block5".functionName = "gatling_shoot ("
 	$"Loop Block5".unit = Global.selectedUnit
-	$"Loop Block5".variable = preload("res://scenes/Blocks/Attacks/Spread/spread.tscn")
+	$"Loop Block5".variable = preload("res://scenes/Blocks/Attacks/Gatling/gatling.tscn")
 	$"Loop Block5".test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
+			attack.unit = obj.unit
 			attack.projectile = obj.get_child(9).get_child(0).variable
 			obj.unit.add_child(attack)
 			#projectile.reparent(obj.unit)

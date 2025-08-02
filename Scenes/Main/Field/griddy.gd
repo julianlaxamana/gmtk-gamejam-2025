@@ -5,6 +5,9 @@ var prevPos;
 @onready var tileMap = $TileMapLayer
 var tileSet := {
 }
+func _ready() -> void:
+	Global.grid = self
+	pass
 func _physics_process(delta):
 	if Global.disableMouse:
 		return

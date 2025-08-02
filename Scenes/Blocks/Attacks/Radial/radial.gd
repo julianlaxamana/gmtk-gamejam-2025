@@ -6,6 +6,8 @@ var NUM_PROJECTILES = 5
 var targets = []
 var projectile
 
+var unit
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
