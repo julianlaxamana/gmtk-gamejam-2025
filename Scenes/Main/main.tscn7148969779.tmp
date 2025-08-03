@@ -122,6 +122,7 @@ offset_bottom = 621.0
 script = ExtResource("3_8gcrf")
 
 [node name="Editor" parent="Control/EditorBar" instance=ExtResource("2_br8qb")]
+visible = false
 
 [node name="Button" type="Button" parent="Control/EditorBar"]
 layout_mode = 0
@@ -344,6 +345,7 @@ offset_bottom = 720.0
 color = Color(0.447644, 0.0719742, 0.582081, 1)
 
 [node name="Shop" parent="Control/ShopBar" instance=ExtResource("5_nyu32")]
+visible = false
 offset = Vector2(920, 0)
 transform = Transform2D(1, 0, 0, 1, 920, 0)
 

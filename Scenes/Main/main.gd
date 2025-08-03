@@ -14,10 +14,6 @@ var looped_once = false # 40+'ed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	spawn_lezzz(25, 20)
-	spawn_bug(3, "smorg")
-	spawn_bug(3, "zonk")
 
 	pass # Replace with function body.
 
@@ -333,12 +329,12 @@ func create_bug(type: String):
 	return bug
 	
 # specialized spawner for this entity
-func spawn_lezzz(step, middle_count):
+func spawn_lezzz(delay, step, middle_count):
 	#var step = .20
 	#var middle_count = 100
-	spawn_bug(0, "lezzz_head")
-	spawn_many_bugs(step, step, middle_count, "lezzz_middle")
-	spawn_bug(step * middle_count + step, "lezzz_tail")
+	spawn_bug(delay, "lezzz_head")
+	spawn_many_bugs(delay + step, step, middle_count, "lezzz_middle")
+	spawn_bug(delay + step * middle_count + step, "lezzz_tail")
 
 
 func connect_bug_signals(n):

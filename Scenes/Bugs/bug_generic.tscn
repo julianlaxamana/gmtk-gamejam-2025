@@ -251,7 +251,6 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 shape = SubResource("CapsuleShape2D_1ouse")

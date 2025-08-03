@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cogc4vrbxktxm"]
 
-[ext_resource type="Script" uid="uid://bw1s1hbyk52ty" path="res://scenes/Blocks/Attacks/Basic/basic.gd" id="1_7i1ei"]
+[ext_resource type="Script" uid="uid://bw1s1hbyk52ty" path="res://Scenes/Blocks/Attacks/Basic/basic.gd" id="1_7i1ei"]
 [ext_resource type="Texture2D" uid="uid://cm8fhjq18n7fc" path="res://Assets/Bugs/bug.png" id="2_ywc7r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wmdh"]
