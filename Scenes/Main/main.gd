@@ -14,6 +14,7 @@ var looped_once = false # 40+'ed
 @onready var hit_sfx = $HitSfx
 
 var game_over_song = preload("res://Assets/Sounds/again (1).wav")
+var boss_song = preload("res://Assets/Sounds/big enemy (question mark) (1).wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -185,6 +186,7 @@ func start_wave():
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		30:
+			music_player.stream = boss_song
 			print(wave, " has started")
 			spawn_lezzz(0, 2, 10)
 			pass
@@ -257,6 +259,7 @@ func _on_bug_reached_end(damage: int):
 		wave_started = false
 		print("lost game")
 		time_scale_slider.editable = true
+		music_player.stream = game_over_song
 		
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false
