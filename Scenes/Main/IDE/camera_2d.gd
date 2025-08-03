@@ -37,6 +37,6 @@ func _input(event):
 		#update the new previous coordinates
 		previous_coordinates = event.position
 	
-	position.x = clamp(position.x, 0, 200)
-	position.y = clamp(position.y, 100, 200)
+	position.x = clamp(position.x, -200, 500)
+	position.y = clamp(position.y, -500, 500)
 		

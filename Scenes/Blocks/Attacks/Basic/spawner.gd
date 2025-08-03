@@ -21,7 +21,6 @@ func spawn():
 
 
 func _on_timeout() -> void:
-	print("hi")
 	spawn()
 	queue_free()
 	pass # Replace with function body.

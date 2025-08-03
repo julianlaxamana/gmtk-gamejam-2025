@@ -30,7 +30,6 @@ var poison = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(augments)
 	if augments != null:
 		for x in augments:
 			if x == "pierce":
@@ -43,10 +42,10 @@ func _process(delta):
 			elif x == "fire":
 				fire = true
 			elif x == "ice":
-				fire = true
+				ice = true
 			elif x == "slow":
-				fire = true	
-			elif x == "slow":
+				slow = true	
+			elif x == "poison":
 				poison = true
 				
 	if getPos:

@@ -71,7 +71,7 @@ func _on_timer_2_timeout() -> void:
 	if "target" in newProjectile:
 		newProjectile.target = unit.get_target()
 		unit.target = unit.get_target().global_position
-		
+	newProjectile.dmg *= 0.75
 	Global.battlefield.call_deferred("add_child", newProjectile)
 	call_deferred("test", newProjectile, angleShift)
 		

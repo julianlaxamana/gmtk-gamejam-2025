@@ -66,7 +66,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if x == 0:
 				continue
 			var custom_timer = timing.new()
-			print(x)
 			custom_timer.wait_time = delay / (NUM_PROJECTILES + 1) * x
 			custom_timer.one_shot = true
 			custom_timer.unit = unit

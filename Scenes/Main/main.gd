@@ -371,3 +371,9 @@ func connect_bug_signals(n):
 	n.bug_died.connect(_on_bug_died)
 
 #endregion
+
+
+func _on_button_3_button_down() -> void:
+	start_wave()
+	$Control/EditorBar/Button3.visible = false
+	pass # Replace with function body.

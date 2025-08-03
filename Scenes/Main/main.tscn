@@ -386,6 +386,7 @@ texture = ExtResource("9_k7uo0")
 [connection signal="mouse_exited" from="Control/EditorBar/Button2" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="mouse_entered" from="Control/EditorBar/Button4" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/Button4" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
+[connection signal="button_down" from="Control/EditorBar/Button3" to="." method="_on_button_3_button_down"]
 [connection signal="mouse_entered" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="mouse_entered" from="Control/EditorBar/HSlider" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
