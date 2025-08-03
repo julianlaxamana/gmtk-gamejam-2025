@@ -5,6 +5,8 @@ var NUM_ITEMS = 3
 func _ready() -> void:
 	reroll()
 
+func _process(delta: float) -> void:
+	$Reroll/Label.text = str(int(Global.shopBase["reroll"] * Global.shopScales["reroll"]))
 func reroll():
 	for child in boxes.get_children():
 		boxes.remove_child(child)

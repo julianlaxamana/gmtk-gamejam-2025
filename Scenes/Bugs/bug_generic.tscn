@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://c5bl0s1h5qh7x"]
 
-[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
+[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://scenes/Bugs/bug_generic.gd" id="1_rp73j"]
 [ext_resource type="Texture2D" uid="uid://8jh43jy8jxva" path="res://Assets/Particles/poison.png" id="2_mfawf"]
 [ext_resource type="Texture2D" uid="uid://dg5ft0l3iuobq" path="res://Assets/Particles/fire.png" id="3_pcvva"]
 [ext_resource type="Texture2D" uid="uid://ci1i7wci14sx" path="res://Assets/Bugs/Meep.png" id="4_3i2o1"]
 [ext_resource type="Texture2D" uid="uid://c3gxiv717hhrw" path="res://Assets/Particles/ice.png" id="4_gcyl8"]
-[ext_resource type="Material" uid="uid://d2pjkpj5xv4l" path="res://Scenes/Bugs/color_flash.tres" id="4_lju6w"]
-[ext_resource type="SpriteFrames" uid="uid://b834drojruc4p" path="res://Scenes/Bugs/bug_animations.tres" id="6_eq17t"]
+[ext_resource type="Material" path="res://Scenes/Bugs/color_flash.tres" id="4_lju6w"]
+[ext_resource type="SpriteFrames" uid="uid://b834drojruc4p" path="res://scenes/Bugs/bug_animations.tres" id="6_eq17t"]
 
 [sub_resource type="Animation" id="Animation_lju6w"]
 resource_name = "color_flash"

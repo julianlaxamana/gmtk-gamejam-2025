@@ -79,12 +79,13 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Button"]
 layout_mode = 0
-offset_left = 190.0
+offset_left = 97.0
 offset_top = 35.0
-offset_right = 231.0
+offset_right = 223.0
 offset_bottom = 80.0
 text = "50"
 label_settings = SubResource("LabelSettings_f6317")
+horizontal_alignment = 2
 
 [node name="Icon" type="Sprite2D" parent="Button"]
 position = Vector2(255, 57)

@@ -33,12 +33,12 @@ func _ready() -> void:
 		blockName = gen_rand(Global.augmentWeights)
 	$Button/Label2.text = blockName
 	block = Global.BLOCKS_DICTIONARY[blockType][blockName].call()
-	
+	$Button/Label3.text = str(int(Global.shopBase[blockName] * Global.shopScales["shop"]))
 	block.scale = Vector2(0.8, 0.8)
 	if block.type == "loop":
-		block.position = Vector2(10.0, 40.0)
+		block.position = Vector2(20.0, 40.0)
 	else:
-		block.position = Vector2(10.0, 50.0)
+		block.position = Vector2(20.0, 50.0)
 	print(block)
 	$Button.add_child(block)
 	

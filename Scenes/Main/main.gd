@@ -229,6 +229,7 @@ func _on_bug_reached_end(damage: int):
 		
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false
+		$Control/EditorBar/Button3.visible = true
 		time_scale_slider.editable = true
 	
 func _on_bug_died(value: int, type: String, death_position):
