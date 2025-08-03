@@ -471,18 +471,22 @@ theme = ExtResource("4_rdp1x")
 min_value = -24.0
 max_value = 5.0
 
-[node name="SFX2" type="Label" parent="Control/PauseMenu/NinePatchRect"]
+[node name="liscence" type="Label" parent="Control/PauseMenu/NinePatchRect"]
 z_index = 4096
 layout_mode = 0
-offset_left = 27.0
-offset_top = 25.0
-offset_right = 580.0
-offset_bottom = 342.0
+offset_left = 14.0
+offset_top = 35.0
+offset_right = 698.0
+offset_bottom = 480.0
 scale = Vector2(0.54, 0.54)
 theme = ExtResource("4_rdp1x")
 theme_override_fonts/font = ExtResource("5_rdp1x")
 theme_override_font_sizes/font_size = 1
 text = "godotengine.org/license)
+
+Range and Delay are moveable
+and use Alt to progress waves
+if stuck
 
 "
 label_settings = SubResource("LabelSettings_k7uo0")

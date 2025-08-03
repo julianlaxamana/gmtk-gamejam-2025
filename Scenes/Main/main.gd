@@ -10,7 +10,7 @@ var looped_once = false # 40+'ed
 @onready var time_scale_slider = $Control/EditorBar/HSlider
 @onready var next_wave_button = $Control/EditorBar/Button3
 @onready var winner_text = $Control/Winner
-@onready var music_player = $AudioStreamPlayer
+@onready var music_player = $BugHit
 @onready var hit_sfx = $HitSfx
 
 var game_over_song = preload("res://Assets/Sounds/again (1).wav")
@@ -234,14 +234,14 @@ func _on_bug_reached_end(damage: int):
 	if base_health <= 0:
 		lost_game()
 		wave_started = false
-		print("lost game")
 		time_scale_slider.editable = true
 		music_player.stream = game_over_song
+		music_player.play()
+		
 		
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false
 		
-		print("bugs 0 via bug reached end")
 		next_wave_button.visible = true
 		time_scale_slider.editable = true
 	
