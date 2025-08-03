@@ -110,6 +110,8 @@ func _process(delta):
 		bug_reached_end.emit(damage)
 		self.remove_from_group("bugs")
 		self.queue_free()
+		print("death by death ", len(get_tree().get_nodes_in_group("bugs")))
+		print("death by finish")
 		
 	if health <= 0:
 		# cant write tini_spoid spawn logic here because each bug needs to be tied
@@ -119,6 +121,7 @@ func _process(delta):
 		Global.bits += int(value)
 		self.remove_from_group("bugs")
 		self.queue_free()
+		print("death by death ", len(get_tree().get_nodes_in_group("bugs")))
 
 
 
