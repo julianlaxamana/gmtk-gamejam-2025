@@ -13,6 +13,8 @@ var looped_once = false # 40+'ed
 @onready var music_player = $AudioStreamPlayer
 @onready var hit_sfx = $HitSfx
 
+var game_over_song = preload("res://Assets/Sounds/again (1).wav")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.hit_sfx = hit_sfx
@@ -178,8 +180,6 @@ func _on_bug_reached_end(damage: int):
 	base_health -= damage
 	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	Global.computer_terminal.update(base_health)
-	
-	print("COLOR CHANGER", (-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	
 	if base_health <= 0:
 		lost_game()
