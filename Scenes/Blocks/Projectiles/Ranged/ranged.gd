@@ -35,10 +35,11 @@ func _process(delta: float) -> void:
 	if dir != null:
 		global_position += dir * speed * delta  * Global.timeScale
 		
-	if targets.size() == MAX_TARGETS && explode:
-			var explode = explosion.instantiate()
-			Global.battlefield.add_child(explode)
-			explode.global_position = targets.back().global_position
+	if targets.size() == MAX_TARGETS:
+			if explode:
+				var explode = explosion.instantiate()
+				Global.battlefield.add_child(explode)
+				explode.global_position = targets.back().global_position
 			queue_free()
 
 

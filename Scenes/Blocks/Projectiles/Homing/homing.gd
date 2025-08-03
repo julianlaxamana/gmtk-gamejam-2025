@@ -32,10 +32,11 @@ func _process(delta: float) -> void:
 				damage = damage * 1.25
 			elif x == "explode":
 				explode = true
-	if targets.size() == MAX_TARGETS && explode:
-			var explode = explosion.instantiate()
-			Global.battlefield.add_child(explode)
-			explode.global_position = targets.back().global_position
+	if targets.size() == MAX_TARGETS:
+			if explode:
+				var explode = explosion.instantiate()
+				Global.battlefield.add_child(explode)
+				explode.global_position = targets.back().global_position
 			queue_free()
 			
 	if homingTarget != null:
