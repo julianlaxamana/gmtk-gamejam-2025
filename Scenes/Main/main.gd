@@ -64,10 +64,9 @@ func start_wave():
 			spawn_many_bugs(5, 1.5, 10, "meep")
 		6:
 			print(wave, " has started")
-			var i = 0
-			while i < .47 * 10:
-				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 5, 3, "meep")
-				i += .47
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		7:
 			pass
 		8:
