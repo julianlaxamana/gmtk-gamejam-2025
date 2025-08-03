@@ -1,12 +1,16 @@
 shader_type canvas_item;
 
+uniform vec4 current_color: source_color;
 uniform vec4 flash_color: source_color;
 uniform float flash_value: hint_range(0.0, 100.0);
+
+uniform float mix_value: hint_range(0.0, 100.0);
 
 void fragment() {
 	// Called for every pixel the material is visible on.
 	vec4 texture_color = texture(TEXTURE, UV);
 	COLOR = mix(texture_color, flash_color, flash_value / 100.0);
+	COLOR = mix(COLOR, current_color, mix_value/100.0);
 	COLOR.a = texture_color.a;
 }
 

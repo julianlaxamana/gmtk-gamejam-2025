@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnomeyp1rtq4a"]
-
-[ext_resource type="Shader" uid="uid://ceaxtnxykcrct" path="res://Scenes/Bugs/bug_generic.gdshader" id="1_0y430"]
-
-[resource]
-shader = ExtResource("1_0y430")
-shader_parameter/flash_color = Color(1, 0, 0, 1)
-shader_parameter/flash_value = -2.34604e-06

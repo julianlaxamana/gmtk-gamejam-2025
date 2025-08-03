@@ -183,13 +183,19 @@ func _input(event):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
 		print("a pressed")
-		bug = create_bug("borf")
+		bug = create_bug("fob")
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()
 	if event.is_action_pressed("debug_s"):
 		print("s pressed")
 		bug.apply_fire()
+	if event.is_action_pressed("debug_w"):
+		print("w pressed")
+		bug.apply_stun()
+	if event.is_action_pressed("q"):
+		print("q pressed")
+		bug.apply_slow(.3)
 
 
 #region bug signal logic

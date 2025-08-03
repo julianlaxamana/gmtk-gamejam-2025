@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2pjkpj5xv4l"]
+
+[ext_resource type="Shader" uid="uid://ceaxtnxykcrct" path="res://Scenes/Bugs/bug_generic.gdshader" id="1_vb4qy"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_vb4qy")
+shader_parameter/current_color = Color(0, 0, 0, 1)
+shader_parameter/flash_color = Color(0, 0.91, 0, 1)
+shader_parameter/flash_value = 0.0
+shader_parameter/mix_value = 0.0

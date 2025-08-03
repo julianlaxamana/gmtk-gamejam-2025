@@ -1,10 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5bl0s1h5qh7x"]
+[gd_scene load_steps=11 format=3 uid="uid://c5bl0s1h5qh7x"]
 
 [ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
 [ext_resource type="Texture2D" uid="uid://8jh43jy8jxva" path="res://Assets/Particles/poison.png" id="2_mfawf"]
 [ext_resource type="Texture2D" uid="uid://dg5ft0l3iuobq" path="res://Assets/Particles/fire.png" id="3_pcvva"]
 [ext_resource type="Texture2D" uid="uid://ci1i7wci14sx" path="res://Assets/Bugs/Meep.png" id="4_3i2o1"]
-[ext_resource type="Material" uid="uid://cnomeyp1rtq4a" path="res://Scenes/Bugs/flash.tres" id="4_lju6w"]
+[ext_resource type="Material" uid="uid://d2pjkpj5xv4l" path="res://Scenes/Bugs/color_flash.tres" id="4_lju6w"]
+
+[sub_resource type="Animation" id="Animation_lju6w"]
+resource_name = "color_flash"
+length = 0.133337
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0, -3, 0, -0.25, 0, 0, 60, 57, -0.0333333, -4, 0, -39, -3, -0.0333333, 66, 0.0333333, -1),
+"times": PackedFloat32Array(0, 0.0002, 0.0666667, 0.133333)
+}
 
 [sub_resource type="Animation" id="Animation_gcyl8"]
 resource_name = "fire_flash"
@@ -126,6 +141,7 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ib214"]
 _data = {
+&"color_flash": SubResource("Animation_lju6w"),
 &"fire_flash": SubResource("Animation_gcyl8"),
 &"poison_flash": SubResource("Animation_eq17t")
 }
@@ -177,11 +193,10 @@ initial_velocity_min = 66.66
 initial_velocity_max = 66.66
 radial_accel_min = 200.0
 radial_accel_max = 200.0
-angle_min = -15.0
-angle_max = 15.0
+angle_min = -40.0
+angle_max = 40.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 2
 material = ExtResource("4_lju6w")
 position = Vector2(-156, -32)
 texture = ExtResource("4_3i2o1")
@@ -204,3 +219,11 @@ shape = SubResource("CapsuleShape2D_1ouse")
 one_shot = true
 
 [node name="FireTicker" type="Timer" parent="FireTimer"]
+
+[node name="SlowTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
