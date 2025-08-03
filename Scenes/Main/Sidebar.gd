@@ -101,5 +101,5 @@ func _on_button_4_button_down() -> void:
 
 
 func _on_audio_stream_player_finished() -> void:
-	$"../../AudioStreamPlayer".play()
+	$"../../BugHit".play()
 	pass # Replace with function body.
