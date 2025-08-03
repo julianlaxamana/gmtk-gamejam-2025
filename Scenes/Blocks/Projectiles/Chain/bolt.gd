@@ -1,6 +1,11 @@
 extends Node2D
 var test = []
 var augments
+var baseScale
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	baseScale = scale
+	pass # Replace with function body.
 
 func _draw():
 	var thing = PackedVector2Array()

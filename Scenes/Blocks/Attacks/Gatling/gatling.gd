@@ -13,6 +13,7 @@ var augments
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 
 
@@ -22,11 +23,13 @@ func _process(delta):
 		for x in augments:
 			if x == "projectile":
 				NUM_PROJECTILES += 1
+				
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
-		var newProjectile = projectile.instantiate()
-		Global.battlefield.call_deferred("add_child", newProjectile)
-		call_deferred("test", newProjectile, 0)
+		for x in range(NUM_PROJECTILES):
+			var newProjectile = projectile.instantiate()
+			Global.battlefield.call_deferred("add_child", newProjectile)
+			call_deferred("test", newProjectile, 0)
 		queue_free()
 	pass
 	unit.enable_target()
@@ -42,6 +45,7 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func test(proj, angle) -> void:
+	proj.augments = augments
 	proj.global_position = global_position
 	if "origin" in proj:
 		proj.origin= global_position

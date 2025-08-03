@@ -2,10 +2,13 @@ extends Node2D
 
 var targets = []
 var hit = []
-var MAX_TARGETS = 5
+var MAX_TARGETS = 3
 var dir
 var speed
 var origin
+var damage = 1.0
+
+var scaleBolt = 1.0
 
 var bolt
 var target
@@ -16,20 +19,39 @@ var augments
 @onready var boltScn = preload("res://scenes/Blocks/Projectiles/Chain/bolt.tscn")
 func set_direction() -> void:
 	dir = (target.global_position - global_position).normalized()
-	
+var baseScale
 func _ready():
+	$Node2D/Timer.start()
+	baseScale = scale
 	if bolt == null:
 		bolt = boltScn.instantiate()
 		Global.battlefield.add_child(bolt)
 	pass # Replace with function body.
 
-
+var explode = false
+var explosion = preload("res://scenes/Blocks/Projectiles/Explode/Explode.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	scaleBolt = 1.0
+	if augments != null:
+		for x in augments:
+			if x == "pierce":
+				MAX_TARGETS += 1
+			elif x == "big":
+				scale = baseScale * 1.75
+				damage = damage * 1.25
+				scaleBolt = scaleBolt * 1.75
+			elif x == "explode":
+				explode = true
+
 	global_position = origin + dir * 50
 	pass
-
+var a = true
 func _on_timer_timeout() -> void:
+	if explode && a != true && targets.back() != null:
+		var explode = explosion.instantiate()
+		Global.battlefield.add_child(explode)
+		explode.global_position = targets.back().global_position
 	queue_free()
 	pass # Replace with function body.
 
@@ -53,15 +75,14 @@ func test(proj, dir, pos) -> void:
 		
 	pass # Replace with function body.
 
-var a = true
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	print(hit.size())
 	if a && area.get_parent().get_parent() && area.get_parent().get_parent().is_in_group("bugs") && !area.get_parent().get_parent() in hit && hit.size() < MAX_TARGETS:
 		# create a projectile
 		a = false
 		var newProjectile = projectile.instantiate()
 		newProjectile.hit = hit
 		newProjectile.bolt = bolt
+		bolt.scale *= scaleBolt
 		newProjectile.hit.append(area.get_parent().get_parent())
 		newProjectile.targets.append(area.get_parent().get_parent())
 		if "speed" in newProjectile:
@@ -70,7 +91,8 @@ func _on_area_2d_2_area_entered(area: Area2D) -> void:
 			newProjectile.target = area.get_parent().get_parent()
 		Global.battlefield.call_deferred("add_child", newProjectile)
 		call_deferred("test", newProjectile, Vector2(0, 0), area.get_parent().get_parent().global_position)
-		queue_free()
+	
+		
 		
 		
 	pass # Replace with function body.

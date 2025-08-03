@@ -181,6 +181,7 @@ script = ExtResource("5_p03ba")
 script = ExtResource("5_p03ba")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
 
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]
