@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6aha1f5nj6y"
-path="res://.godot/imported/placeholder4.png-f3425556caf1581089cc2c5e9829d689.ctex"
+uid="uid://dnyhbb3lutpus"
+path="res://.godot/imported/ice.png-ef643cd8b2e6bdde707f354541fd722c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bugs/Lez Head/placeholder4.png"
-dest_files=["res://.godot/imported/placeholder4.png-f3425556caf1581089cc2c5e9829d689.ctex"]
+source_file="res://Assets/Bugs/Smorg/ice.png"
+dest_files=["res://.godot/imported/ice.png-ef643cd8b2e6bdde707f354541fd722c.ctex"]
 
 [params]
 

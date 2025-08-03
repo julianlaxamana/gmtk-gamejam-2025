@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dncuodq1e7e01"
-path="res://.godot/imported/placeholder6.png-a218c1ed609038c398de9d3267eea1c7.ctex"
+uid="uid://cpssukvveux4p"
+path="res://.godot/imported/SMORG_SAMPLE.webp-f76e925fa8b50a30c2ea33aff9635d90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bugs/Lez Tail/placeholder6.png"
-dest_files=["res://.godot/imported/placeholder6.png-a218c1ed609038c398de9d3267eea1c7.ctex"]
+source_file="res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"
+dest_files=["res://.godot/imported/SMORG_SAMPLE.webp-f76e925fa8b50a30c2ea33aff9635d90.ctex"]
 
 [params]
 

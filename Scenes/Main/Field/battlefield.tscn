@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cmgf7skrjaw1y"]
+[gd_scene load_steps=18 format=4 uid="uid://cmgf7skrjaw1y"]
 
 [ext_resource type="Script" uid="uid://kss4wmpvnccg" path="res://scenes/Main/Field/battlefield.gd" id="1_01cof"]
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/IDE/path.gd" id="6_57q4d"]
 [ext_resource type="PackedScene" uid="uid://c70q6kdv0s7bl" path="res://scenes/Main/Field/spawn.tscn" id="8_0ehjo"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="9_7jpgn"]
+[ext_resource type="StyleBox" uid="uid://dt0exs88b5p6i" path="res://Scenes/Main/Field/computer.tres" id="9_86n7r"]
+[ext_resource type="Script" uid="uid://cvqydh3mah06x" path="res://Scenes/Main/Field/label.gd" id="10_uarvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")
@@ -186,8 +188,9 @@ offset_top = 459.074
 offset_right = -87.4212
 offset_bottom = 510.074
 theme = SubResource("Theme_bexw6")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vr1en")
+theme_override_styles/normal = ExtResource("9_86n7r")
 text = ". _ ."
 label_settings = SubResource("LabelSettings_0ehjo")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("10_uarvp")

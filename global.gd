@@ -21,6 +21,11 @@ var path_node
 var battlefield
 var grid
 
+var computer_terminal_style_box = preload("res://Scenes/Main/Field/computer.tres")
+var computer_terminal # the node that is the computer terminal
+
+var wave
+
 #region Weights
 var blockTypeWeights = {
 	"attack": 0.5,
@@ -310,6 +315,66 @@ var BLOCKS_DICTIONARY = {
 	}
 #endregion blocks
 
+#to be used for sprite sheets
+#const BUG_SPRITE_DICTIONARY = {
+	#"meep": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"fob": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"borf": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"spoid": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"tini_spoid": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"bleep": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"zonk": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"lezzz_tail": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"lezzz_middle": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"lezzz_head": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+	#"smorg": {
+		#"DR": "down_right",
+		#"DL": "down_left",
+		#"UL": "up_left",
+		#"UR": "up_right"},
+#}
+
+# keep for now
 const BUG_SPRITE_DICTIONARY = {
 	"meep": {
 		"DR": preload("res://Assets/Bugs/meep.png"),
@@ -352,18 +417,18 @@ const BUG_SPRITE_DICTIONARY = {
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
 	"lezzz_middle": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
+		"DL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp"),
+		"UL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
+		"UR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp")},
 	"lezzz_head": {
 		"DR": preload("res://Assets/Bugs/bug_basic.png"),
 		"DL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
 	"smorg": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"DL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"UL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"UR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp")},
 }

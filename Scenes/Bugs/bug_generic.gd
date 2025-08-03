@@ -7,17 +7,20 @@ var base_speed: float # speed in pixels
 var speed
 var damage: float  # how much damage to deal
 
+@onready var hp_bar = $HP
+
 # status effect variables
 @onready var fire_timer = $FireTimer
 @onready var fire_ticker = $FireTimer/FireTicker
 @onready var poison_particles = $PoisonParticles
 @onready var fire_particles = $FireParticles
+@onready var slow_particles = $Slow
+@onready var ice_particles = $Ice
+
 @onready var flash_animator = $Sprite/FlashAnimation
 
 @onready var slow_timer = $SlowTimer
 @onready var stun_timer = $StunTimer
-#var fire_flash = preload("res://Scenes/Bugs/red_flash.tres")
-#var poison_flash = preload("res://Scenes/Bugs/green_flash.tres")
 
 var is_slowed = false
 var is_stunned = false
@@ -54,16 +57,27 @@ signal bug_died
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	base_speed = speed
-	h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
-	v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	if (type != "lezzz_tail" and type != "lezzz_head" and type != "lezzz_middle"):
+		h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+		v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	if (type == "smorg"):
+		hp_bar.position.y = -190
 	fire_timer.timeout.connect(fire_clear)
 	fire_ticker.timeout.connect(apply_fire_tick)
 	
 	stun_timer.timeout.connect(stun_clear)
-	pass
+	
+	hp_bar.max_value = health
+	global_skew = 0
+	global_rotation = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# update hp
+	hp_bar.value = health
+	
+	
+	
 	
 	if not is_stunned:
 		# determine velocity direction
@@ -152,6 +166,7 @@ func apply_slow(scaler):
 	if not is_stunned:
 		sprite.material.set_shader_parameter("mix_value", 50)
 		sprite.material.set_shader_parameter("current_color", Color(0, 0, 1))
+		slow_particles.emitting = true
 
 	if not is_slowed:
 		speed -= base_speed * (1.0 - scaler)
@@ -167,20 +182,25 @@ func slow_clear(scaler):
 	print(speed)
 	is_slowed = false
 	slow_timer.stop()
-	print("slow done")
+	slow_particles.emitting = false
 	
 func apply_stun():
 	sprite.material.set_shader_parameter("mix_value", 50)
 	sprite.material.set_shader_parameter("current_color", Color(0, 1, 1))
+	if is_slowed == true:
+		slow_particles.emitting = false
 	#sprite.material.shader_paramter
 	is_stunned = true
 	stun_timer.start(1 / Global.timeScale)
+	ice_particles.emitting = true
 
 func stun_clear():
 	if is_slowed:
 		sprite.material.set_shader_parameter("current_color", Color(0, 0, 1))
+		slow_particles.emitting = true
 	else:
 		sprite.material.set_shader_parameter("mix_value", 0)
 	is_stunned = false
 	stun_timer.stop()
 	print("stun stop")
+	ice_particles.emitting = false
