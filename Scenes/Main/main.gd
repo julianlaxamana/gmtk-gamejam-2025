@@ -8,58 +8,18 @@ var looped_once = false # 40+'ed
 
 @onready var wave_text = $Control/ShopBar/Label2/Label3
 @onready var time_scale_slider = $Control/EditorBar/HSlider
+@onready var next_wave_button = $Control/EditorBar/Button3
+@onready var winner_text = $Control/Winner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	wave = 39
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-var wave_list = [
-	1, # 1
-	2, # 2
-	3, # 3
-	4, # 4
-	5, #5
-	6, #6
-	7, #7
-	8, #8
-	9, #9
-	10, #10
-	11, #11
-	12, #12
-	13, #13
-	14, #14
-	15, #15
-	16, #16
-	17, #17
-	18, #18
-	19, #19
-	20, #20
-	21, #21
-	22, #22
-	23, #23
-	24, #24
-	25, #25
-	26, #26
-	27, #27
-	28, #28
-	29, #29
-	30, #30
-	31, #31
-	32, #32
-	33, #33
-	34, #34
-	35, #35
-	36, #36
-	37, #37
-	38, #38
-	39, #39
-	40, #40
-]
 
 #region wavelist
 func start_wave():
@@ -71,12 +31,12 @@ func start_wave():
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	#var wave = 1
-	
 	wave_text.text = str(wave)
 	
-	match wave_list[wave - 1]:
+	match wave:
 		1: 
+			if looped_once:
+				winner_text.visible = false
 			print(wave, " has started")
 			# 20 basic
 			spawn_many_bugs(0, 1.25, 20, "meep")
@@ -174,9 +134,13 @@ func start_wave():
 			pass
 		40:
 			pass
+		41:
+			wave = 0
+			looped_once = true
+			wave_text.text = str(wave)
+			winner_text.visible = true
+			# we could easily scale such stats here by looping through the dictionary and upping them
 	wave += 1
-	
-	
 
 #endregion wave list
 
@@ -232,7 +196,8 @@ func _on_bug_reached_end(damage: int):
 		
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false
-		$Control/EditorBar/Button3.visible = true
+		
+		next_wave_button.visible = true
 		time_scale_slider.editable = true
 	
 func _on_bug_died(value: int, type: String, death_position):
@@ -375,5 +340,5 @@ func connect_bug_signals(n):
 
 func _on_button_3_button_down() -> void:
 	start_wave()
-	$Control/EditorBar/Button3.visible = false
-	pass # Replace with function body.
+	if not looped_once:
+		next_wave_button.visible = false
