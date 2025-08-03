@@ -39,28 +39,28 @@ func start_wave():
 			if looped_once:
 				winner_text.visible = false
 			print(wave, " has started")
-			# 20 basic
-			spawn_many_bugs(0, 1.25, 20, "meep")
+			# 10 basic
+			spawn_many_bugs(0, 2.0, 10, "meep")
 		2: 
 			print(wave, " has started")
 			# 20 basic 30 swarm
-			spawn_many_bugs(0, 1.25, 20, "meep")
-			spawn_many_bugs(10, 1.5, 30, "fob")
+			spawn_many_bugs(0, 1.5, 15, "meep")
+			spawn_many_bugs(10, 1.5, 1, "borf")
 		3:
 			print(wave, " has started")
 			# 30 basic 10 strong
-			spawn_many_bugs(.7, 1, 30, "meep")
-			spawn_bugs_in_timeframe(0, 30, 10, "borf")
+			spawn_many_bugs(.7, 1, 10, "meep")
+			spawn_bugs_in_timeframe(0, 10, 5, "borf")
 		4:
 			print(wave, " has started")
 			# 30 basic 40 swarm 10 strong
-			spawn_many_bugs(0, 1, 30, "meep")
-			spawn_many_bugs(0, 1.25, 40, "fob")
-			spawn_bugs_in_timeframe(0, 40 * 1.3, 10, "borf")
+			spawn_many_bugs(0, 1.5, 10, "meep")
+			spawn_many_bugs(17, 1, 5, "borf")
+			spawn_many_bugs(23, 1.5, 10, "meep")
 		5:
 			print(wave, " has started")
-			for i in range(6):
-				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 7, 10, "fob")
+			spawn_many_bugs(0, 0.2, 15, "fob")
+			spawn_many_bugs(5, 1.5, 10, "meep")
 		6:
 			print(wave, " has started")
 			var i = 0
