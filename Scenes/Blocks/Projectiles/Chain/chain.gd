@@ -21,11 +21,14 @@ func set_direction() -> void:
 	dir = (target.global_position - global_position).normalized()
 var baseScale
 func _ready():
+	$AudioStreamPlayer.play(0.0)
 	$Node2D/Timer.start()
 	baseScale = scale
 	if bolt == null:
 		bolt = boltScn.instantiate()
 		Global.battlefield.add_child(bolt)
+		
+	
 	pass # Replace with function body.
 
 var explode = false

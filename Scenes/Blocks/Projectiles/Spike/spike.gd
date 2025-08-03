@@ -20,6 +20,7 @@ var explosion = preload("res://scenes/Blocks/Projectiles/Explode/Explode.tscn")
 var explode = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play(0.0)
 	baseScale = scale
 	pass # Replace with function body.
 

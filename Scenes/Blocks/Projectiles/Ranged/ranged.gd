@@ -14,6 +14,7 @@ var baseScale
 # Called when the node enters the scene tree for the first time.
 var explode = false
 func _ready():
+	$AudioStreamPlayer.play()
 	baseScale = scale
 	pass # Replace with function body.
 

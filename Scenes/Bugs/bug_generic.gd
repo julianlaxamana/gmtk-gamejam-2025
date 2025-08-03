@@ -115,6 +115,7 @@ func _process(delta):
 		# cant write tini_spoid spawn logic here because each bug needs to be tied
 		# to various signals in main
 		bug_died.emit(value, type, position) 
+		$AudioStreamPlayer.play()
 		Global.bits += int(value)
 		self.remove_from_group("bugs")
 		self.queue_free()

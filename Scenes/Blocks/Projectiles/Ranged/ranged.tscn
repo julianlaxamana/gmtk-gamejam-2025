@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxubg82tvpmvm"]
+[gd_scene load_steps=5 format=3 uid="uid://bxubg82tvpmvm"]
 
 [ext_resource type="Script" uid="uid://ndqrnqphtfni" path="res://scenes/Blocks/Projectiles/Ranged/ranged.gd" id="1_g82wv"]
 [ext_resource type="Texture2D" uid="uid://bwriwbmjycr3u" path="res://Assets/Particles/SPHERE_PROJECTILE.png" id="2_g82wv"]
+[ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="3_pp0k8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g82wv"]
 radius = 28.65
@@ -24,6 +25,10 @@ scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_g82wv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pp0k8")
+volume_db = 0.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -14,6 +14,7 @@ var augments
 var baseScale
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer.play(0.0)
 	baseScale = scale
 	pass # Replace with function body.
 
