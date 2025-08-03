@@ -499,6 +499,12 @@ volume_db = -10.0
 autoplay = true
 script = ExtResource("14_vk4q2")
 
+[node name="BugHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3348s")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("14_vk4q2")
+
 [connection signal="mouse_entered" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_exited"]
 [connection signal="button_down" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_button_down"]
@@ -528,3 +534,4 @@ script = ExtResource("14_vk4q2")
 [connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/Vol/HSlider" to="AudioStreamPlayer" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/PauseMenu/NinePatchRect/Button" to="Control/PauseMenu" method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="Control/EditorBar" method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="BugHit" to="Control/EditorBar" method="_on_audio_stream_player_finished"]

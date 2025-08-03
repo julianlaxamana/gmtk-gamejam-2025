@@ -225,6 +225,7 @@ func _on_bug_died(value: int, type: String, death_position):
 	
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false
+		next_wave_button.visible = true
 		time_scale_slider.editable = true
 
 #endregion
