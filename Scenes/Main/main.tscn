@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=26 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://Scenes/Main/main.gd" id="1_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://Scenes/Main/IDE/ide.tscn" id="2_br8qb"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bqdhf8akv6h4w" path="res://Assets/GUI/gui.png" id="12_6t3k2"]
 [ext_resource type="AudioStream" uid="uid://cwgihi46womqx" path="res://Assets/Sounds/bug.wav" id="12_3348s"]
 [ext_resource type="Script" uid="uid://xvrardmt78qo" path="res://Scenes/Main/pause_menu.gd" id="12_wliom"]
+[ext_resource type="AudioStream" uid="uid://byayin786mn0c" path="res://Assets/Sounds/Hit.wav" id="14_2ok46"]
 [ext_resource type="Script" uid="uid://c0gnp2yu7hb6h" path="res://Scenes/Main/audio_stream_player.gd" id="14_vk4q2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7uo0"]
@@ -467,6 +468,8 @@ offset_top = 197.0
 offset_right = 389.0
 offset_bottom = 213.0
 theme = ExtResource("4_rdp1x")
+min_value = -24.0
+max_value = 5.0
 
 [node name="SFX2" type="Label" parent="Control/PauseMenu/NinePatchRect"]
 z_index = 4096
@@ -493,8 +496,8 @@ offset_bottom = 275.0
 theme = ExtResource("4_rdp1x")
 text = "Resume"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_3348s")
+[node name="HitSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_2ok46")
 volume_db = -10.0
 autoplay = true
 script = ExtResource("14_vk4q2")
@@ -531,7 +534,7 @@ script = ExtResource("14_vk4q2")
 [connection signal="mouse_exited" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_mouse_exited"]
 [connection signal="mouse_entered" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_exited"]
-[connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/Vol/HSlider" to="AudioStreamPlayer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/Vol/HSlider" to="HitSfx" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/SFX/HSlider" to="HitSfx" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/PauseMenu/NinePatchRect/Button" to="Control/PauseMenu" method="_on_button_pressed"]
-[connection signal="finished" from="AudioStreamPlayer" to="Control/EditorBar" method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="BugHit" to="Control/EditorBar" method="_on_audio_stream_player_finished"]
