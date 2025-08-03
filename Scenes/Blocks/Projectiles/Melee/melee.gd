@@ -5,7 +5,7 @@ var MAX_TARGETS = 1
 var dir
 var speed
 var origin
-var damage
+var damage = 1.0
 
 var augments
 
@@ -15,16 +15,39 @@ var target
 func set_direction() -> void:
 	dir = (target.global_position - global_position).normalized()
 	
+var baseScale
+# Called when the node enters the scene tree for the first time.
 func _ready():
+	$Node2D/Timer.start()
+	baseScale = scale
 	pass # Replace with function body.
 
 
+var explode = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	MAX_TARGETS = 1
+	if augments != null:
+		for x in augments:
+			if x == "pierce":
+				MAX_TARGETS += 1
+			elif x == "big":
+				scale = baseScale * 1.75
+				damage = damage * 1.25
+			elif x == "explode":
+				explode = true
+				
 	global_position = origin + dir * 50
 	pass
+var explosion = preload("res://scenes/Blocks/Projectiles/Explode/Explode.tscn")
 
 func _on_timer_timeout() -> void:
+	for bug in targets:
+		if explode:
+			var explode = explosion.instantiate()
+			Global.battlefield.add_child(explode)
+			explode.global_position = bug.global_position
+		
 	queue_free()
 	pass # Replace with function body.
 
@@ -34,10 +57,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		targets.append(area.get_parent().get_parent())
 		
 		
+		
 		# bug hit
 		#for bug in targets:
 		#	bug.health -= damage
 		#	pass
 		
-		queue_free()
 	pass # Replace with function body.

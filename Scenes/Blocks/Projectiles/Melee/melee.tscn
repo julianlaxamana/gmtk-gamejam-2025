@@ -21,7 +21,6 @@ texture = ExtResource("2_nxhs3")
 
 [node name="Timer" type="Timer" parent="Node2D"]
 wait_time = 0.1
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
 position = Vector2(-2.51728e-08, 5.57863e-08)

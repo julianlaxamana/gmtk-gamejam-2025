@@ -67,6 +67,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func test(proj, dir) -> void:
+	proj.augments = augments
 	proj.global_position = global_position
 	if "origin" in proj:
 		proj.origin= global_position

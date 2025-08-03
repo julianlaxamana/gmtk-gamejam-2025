@@ -8,7 +8,7 @@ var newProjectile
 var unit
 
 var augments
-var delay = 2.0
+var delay = 5.0
 var NUM_PROJECTILES = 1
 
 @onready var timing = preload("res://scenes/Blocks/Attacks/Basic/spawner.gd")
@@ -28,10 +28,12 @@ func _process(delta):
 
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
-		newProjectile = projectile.instantiate()
-		Global.battlefield.call_deferred("add_child", newProjectile)
-		call_deferred("test", newProjectile)
-		queue_free()
+		for x in range(NUM_PROJECTILES):
+			newProjectile = projectile.instantiate()
+			Global.battlefield.call_deferred("add_child", newProjectile)
+			newProjectile.augments = augments
+			call_deferred("test", newProjectile)
+			queue_free()
 	pass
 
 func _fire(mods: Array):
