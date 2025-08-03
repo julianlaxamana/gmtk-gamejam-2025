@@ -194,18 +194,20 @@ func _input(event):
 		print("w pressed")
 		bug.apply_stun()
 	if event.is_action_pressed("q"):
+		Global.computer_terminal_style_box.bg_color = Color(1, 0, 0)
+		#Global.computer_terminal.add_theme_stylebox_override("normal", new_stylebox_normal)
 		print("q pressed")
-		bug.apply_slow(.3)
+		#bug.apply_slow(.3)
 
 
 #region bug signal logic
 func _on_bug_reached_end(damage: int):
 	# hurt the thing
 	base_health -= damage
+	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	
 	if base_health <= 0:
 		lost_game()
-	pass
 	
 func _on_bug_died(value: int, type: String, death_position):
 	# give gold to player

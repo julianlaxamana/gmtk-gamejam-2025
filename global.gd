@@ -21,6 +21,9 @@ var path_node
 var battlefield
 var grid
 
+var computer_terminal_style_box = preload("res://Scenes/Main/Field/computer.tres")
+var computer_terminal # the node that is the computer terminal
+
 #region Weights
 var blockTypeWeights = {
 	"attack": 0.5,
