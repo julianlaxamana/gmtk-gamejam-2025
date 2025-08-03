@@ -72,12 +72,12 @@ func start_wave():
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		7:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "bleep")
+			spawn_many_bugs(0, 1.5, 3, "borf")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		8:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "zonk")
+			spawn_many_bugs(0, 1.5, 3, "borf")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		9:
@@ -87,12 +87,12 @@ func start_wave():
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		10:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 1, "smorg")
+			spawn_many_bugs(0, 1.5, 3, "borf")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		11:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 1, "spoid")
+			spawn_many_bugs(0, 1.5, 3, "borf")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		12:
@@ -189,29 +189,6 @@ func start_wave():
 			music_player.stream = boss_song
 			print(wave, " has started")
 			spawn_lezzz(0, 2, 10)
-			pass
-		31:
-			pass
-		32:
-			pass
-		33:
-			pass
-		34:
-			pass
-		35:
-			pass
-		36:
-			pass
-		37:
-			pass
-		38:
-			pass
-		39:
-			pass
-		40:
-			pass
-			
-			
 			if looped_once:
 				wave = 0
 				# add scaling here too
@@ -344,50 +321,50 @@ func create_bug(type: String):
 			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
 			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"fob":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['fob']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['fob']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['fob']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['fob']["damage"]
 		"borf":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['borf']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['borf']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['borf']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['borf']["damage"]
 		"spoid":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['spoid']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['spoid']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['spoid']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['spoid']["damage"]
 		"bleep":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['bleep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['bleep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['bleep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['bleep']["damage"]
 		"zonk":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['zonk']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['zonk']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['zonk']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['zonk']["damage"]
 		"lezzz_tail":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['lezzz_tail']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['lezzz_tail']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['lezzz_tail']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['lezzz_tail']["damage"]
 		"lezzz_middle":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['lezzz_middle']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['lezzz_middle']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['lezzz_middle']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['lezzz_middle']["damage"]
 		"lezzz_head":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['lezzz_head']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['lezzz_head']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['lezzz_head']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['lezzz_head']["damage"]
 		"smorg":
-			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
-			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
-			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
-			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			bug.health = Global.BUG_STAT_DICTIONARY['smorg']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['smorg']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['smorg']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['smorg']["damage"]
 			
 	print("bug speed ", bug.speed)
 	# do for all bugs
