@@ -6,7 +6,7 @@ var editor
 var disableMouse = false
 
 var unitBaseCost = 50
-var bits = 7500000
+var bits = 150
 
 var timeScale = 1.0
 
@@ -484,15 +484,15 @@ const BUG_SPRITE_DICTIONARY = {
 
 const BUG_STAT_DICTIONARY = {
 	"meep": {
-		"health": 20,
+		"health": 10,
 		"value": 2,
 		"speed": 1.578,
 		"damage": 2,
 		},
 	"fob": {
-		"health": 15,
+		"health": 5,
 		"value": 1,
-		"speed": 1.7,
+		"speed": 2.5,
 		"damage": 1,
 		},
 	"borf": {
@@ -502,9 +502,9 @@ const BUG_STAT_DICTIONARY = {
 		"damage": 5,
 		},
 	"spoid": {
-		"health": 43,
+		"health": 120,
 		"value": 4,
-		"speed": 1.276,
+		"speed": 0.8,
 		"damage": 4,
 		},
 	"tini_spoid": {
@@ -515,41 +515,41 @@ const BUG_STAT_DICTIONARY = {
 		},
 	"bleep": 
 		{
-		"health": 45,
+		"health": 75,
 		"value": 7,
-		"speed": 1.94,
+		"speed": 2.25,
 		"damage": 4,
 		},
 	"zonk": {
 		"health": 25,
 		"value": 12,
-		"speed": 3.145,
+		"speed": 3.5,
 		"damage": 7,
 		},
 	#region lez stats
 	"lezzz_tail": {
-		"health": 40,
+		"health": 50,
 		"value": 2,
-		"speed": 1.578,
+		"speed": 1.2,
 		"damage": .75,
 		},
 	"lezzz_middle": {
-		"health": 40,
+		"health": 50,
 		"value": 2,
-		"speed": 1.578,
+		"speed": 1.2,
 		"damage": .75,
 		},
 	"lezzz_head": {
-		"health": 40,
+		"health": 100,
 		"value": 2,
-		"speed": 1.578,
+		"speed": 1.2,
 		"damage": .75,
 		},
 		#endregion lez stats
 	"smorg": {
-		"health": 1200,
+		"health": 2000,
 		"value": 50,
 		"speed": .5,
-		"damage": 13,
+		"damage": 50,
 	}
 }
