@@ -388,6 +388,8 @@ func create_bug(type: String):
 			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
 			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
 			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
+			
+	print("bug speed ", bug.speed)
 	# do for all bugs
 	path.add_child(bug)
 	return bug

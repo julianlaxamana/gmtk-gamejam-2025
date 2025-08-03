@@ -500,7 +500,7 @@ const BUG_STAT_DICTIONARY = {
 	"borf": {
 		"health": 50,
 		"value": 5,
-		"speed": 1,
+		"speed": 1.0,
 		"damage": 5,
 		},
 	"spoid": {
