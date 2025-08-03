@@ -551,7 +551,7 @@ const BUG_STAT_DICTIONARY = {
 	"smorg": {
 		"health": 2000,
 		"value": 50,
-		"speed": .5,
+		"speed": 0.5,
 		"damage": 50,
 	}
 }
