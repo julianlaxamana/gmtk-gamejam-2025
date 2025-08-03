@@ -12,18 +12,18 @@ position = Vector2(55, -68)
 scale = Vector2(1.5, 1.5)
 
 [node name="Action Block2" parent="." instance=ExtResource("2_cgmlp")]
-position = Vector2(77, 14)
+position = Vector2(98, 20)
 scale = Vector2(1.5, 1.5)
 
 [node name="Loop Block" parent="." instance=ExtResource("1_aptal")]
-position = Vector2(48, 212)
+position = Vector2(51, 284)
 
 [node name="Loop Block2" parent="." instance=ExtResource("1_aptal")]
 position = Vector2(48, -28)
 
 [node name="Action Block3" parent="." instance=ExtResource("2_cgmlp")]
-position = Vector2(79, 127)
+position = Vector2(108, 163)
 scale = Vector2(1.5, 1.5)
 
 [node name="Loop Block3" parent="." instance=ExtResource("1_aptal")]
-position = Vector2(49, 84)
+position = Vector2(48, 126)

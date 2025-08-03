@@ -10,8 +10,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("3_tttqk")
 font_size = 40
-font_color = Color(0.305882, 0.305882, 0.305882, 1)
-outline_color = Color(0.305882, 0.305882, 0.305882, 1)
+font_color = Color(0.14192, 0.352316, 0.357119, 1)
+outline_color = Color(2.40654e-08, 0.345025, 0.356237, 1)
 shadow_color = Color(1, 1, 1, 0)
 shadow_offset = Vector2(1.77, 1)
 
@@ -93,6 +93,17 @@ centered = false
 region_enabled = true
 region_rect = Rect2(904, -1, 121, 122)
 
+[node name="Text" type="Label" parent="Bottom"]
+texture_filter = 1
+offset_left = 8.187
+offset_top = 5.578
+offset_right = 207.187
+offset_bottom = 46.578
+scale = Vector2(0.1, -0.1)
+text = "sleep(delay) }"
+label_settings = SubResource("LabelSettings_p5g84")
+vertical_alignment = 1
+
 [node name="Top2" type="Sprite2D" parent="Bottom"]
 texture_filter = 1
 position = Vector2(120, 9.15556)
@@ -110,17 +121,6 @@ texture = ExtResource("2_ckr6r")
 centered = false
 region_enabled = true
 region_rect = Rect2(419, 8, 84, 112)
-
-[node name="Text" type="Label" parent="Bottom"]
-texture_filter = 1
-offset_left = 164.0
-offset_top = -9.22961
-offset_right = 377.0
-offset_bottom = 55.7704
-scale = Vector2(1.965, 1.965)
-text = "sleep(delay) }"
-label_settings = SubResource("LabelSettings_p5g84")
-vertical_alignment = 1
 
 [node name="NubArea2" type="Area2D" parent="."]
 position = Vector2(-9.715, 66.667)

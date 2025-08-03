@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs1i565yhtcck"]
+[gd_scene load_steps=8 format=3 uid="uid://bs1i565yhtcck"]
 
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_5idpc"]
 [ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://scenes/Main/Shop/shop_box.gd" id="1_f6317"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="1_uhh8t"]
-[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="4_f6317"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6317"]
 bg_color = Color(0.901961, 0.337255, 0.901961, 1)
@@ -42,7 +41,7 @@ outline_color = Color(0.521514, 0.056665, 0.526085, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_f6317"]
 paragraph_spacing = -9.835
 font = ExtResource("1_5idpc")
-font_size = 45
+font_size = 15
 font_color = Color(0.427872, 0.0277346, 0.432117, 1)
 
 [node name="ShopBox" type="Node2D"]
@@ -79,16 +78,13 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Button"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 35.0
-offset_right = 231.0
-offset_bottom = 80.0
-text = "50"
+offset_left = 155.0
+offset_top = 41.0
+offset_right = 218.0
+offset_bottom = 82.0
+text = "Hole: Circle 
+Nub1: Gay
+Nub2 "
 label_settings = SubResource("LabelSettings_f6317")
-
-[node name="Icon" type="Sprite2D" parent="Button"]
-position = Vector2(255, 57)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_f6317")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

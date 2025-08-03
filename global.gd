@@ -65,6 +65,10 @@ var BLOCKS_DICTIONARY = {
 	block.unit =Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Basic/basic.tscn")
 	block.bottomText = ")"
+	block.holeType = 0
+	block.nubType1 = 1
+	block.nubType2 = 0
+	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
@@ -84,6 +88,10 @@ var BLOCKS_DICTIONARY = {
 	block.unit = Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Radial/radial.tscn")
 	block.bottomText = ")"
+	block.holeType = 0
+	block.nubType1 = 1
+	block.nubType2 = 0
+	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
@@ -103,6 +111,10 @@ var BLOCKS_DICTIONARY = {
 	block.unit = Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Gatling/gatling.tscn")
 	block.bottomText = ")"
+	block.holeType = 0
+	block.nubType1 = 1
+	block.nubType2 = 0
+	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
@@ -122,6 +134,10 @@ var BLOCKS_DICTIONARY = {
 	block.unit = Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Spread/spread.tscn")
 	block.bottomText = ")"
+	block.holeType = 0
+	block.nubType1 = 1
+	block.nubType2 = 0
+	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
@@ -141,6 +157,10 @@ var BLOCKS_DICTIONARY = {
 	block.functionName = "\"melee\""
 	block.variable = preload("res://scenes/Blocks/Projectiles/Melee/melee.tscn")
 	block.location = "shop"
+	#1fcadc
+	block.setColor(Color("1fcadc"), block)
+	block.holeType = 1
+	block.nubType = 2
 	return block
 			),
 			"ranged": (func ():
@@ -149,6 +169,9 @@ var BLOCKS_DICTIONARY = {
 	block.functionName = "\"ranged\""
 	block.variable = preload("res://scenes/Blocks/Projectiles/Ranged/ranged.tscn")
 	block.location = "shop"
+	block.holeType = 1
+	block.setColor(Color("1fcadc"), block)
+	block.nubType = 2
 	return block
 			),
 			"homing": (func ():
@@ -157,6 +180,9 @@ var BLOCKS_DICTIONARY = {
 	block.functionName = "\"homing\""
 	block.variable = preload("res://scenes/Blocks/Projectiles/Homing/homing.tscn")
 	block.location = "shop"
+	block.holeType = 1
+	block.setColor(Color("1fcadc"), block)
+	block.nubType = 2
 	return block
 			),
 			"spike": (func ():
@@ -165,6 +191,9 @@ var BLOCKS_DICTIONARY = {
 	block.functionName = "\"spike\""
 	block.variable = preload("res://scenes/Blocks/Projectiles/Spike/spike.tscn")
 	block.location = "shop"
+	block.holeType = 1
+	block.nubType = 2
+	block.setColor(Color("1fcadc"), block)
 	return block
 			),
 			"chain": (func ():
@@ -173,6 +202,9 @@ var BLOCKS_DICTIONARY = {
 	block.functionName = "\"chain\""
 	block.variable = preload("res://scenes/Blocks/Projectiles/Chain/chain.tscn")
 	block.location = "shop"
+	block.holeType = 1
+	block.setColor(Color("1fcadc"), block)
+	block.nubType = 2
 	return block
 			),
 			
@@ -185,6 +217,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["slow"]
 	block.location = "shop"
 	block.typeOf = "augment"
+	block.setColor(Color("b5bc56"), block)
+	block.holeType = 2
+	block.nubType = 2
 	return block
 			),
 			"pierce": (func ():
@@ -194,6 +229,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["pierce"]
 	block.location = "shop"
 	block.typeOf = "augment"
+	block.setColor(Color("b5bc56"), block)
+	block.holeType = 2
+	block.nubType = 2
 	return block
 			),
 			"burn": (func ():
@@ -203,6 +241,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["burn"]
 	block.location = "shop"
 	block.typeOf = "augment"
+	block.holeType = 2
+	block.setColor(Color("b5bc56"), block)
+	block.nubType = 2
 	return block
 			),
 			"poison": (func ():
@@ -212,6 +253,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["poison"]
 	block.typeOf = "augment"
 	block.location = "shop"
+	block.holeType = 2
+	block.nubType = 2
+	block.setColor(Color("b5bc56"), block)
 	return block
 			),
 			"ice": (func ():
@@ -221,6 +265,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["ice"]
 	block.typeOf = "augment"
 	block.location = "shop"
+	block.holeType = 2
+	block.nubType = 2
+	block.setColor(Color("b5bc56"), block)
 	return block
 			),
 			"big": (func ():
@@ -230,6 +277,9 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["big"]
 	block.typeOf = "augment"
 	block.location = "shop"
+	block.holeType = 2
+	block.nubType = 2
+	block.setColor(Color("b5bc56"), block)
 	return block
 			),
 			"explode": (func ():
@@ -239,15 +289,21 @@ var BLOCKS_DICTIONARY = {
 	block.variable = ["explode"]
 	block.typeOf = "augment"
 	block.location = "shop"
+	block.holeType = 2
+	block.nubType = 2
+	block.setColor(Color("b5bc56"), block)
 	return block
 			),
 			"projectile": (func ():
 	var blockScene = preload("res://scenes/Blocks/action_block.tscn")
 	var block = blockScene.instantiate()
-	block.functionName = "\"projectile_add\""
+	block.functionName = "\"projectile\""
 	block.variable = ["projectile"]
 	block.typeOf = "augment"
 	block.location = "shop"
+	block.holeType = 2
+	block.nubType = 2
+	block.setColor(Color("b5bc56"), block)
 	return block
 			)
 			}

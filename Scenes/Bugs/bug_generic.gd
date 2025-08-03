@@ -16,8 +16,8 @@ var damage: float  # how much damage to deal
 
 @onready var slow_timer = $SlowTimer
 @onready var stun_timer = $StunTimer
-var fire_flash = preload("res://Scenes/Bugs/red_flash.tres")
-var poison_flash = preload("res://Scenes/Bugs/green_flash.tres")
+#var fire_flash = preload("res://Scenes/Bugs/red_flash.tres")
+#var poison_flash = preload("res://Scenes/Bugs/green_flash.tres")
 
 var is_slowed = false
 var is_stunned = false
