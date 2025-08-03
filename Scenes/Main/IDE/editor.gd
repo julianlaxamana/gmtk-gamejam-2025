@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		currScript.blockCount += 1
 		block.reparent(currScript)
 		block.location = "editor"
-		block.z_index = 0
+		block.z_index = 20
 		block.unit = Global.selectedUnit
 		if block in get_children():
 			move_child(block, 4)
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	if block2 != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block2.location == "editor":
 		currScript.blockCount -= 1
 		block2.location = "inventory"
-		block2.z_index = 3
+		block2.z_index = 3000
 		block2.unit = null
 		Global.inventory.append(block2)
 		block2.scale = Vector2(1.0, 1.0)

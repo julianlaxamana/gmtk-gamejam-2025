@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 		hole.region_rect.position = Vector2(296.0, 7.0)
 		hole.region_rect.size = Vector2(133, 107)
 		holeArea.scale = Vector2(0, 0)
+	
 		
 	funct.text = functionName
 	nubArea.monitorable = !attached

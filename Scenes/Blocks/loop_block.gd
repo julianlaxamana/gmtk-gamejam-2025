@@ -116,7 +116,11 @@ func _process(delta: float) -> void:
 	
 	$NubArea2/Nub2.region_rect.position = Vector2(-2.0 + 128.0 * nubType2, 288)
 	$NubArea3/Nub2.region_rect.position = Vector2(-2.0 + 128.0 * nubType1, 288)
-	$Timer.wait_time = delay
+	if unit != null && "delay" in unit:
+		delay = unit.delay
+	if delay != null:
+		$Timer.wait_time = delay
+	print(delay)
 	task.call(self)
 	await get_tree().process_frame 
 	

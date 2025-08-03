@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 		if node != null:
 			inventory.append(node)
 			node.reparent($Label2)
-
+			node.z_index = 3000
 			if node.type == "action":
 				node.position = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)
 				node.pos = Vector2($Label2.size.x / 2.0 - 64, $Label2.size.y / 2.0 + 15)

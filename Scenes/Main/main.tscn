@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://c7jrv7iomocsm" path="res://scenes/Main/Shopbar.gd" id="5_5wuev"]
 [ext_resource type="PackedScene" uid="uid://iog6rk6wy7ox" path="res://scenes/Main/Shop/shop_field.tscn" id="5_nyu32"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="5_rdp1x"]
-[ext_resource type="Script" uid="uid://dy7jp51rudqnd" path="res://Scenes/Main/h_slider.gd" id="8_qiqqp"]
+[ext_resource type="Script" uid="uid://dy7jp51rudqnd" path="res://scenes/Main/h_slider.gd" id="8_qiqqp"]
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="9_k7uo0"]
 [ext_resource type="PackedScene" uid="uid://dlmdswquwdicb" path="res://Assets/bit/bit.tscn" id="11_8x5ba"]
 
