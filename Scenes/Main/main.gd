@@ -11,6 +11,7 @@ var looped_once = false # 40+'ed
 @onready var next_wave_button = $Control/EditorBar/Button3
 @onready var winner_text = $Control/Winner
 @onready var music_player = $AudioStreamPlayer
+@onready var hit_sfx = $HitSfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -169,20 +170,6 @@ var bug
 func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
-	if event.is_action_pressed("debug_a"):
-		bug = create_custom_bug(100, 0, 20, 26)
-	if event.is_action_pressed("debug_d"):
-		print("d pressed")
-		bug.apply_poison()
-	if event.is_action_pressed("debug_s"):
-		print("s pressed")
-		bug.apply_fire()
-	if event.is_action_pressed("debug_w"):
-		print("w pressed")
-		bug.apply_stun()
-	if event.is_action_pressed("q"):
-		print("q pressed")
-		bug.apply_slow(.3)
 
 
 #region bug signal logic
