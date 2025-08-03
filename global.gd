@@ -25,6 +25,14 @@ var computer_terminal_style_box = preload("res://Scenes/Main/Field/computer.tres
 var computer_terminal # the node that is the computer terminal
 
 var wave
+#region dmg
+var baseDmg = {
+	"melee": 20.0,
+	"ranged": 5.0,
+	"homing": 5.0,
+	"spike": 3.0,
+	"chain": 10.0
+}
 
 #region Weights
 var blockTypeWeights = {
@@ -75,11 +83,11 @@ var BLOCKS_DICTIONARY = {
 	block.nubType2 = 0
 	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
-		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
+		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
-			attack.projectile = obj.get_child(9).get_child(0).variable
+			attack.projectile = obj.get_child(8).get_child(0).variable
 			attack.unit = obj.unit
-			var attackBlock = obj.get_child(9).get_child(0)
+			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
 				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
@@ -98,11 +106,11 @@ var BLOCKS_DICTIONARY = {
 	block.nubType2 = 0
 	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
-		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
+		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
-			attack.projectile = obj.get_child(9).get_child(0).variable
-			var attackBlock = obj.get_child(9).get_child(0)
+			attack.projectile = obj.get_child(8).get_child(0).variable
+			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
 				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
@@ -121,11 +129,11 @@ var BLOCKS_DICTIONARY = {
 	block.nubType2 = 0
 	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
-		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
+		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
-			attack.projectile = obj.get_child(9).get_child(0).variable
-			var attackBlock = obj.get_child(9).get_child(0)
+			attack.projectile = obj.get_child(8).get_child(0).variable
+			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
 				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
@@ -144,11 +152,11 @@ var BLOCKS_DICTIONARY = {
 	block.nubType2 = 0
 	block.setColor(Color("ef89e4"), block)
 	block.test = func (obj):
-		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
+		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
-			attack.projectile = obj.get_child(9).get_child(0).variable
-			var attackBlock = obj.get_child(9).get_child(0)
+			attack.projectile = obj.get_child(8).get_child(0).variable
+			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
 				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)

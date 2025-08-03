@@ -102,19 +102,6 @@ point_count = 23
 
 [sub_resource type="Theme" id="Theme_bexw6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr1en"]
-bg_color = Color(0.201527, 0.201527, 0.201526, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 1
-
 [sub_resource type="LabelSettings" id="LabelSettings_0ehjo"]
 font = ExtResource("9_7jpgn")
 font_size = 30

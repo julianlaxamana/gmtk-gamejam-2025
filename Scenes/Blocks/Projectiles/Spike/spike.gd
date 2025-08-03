@@ -8,7 +8,8 @@ var origin
 var getPos = true
 var target
 var pos
-var damage = 1.0
+var damage = Global.baseDmg["chain"]
+var dmg = damage
 # Called when the node enters the scene tree for the first time.
 var augments
 
@@ -22,19 +23,32 @@ func _ready():
 	baseScale = scale
 	pass # Replace with function body.
 
-
+var fire = false
+var ice = false
+var slow = false
+var poison = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(augments)
 	if augments != null:
 		for x in augments:
 			if x == "pierce":
 				MAX_TARGETS += 1
 			elif x == "big":
 				scale = baseScale * 1.75
-				damage = damage * 1.25
+				dmg = damage * 1.25
 			elif x == "explode":
 				explode = true
+			elif x == "fire":
+				fire = true
+			elif x == "ice":
+				fire = true
+			elif x == "slow":
+				fire = true	
+			elif x == "slow":
+				poison = true
+				
 	if getPos:
 		var thing = randf_range(-75.0, 75.0)
 		var closestOffset = Global.path_node.curve.get_closest_offset(Global.path_node.to_local(global_position + dir * 50.0))
@@ -62,5 +76,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 #	 #get buggys that are in radius
 	if area.get_parent().get_parent() && targets.size() < MAX_TARGETS && area.get_parent().get_parent().is_in_group("bugs"):
 		targets.append(area.get_parent().get_parent())
+		area.get_parent().get_parent().health -= dmg
+		if fire:
+			area.get_parent().get_parent().apply_fire()
+		if ice:
+			area.get_parent().get_parent().apply_stun()
+		if slow:
+			area.get_parent().get_parent().apply_slow(20 / damage / 7.5)
+		if poison:
+			area.get_parent().get_parent().apply_poison()
 #		queue_free()
 	pass # Replace with function body.

@@ -6,8 +6,8 @@ var MAX_TARGETS = 3
 var dir
 var speed
 var origin
-var damage = 1.0
-
+var damage = Global.baseDmg["chain"]
+var dmg = damage
 var scaleBolt = 1.0
 
 var bolt
@@ -29,6 +29,11 @@ func _ready():
 	pass # Replace with function body.
 
 var explode = false
+
+var fire = false
+var ice = false
+var slow = false
+var poison = false
 var explosion = preload("res://scenes/Blocks/Projectiles/Explode/Explode.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,10 +44,19 @@ func _process(delta):
 				MAX_TARGETS += 1
 			elif x == "big":
 				scale = baseScale * 1.75
-				damage = damage * 1.25
-				scaleBolt = scaleBolt * 1.75
+				dmg = damage * 1.25
+				scaleBolt = 1.75
 			elif x == "explode":
 				explode = true
+			elif x == "fire":
+				fire = true
+			elif x == "ice":
+				fire = true
+			elif x == "slow":
+				fire = true	
+			elif x == "slow":
+				poison = true	
+			
 
 	global_position = origin + dir * 50
 	pass
@@ -91,8 +105,7 @@ func _on_area_2d_2_area_entered(area: Area2D) -> void:
 			newProjectile.target = area.get_parent().get_parent()
 		Global.battlefield.call_deferred("add_child", newProjectile)
 		call_deferred("test", newProjectile, Vector2(0, 0), area.get_parent().get_parent().global_position)
-	
 		
-		
+		area.get_parent().get_parent().health -= dmg
 		
 	pass # Replace with function body.

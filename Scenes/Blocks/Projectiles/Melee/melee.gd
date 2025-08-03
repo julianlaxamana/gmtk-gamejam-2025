@@ -5,7 +5,8 @@ var MAX_TARGETS = 1
 var dir
 var speed
 var origin
-var damage = 1.0
+var damage = Global.baseDmg["chain"]
+var dmg = damage
 
 var augments
 
@@ -24,6 +25,10 @@ func _ready():
 
 
 var explode = false
+var fire = false
+var ice = false
+var slow = false
+var poison = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	MAX_TARGETS = 1
@@ -33,9 +38,17 @@ func _process(delta):
 				MAX_TARGETS += 1
 			elif x == "big":
 				scale = baseScale * 1.75
-				damage = damage * 1.25
+				dmg = damage * 1.25
 			elif x == "explode":
 				explode = true
+			elif x == "fire":
+				fire = true
+			elif x == "ice":
+				fire = true
+			elif x == "slow":
+				fire = true	
+			elif x == "slow":
+				poison = true	
 				
 	global_position = origin + dir * 50
 	pass
@@ -55,9 +68,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	 #get buggys that are in radius
 	if area.get_parent().get_parent() && targets.size() < MAX_TARGETS && area.get_parent().get_parent().is_in_group("bugs"):
 		targets.append(area.get_parent().get_parent())
-		
-		
-		
+		area.get_parent().get_parent().health -= dmg
+		if fire:
+			area.get_parent().get_parent().apply_fire()
+		if ice:
+			area.get_parent().get_parent().apply_stun()
+		if slow:
+			area.get_parent().get_parent().apply_slow(20 / damage / 7.5)
+		if poison:
+			area.get_parent().get_parent().apply_poison()
 		# bug hit
 		#for bug in targets:
 		#	bug.health -= damage
