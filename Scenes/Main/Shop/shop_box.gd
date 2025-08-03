@@ -31,8 +31,10 @@ func _ready() -> void:
 		blockName = gen_rand(Global.projectileWeights)
 	elif blockType == "augment":
 		blockName = gen_rand(Global.augmentWeights)
+	$Button/Label2.text = blockName
 	block = Global.BLOCKS_DICTIONARY[blockType][blockName].call()
-	block.scale = Vector2(1.0, 1.0)
+	
+	block.scale = Vector2(0.8, 0.8)
 	if block.type == "loop":
 		block.position = Vector2(10.0, 40.0)
 	else:

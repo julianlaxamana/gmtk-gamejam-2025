@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://crrc11gx445cn"]
+[gd_scene load_steps=10 format=3 uid="uid://crrc11gx445cn"]
 
-[ext_resource type="Texture2D" uid="uid://dnqpn5pd1huly" path="res://Assets/GUI/blocks_sheet.png" id="1_qwoef"]
 [ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://scenes/Blocks/action_block.gd" id="1_w3nc2"]
+[ext_resource type="Texture2D" uid="uid://c5unkivqmhhte" path="res://Assets/GUI/BLOCKS_SPRITE_SHEET-modified.png" id="2_4aedn"]
+[ext_resource type="Texture2D" uid="uid://c3kqado1dd3sy" path="res://Assets/GUI/blocks_sheet1.png" id="3_vn2g7"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="4_4aedn"]
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_5t2f7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3nc2"]
-size = Vector2(131, 28)
+size = Vector2(144, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepio"]
 size = Vector2(7.35659, 3.51163)
@@ -17,54 +18,91 @@ size = Vector2(29.5, 11.5)
 [sub_resource type="LabelSettings" id="LabelSettings_vn2g7"]
 font = ExtResource("4_4aedn")
 font_size = 40
-font_color = Color(0.14192, 0.352316, 0.357119, 1)
+font_color = Color(0.306923, 0.306923, 0.306923, 1)
 outline_color = Color(2.40654e-08, 0.345025, 0.356237, 1)
 shadow_color = Color(1, 1, 1, 0)
 shadow_offset = Vector2(1.77, 1)
 
 [node name="Action Block" type="Node2D"]
-z_index = 3
+show_behind_parent = true
+z_index = 100
+z_as_relative = false
+texture_filter = 3
 script = ExtResource("1_w3nc2")
 
 [node name="BG" type="Node2D" parent="."]
+show_behind_parent = true
 
 [node name="Top" type="Sprite2D" parent="BG"]
+show_behind_parent = true
 texture_filter = 1
-position = Vector2(6, -14)
-scale = Vector2(4, 4)
-texture = ExtResource("1_qwoef")
+position = Vector2(1.575, -14)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("2_4aedn")
 region_enabled = true
-region_rect = Rect2(0, 20, 4, 7)
+region_rect = Rect2(246, 7, 91, 107)
+
+[node name="Top2" type="Sprite2D" parent="BG"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(125.62, -14)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("2_4aedn")
+region_enabled = true
+region_rect = Rect2(415, 7, 89, 107)
 
 [node name="Hole" type="Sprite2D" parent="BG"]
+show_behind_parent = true
 texture_filter = 1
 position = Vector2(28, -14)
-scale = Vector2(4, 4)
-texture = ExtResource("1_qwoef")
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("3_vn2g7")
 region_enabled = true
-region_rect = Rect2(4, 20, 7, 7)
+region_rect = Rect2(-2, 134.995, 134, 107)
 
 [node name="Top3" type="Sprite2D" parent="BG"]
+show_behind_parent = true
 texture_filter = 1
-position = Vector2(85, -14)
-scale = Vector2(4, 4)
-texture = ExtResource("1_qwoef")
+position = Vector2(80.81, -14)
+scale = Vector2(0.555, 0.275)
+texture = ExtResource("3_vn2g7")
 region_enabled = true
-region_rect = Rect2(10, 20, 22, 7)
+region_rect = Rect2(296, 7, 133, 107)
 
-[node name="Nub" type="Sprite2D" parent="BG"]
+[node name="Nub3" type="Sprite2D" parent="BG"]
+show_behind_parent = true
 texture_filter = 1
-position = Vector2(16, -4)
-scale = Vector2(4, 4)
-texture = ExtResource("1_qwoef")
+position = Vector2(12.965, -0.225)
+scale = Vector2(0.225, 0.113)
+texture = ExtResource("3_vn2g7")
 centered = false
 region_enabled = true
-region_rect = Rect2(5, 8, 6.024, 3.058)
+region_rect = Rect2(-2, 271.955, 134, 8.83)
+
+[node name="Nub" type="Sprite2D" parent="BG/Nub3"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, -39.238)
+scale = Vector2(1, 2.358)
+texture = ExtResource("3_vn2g7")
+centered = false
+region_enabled = true
+region_rect = Rect2(-2, 254, 134, 18.09)
+
+[node name="Nub2" type="Sprite2D" parent="BG"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(12.975, 0.65)
+scale = Vector2(0.225, 0.296)
+texture = ExtResource("3_vn2g7")
+centered = false
+region_enabled = true
+region_rect = Rect2(-2, 288, 134, 37.83)
 
 [node name="ClickArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
-position = Vector2(64.5, -14)
+position = Vector2(66, -14)
 shape = SubResource("RectangleShape2D_w3nc2")
 
 [node name="HoleArea" type="Area2D" parent="."]
