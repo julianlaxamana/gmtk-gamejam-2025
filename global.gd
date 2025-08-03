@@ -24,6 +24,8 @@ var grid
 var computer_terminal_style_box = preload("res://Scenes/Main/Field/computer.tres")
 var computer_terminal # the node that is the computer terminal
 
+var wave
+
 #region Weights
 var blockTypeWeights = {
 	"attack": 0.5,
@@ -369,8 +371,8 @@ const BUG_SPRITE_DICTIONARY = {
 		"UL": preload("res://Assets/Bugs/bug_basic.png"),
 		"UR": preload("res://Assets/Bugs/bug_basic.png")},
 	"smorg": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"DL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"UL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		"UR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp")},
 }

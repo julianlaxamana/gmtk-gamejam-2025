@@ -5,6 +5,8 @@ var bits = 0
 var base_health = 100
 var wave_started = false
 
+@onready var wave_text = $Control/ShopBar/Label2/Label3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -65,7 +67,9 @@ func start_wave():
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	var wave = 6
+	var wave = 1
+	
+	wave_text.text = str(wave)
 	
 	match wave_list[wave - 1]:
 		1: 
@@ -167,6 +171,8 @@ func start_wave():
 		40:
 			pass
 	wave += 1
+	
+	
 
 #endregion wave list
 
@@ -187,8 +193,7 @@ func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
-		#bug = create_bug("smorg")
-		spawn_lezzz()
+		bug = create_bug("smorg")
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()
@@ -199,10 +204,8 @@ func _input(event):
 		print("w pressed")
 		bug.apply_stun()
 	if event.is_action_pressed("q"):
-		Global.computer_terminal_style_box.bg_color = Color(1, 0, 0)
-		#Global.computer_terminal.add_theme_stylebox_override("normal", new_stylebox_normal)
 		print("q pressed")
-		#bug.apply_slow(.3)
+		bug.apply_slow(.3)
 
 
 #region bug signal logic
