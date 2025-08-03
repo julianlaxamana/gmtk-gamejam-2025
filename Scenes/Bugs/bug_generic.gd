@@ -17,7 +17,7 @@ var damage: float  # how much damage to deal
 @onready var slow_particles = $Slow
 @onready var ice_particles = $Ice
 
-@onready var flash_animator = $Sprite/FlashAnimation
+@onready var flash_animator = $AnimatedSprite2D/FlashAnimation
 
 @onready var slow_timer = $SlowTimer
 @onready var stun_timer = $StunTimer
@@ -40,7 +40,7 @@ var fire_speed_change = .353
 var poison_count = 0
 
 
-@onready var sprite = $Sprite # sprite 2d node
+@onready var sprite = $AnimatedSprite2D
 
 var pixel_offset_range = 20 # 10pixels left and right, up and down
 
@@ -96,15 +96,15 @@ func _process(delta):
 		
 		# change sprite
 		if theta <= deg_to_rad(-167.5):
-			sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+			sprite.play(Global.BUG_SPRITE_DICTIONARY[type]["DL"])
 		elif theta <= deg_to_rad(-40):
-			sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UL"]
+			sprite.play(Global.BUG_SPRITE_DICTIONARY[type]["UL"])
 		elif theta <= deg_to_rad(7.5):
-			sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UR"]
+			sprite.play(Global.BUG_SPRITE_DICTIONARY[type]["UR"])
 		elif theta <= deg_to_rad(105):
-			sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
+			sprite.play(Global.BUG_SPRITE_DICTIONARY[type]["DR"])
 		else:
-			sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+			sprite.play(Global.BUG_SPRITE_DICTIONARY[type]["DL"])
 	
 	if progress_ratio > .999:
 		bug_reached_end.emit(damage)

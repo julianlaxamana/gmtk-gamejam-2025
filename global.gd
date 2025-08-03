@@ -72,11 +72,17 @@ var blockTypeWeights = {
 	"augment": 0.25
 }
 
+#var attackWeights = {
+	#"basic": 0.25,
+	#"radial": 0.25,
+	#"gatling": 0.25,
+	#"spread": 0.25
+#}
+
 var attackWeights = {
-	"basic": 0.25,
-	"radial": 0.25,
-	"gatling": 0.25,
-	"spread": 0.25
+	"basic": 0.33,
+	"radial": 0.34,
+	"spread": 0.33
 }
 
 var projectileWeights = {
@@ -359,122 +365,122 @@ var BLOCKS_DICTIONARY = {
 #endregion blocks
 
 #to be used for sprite sheets
-#const BUG_SPRITE_DICTIONARY = {
-	#"meep": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"fob": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"borf": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"spoid": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"tini_spoid": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"bleep": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"zonk": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"lezzz_tail": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"lezzz_middle": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"lezzz_head": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-	#"smorg": {
-		#"DR": "down_right",
-		#"DL": "down_left",
-		#"UL": "up_left",
-		#"UR": "up_right"},
-#}
-
-# keep for now
 const BUG_SPRITE_DICTIONARY = {
 	"meep": {
-		"DR": preload("res://Assets/Bugs/meep.png"),
-		"DL": preload("res://Assets/Bugs/meep.png"),
-		"UL": preload("res://Assets/Bugs/meep.png"),
-		"UR": preload("res://Assets/Bugs/meep.png")},
+		"DR": "meep_down_right",
+		"DL": "meep_down_left",
+		"UL": "meep_up_left",
+		"UR": "meep_up_right"},
 	"fob": {
-		"DR": preload("res://Assets/Bugs/meep.png"),
-		"DL": preload("res://Assets/Bugs/meep.png"),
-		"UL": preload("res://Assets/Bugs/meep.png"),
-		"UR": preload("res://Assets/Bugs/meep.png")},
+		"DR": "fob_down_right",
+		"DL": "fob_down_left",
+		"UL": "fob_up_left",
+		"UR": "fob_up_right"},
 	"borf": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "borf_down_right",
+		"DL": "borf_down_left",
+		"UL": "borf_up_left",
+		"UR": "borf_up_right"},
 	"spoid": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "spoid_down_right",
+		"DL": "spoid_down_left",
+		"UL": "spoid_up_left",
+		"UR": "spoid_up_right"},
 	"tini_spoid": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "tini_spoid_down_right",
+		"DL": "tini_spoid_down_left",
+		"UL": "tini_spoid_up_left",
+		"UR": "tini_spoid_up_right"},
 	"bleep": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "bleep_down_right",
+		"DL": "bleep_down_left",
+		"UL": "bleep_up_left",
+		"UR": "bleep_up_right"},
 	"zonk": {
-		"DR": preload("res://Assets/Bugs/zonk.png"),
-		"DL": preload("res://Assets/Bugs/zonk.png"),
-		"UL": preload("res://Assets/Bugs/zonk.png"),
-		"UR": preload("res://Assets/Bugs/zonk.png")},
+		"DR": "zonk_down_right",
+		"DL": "zonk_down_left",
+		"UL": "zonk_up_left",
+		"UR": "zonk_up_right"},
 	"lezzz_tail": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "lezzz_tail_down_right",
+		"DL": "lezzz_tail_down_left",
+		"UL": "lezzz_tail_up_left",
+		"UR": "lezzz_tail_up_right"},
 	"lezzz_middle": {
-		"DR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
-		"DL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp"),
-		"UL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
-		"UR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp")},
+		"DR": "lezzz_middle_down_right",
+		"DL": "lezzz_middle_down_left",
+		"UL": "lezzz_middle_up_left",
+		"UR": "lezzz_middle_up_right"},
 	"lezzz_head": {
-		"DR": preload("res://Assets/Bugs/bug_basic.png"),
-		"DL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UL": preload("res://Assets/Bugs/bug_basic.png"),
-		"UR": preload("res://Assets/Bugs/bug_basic.png")},
+		"DR": "lezzz_head_down_right",
+		"DL": "lezzz_head_down_left",
+		"UL": "lezzz_head_up_left",
+		"UR": "lezzz_head_up_right"},
 	"smorg": {
-		"DR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
-		"DL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
-		"UL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
-		"UR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp")},
+		"DR": "smorg_down_right",
+		"DL": "smorg_down_left",
+		"UL": "smorg_up_left",
+		"UR": "smorg_up_right"},
 }
+
+# keep for now
+#const BUG_SPRITE_DICTIONARY = {
+	#"meep": {
+		#"DR": preload("res://Assets/Bugs/meep.png"),
+		#"DL": preload("res://Assets/Bugs/meep.png"),
+		#"UL": preload("res://Assets/Bugs/meep.png"),
+		#"UR": preload("res://Assets/Bugs/meep.png")},
+	#"fob": {
+		#"DR": preload("res://Assets/Bugs/meep.png"),
+		#"DL": preload("res://Assets/Bugs/meep.png"),
+		#"UL": preload("res://Assets/Bugs/meep.png"),
+		#"UR": preload("res://Assets/Bugs/meep.png")},
+	#"borf": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"spoid": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"tini_spoid": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"bleep": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"zonk": {
+		#"DR": preload("res://Assets/Bugs/zonk.png"),
+		#"DL": preload("res://Assets/Bugs/zonk.png"),
+		#"UL": preload("res://Assets/Bugs/zonk.png"),
+		#"UR": preload("res://Assets/Bugs/zonk.png")},
+	#"lezzz_tail": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"lezzz_middle": {
+		#"DR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
+		#"DL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp"),
+		#"UL": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_SAMPLE.webp"),
+		#"UR": preload("res://Assets/Bugs/lez/Lez Middle/LEZZZ_MID_BACK_SAMPLE.webp")},
+	#"lezzz_head": {
+		#"DR": preload("res://Assets/Bugs/bug_basic.png"),
+		#"DL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UL": preload("res://Assets/Bugs/bug_basic.png"),
+		#"UR": preload("res://Assets/Bugs/bug_basic.png")},
+	#"smorg": {
+		#"DR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		#"DL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		#"UL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
+		#"UR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp")},
+#}
 
 const BUG_STAT_DICTIONARY = {
 	"meep": {
@@ -486,7 +492,7 @@ const BUG_STAT_DICTIONARY = {
 	"fob": {
 		"health": 15,
 		"value": 1,
-		"speed": 3.5,
+		"speed": 1.7,
 		"damage": 1,
 		},
 	"borf": {
@@ -504,7 +510,7 @@ const BUG_STAT_DICTIONARY = {
 	"tini_spoid": {
 		"health": 10,
 		"value":  3,
-		"speed":  3.578,
+		"speed":  1.89,
 		"damage":  4,
 		},
 	"bleep": 
@@ -517,7 +523,7 @@ const BUG_STAT_DICTIONARY = {
 	"zonk": {
 		"health": 25,
 		"value": 12,
-		"speed": 5.8,
+		"speed": 3.145,
 		"damage": 7,
 		},
 	#region lez stats

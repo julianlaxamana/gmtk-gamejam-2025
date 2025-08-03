@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5bl0s1h5qh7x"]
+[gd_scene load_steps=13 format=3 uid="uid://c5bl0s1h5qh7x"]
 
 [ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
 [ext_resource type="Texture2D" uid="uid://8jh43jy8jxva" path="res://Assets/Particles/poison.png" id="2_mfawf"]
 [ext_resource type="Texture2D" uid="uid://dg5ft0l3iuobq" path="res://Assets/Particles/fire.png" id="3_pcvva"]
-[ext_resource type="Texture2D" uid="uid://ci1i7wci14sx" path="res://Assets/Bugs/Meep.png" id="4_3i2o1"]
 [ext_resource type="Texture2D" uid="uid://c3gxiv717hhrw" path="res://Assets/Particles/ice.png" id="4_gcyl8"]
 [ext_resource type="Material" uid="uid://d2pjkpj5xv4l" path="res://Scenes/Bugs/color_flash.tres" id="4_lju6w"]
 [ext_resource type="SpriteFrames" uid="uid://b834drojruc4p" path="res://Scenes/Bugs/bug_animations.tres" id="6_eq17t"]
@@ -153,9 +152,6 @@ _data = {
 radius = 100.0
 height = 200.0
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_sr05m"]
-thickness = 16
-
 [node name="BugAbstract" type="PathFollow2D" groups=["bugs"]]
 scale = Vector2(0.25, 0.25)
 rotates = false
@@ -244,27 +240,21 @@ angle_max = 180.0
 scale_amount_min = 0.3
 scale_amount_max = 0.9
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("4_lju6w")
-position = Vector2(-156, -32)
-texture = ExtResource("4_3i2o1")
-offset = Vector2(156, 32)
+sprite_frames = ExtResource("6_eq17t")
+animation = &"fob_up_left"
 
-[node name="FlashAnimation" type="AnimationPlayer" parent="Sprite"]
+[node name="FlashAnimation" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_ib214")
 }
 
-[node name="Area2D" type="Area2D" parent="Sprite"]
-position = Vector2(156, 32)
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 shape = SubResource("CapsuleShape2D_1ouse")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("6_eq17t")
-animation = &"meep_up_left"
-frame_progress = 0.749218
 
 [node name="FireTimer" type="Timer" parent="."]
 one_shot = true
@@ -281,20 +271,10 @@ one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -124.0
-offset_top = -124.0
+offset_top = -172.0
 offset_right = 128.0
-offset_bottom = -72.0
+offset_bottom = -120.0
 show_percentage = false
-
-[node name="HP" type="HSlider" parent="."]
-visible = false
-offset_left = -124.0
-offset_top = -124.0
-offset_right = -44.0
-offset_bottom = -108.0
-scale = Vector2(3.14, 3.14)
-theme_override_styles/slider = SubResource("StyleBoxLine_sr05m")
-editable = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_vbv8q")

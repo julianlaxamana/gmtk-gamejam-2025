@@ -4,12 +4,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wuev"]
 bg_color = Color(0.293835, 0.598669, 0.520643, 1)
+border_width_left = 2
 border_width_top = 2
 border_width_right = 4
 border_width_bottom = 2
 border_color = Color(0.182882, 0.406572, 0.350067, 1)
+corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
 default_font = ExtResource("1_bvilx")

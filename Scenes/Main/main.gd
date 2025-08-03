@@ -10,9 +10,13 @@ var looped_once = false # 40+'ed
 @onready var time_scale_slider = $Control/EditorBar/HSlider
 @onready var next_wave_button = $Control/EditorBar/Button3
 @onready var winner_text = $Control/Winner
+@onready var music_player = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	spawn_bug(20, "spoid")
+
 	pass # Replace with function body.
 
 
