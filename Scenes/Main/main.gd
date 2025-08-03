@@ -270,7 +270,7 @@ func _on_bug_died(value: int, type: String, death_position):
 	bits += value
 	
 	if type == "spoid":
-		for i in range(3):
+		for i in range(15):
 			var bug = bug_generic.instantiate()
 			bug.type = "tini_spoid"
 			bug.position = position
