@@ -1,13 +1,36 @@
 extends PathFollow2D
 
 var type: String
-var health: int # health of unit
-var value: int  # money on death
-var speed: int # speed in pixels
-var damage: int  # how much damage to deal
+var health: float # health of unit
+var value: float  # money on death
+var speed: float # speed in pixels
+var damage: float  # how much damage to deal
 
 
-@onready var sprite = get_child(0) # sprite 2d node
+# status effect variables
+@onready var fire_timer = $FireTimer
+@onready var fire_ticker = $FireTimer/FireTicker
+@onready var poison_particles = $PoisonParticles
+@onready var fire_particles = $FireParticles
+@onready var flash_animator = $Sprite/FlashAnimation
+
+var is_on_fire = false
+
+var fire_damage = 3
+var poison_damage = 2 
+
+var fire_length = 5
+var poison_length = 2.5
+
+var poison_tick_frequency = .5# in seconds
+var fire_tick_frequency = .2 # in seconds
+
+var fire_speed_change = .253
+var posion_speed_change = .047 
+
+@onready var sprite = $Sprite # sprite 2d node
+
+var pixel_offset_range = 20 # 10pixels left and right, up and down
 
 # activates when a bug reaches the end of the track
 # despawns itself
@@ -21,6 +44,10 @@ signal bug_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	fire_timer.timeout.connect(fire_clear)
+	fire_ticker.timeout.connect(apply_fire_tick)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +68,9 @@ func _process(delta):
 		self.queue_free()
 		
 	if health <= 0:
-		bug_died.emit(value)
+		# cant write tini_spoid spawn logic here because each bug needs to be tied
+		# to various signals in main
+		bug_died.emit(value, type, position) 
 		self.queue_free()
 	
 	if theta <= deg_to_rad(-167.5):
@@ -52,4 +81,50 @@ func _process(delta):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UR"]
 	elif theta <= deg_to_rad(105):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
+	else:
+		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DL"]
+		
+
+
+
+func apply_poison():
+	poison_particles.emitting = true
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = false
+	timer.start(poison_tick_frequency / Global.timeScale)
+	timer.timeout.connect(apply_poison_tick)
+	get_tree().create_timer(poison_length / Global.timeScale).timeout.connect(poison_clear.bind(timer))
+	apply_poison_tick()
+
+func apply_poison_tick():
+	print("POISON TICK")
+	flash_animator.stop(true)
+	flash_animator.play("poison_flash")
+	health -= poison_damage
+
+func poison_clear(timer_node):
+	poison_particles.emitting = false
+	timer_node.queue_free()
 	
+func apply_fire():
+	fire_particles.emitting = true
+	if not is_on_fire:
+		fire_ticker.start()
+		apply_fire_tick()
+	is_on_fire = true
+	fire_timer.start(fire_length / Global.timeScale)
+
+func apply_fire_tick():
+	if is_on_fire:
+		flash_animator.stop(true)
+		flash_animator.play("fire_flash")
+		damage -= fire_damage
+		print("FIRE TICK")
+	
+
+func fire_clear():
+	fire_particles.emitting = false
+	is_on_fire = false
+	fire_timer.stop()
+	fire_ticker.stop()

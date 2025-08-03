@@ -1,6 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5bl0s1h5qh7x"]
+[gd_scene load_steps=10 format=3 uid="uid://c5bl0s1h5qh7x"]
 
-[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://scenes/Bugs/bug_generic.gd" id="1_rp73j"]
+[ext_resource type="Script" uid="uid://bv6oc7em1s4re" path="res://Scenes/Bugs/bug_generic.gd" id="1_rp73j"]
+[ext_resource type="Texture2D" uid="uid://8jh43jy8jxva" path="res://Assets/Particles/poison.png" id="2_mfawf"]
+[ext_resource type="Texture2D" uid="uid://dg5ft0l3iuobq" path="res://Assets/Particles/fire.png" id="3_pcvva"]
+[ext_resource type="Texture2D" uid="uid://ci1i7wci14sx" path="res://Assets/Bugs/Meep.png" id="4_3i2o1"]
+[ext_resource type="Material" uid="uid://cnomeyp1rtq4a" path="res://Scenes/Bugs/flash.tres" id="4_lju6w"]
+
+[sub_resource type="Animation" id="Animation_gcyl8"]
+resource_name = "fire_flash"
+length = 0.133337
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0, -3, 0, -0.25, 0, 0, 60, 57, -0.0333333, -4, 0, -39, -3, -0.0333333, 66, 0.0333333, -1),
+"times": PackedFloat32Array(0, 0.0002, 0.0666667, 0.133333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/flash_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/flash_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/flash_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_eq17t"]
+resource_name = "poison_flash"
+length = 0.133337
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0, -2, 0, -0.25, 0, 0, 52, 57, -0.0333333, -13, 0, -27, 0, -0.0333333, 7, 0.25, 0),
+"times": PackedFloat32Array(0, 0.0002, 0.0666667, 0.133333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/flash_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.87, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/flash_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.203, -0.25, 0, 0.25, 0, 0.203, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/flash_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ib214"]
+_data = {
+&"fire_flash": SubResource("Animation_gcyl8"),
+&"poison_flash": SubResource("Animation_eq17t")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ouse"]
 radius = 100.0
@@ -12,11 +140,67 @@ rotates = false
 loop = false
 script = ExtResource("1_rp73j")
 
+[node name="PoisonParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 3
+texture = ExtResource("2_mfawf")
+lifetime = 0.36
+speed_scale = 0.6
+randomness = 0.2
+emission_shape = 4
+emission_points = PackedVector2Array(40, -50, 50, -40, -50, -60, -22, -60, 20, -60, -60, -40, 20, -15)
+emission_colors = PackedColorArray()
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 26.21
+initial_velocity_max = 26.21
+radial_accel_min = 5.0
+radial_accel_max = 10.0
+angle_max = 360.0
+
+[node name="FireParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 3
+texture = ExtResource("3_pcvva")
+lifetime = 0.36
+speed_scale = 0.6
+randomness = 0.2
+emission_shape = 2
+emission_sphere_radius = 72.34
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 66.66
+initial_velocity_max = 66.66
+radial_accel_min = 200.0
+radial_accel_max = 200.0
+angle_min = -15.0
+angle_max = 15.0
+
 [node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 2
+material = ExtResource("4_lju6w")
+position = Vector2(-156, -32)
+texture = ExtResource("4_3i2o1")
+offset = Vector2(156, 32)
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_ib214")
+}
 
 [node name="Area2D" type="Area2D" parent="Sprite"]
+position = Vector2(156, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 shape = SubResource("CapsuleShape2D_1ouse")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FireTicker" type="Timer" parent="FireTimer"]
