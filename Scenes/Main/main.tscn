@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://c7jrv7iomocsm" path="res://Scenes/Main/Shopbar.gd" id="5_5wuev"]
 [ext_resource type="PackedScene" uid="uid://iog6rk6wy7ox" path="res://Scenes/Main/Shop/shop_field.tscn" id="5_nyu32"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="5_rdp1x"]
-[ext_resource type="Script" path="res://scenes/Main/h_slider.gd" id="8_qiqqp"]
+[ext_resource type="Script" uid="uid://dy7jp51rudqnd" path="res://scenes/Main/h_slider.gd" id="8_qiqqp"]
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="9_k7uo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7uo0"]
@@ -388,6 +388,8 @@ texture = ExtResource("9_k7uo0")
 [connection signal="mouse_exited" from="Control/EditorBar/Button4" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="mouse_entered" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
+[connection signal="mouse_entered" from="Control/EditorBar/HSlider" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/EditorBar/HSlider" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="value_changed" from="Control/EditorBar/HSlider" to="Control/EditorBar/HSlider" method="_on_value_changed"]
 [connection signal="button_down" from="Control/ShopBar/ShopButton" to="Control/EditorBar" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_button_down"]

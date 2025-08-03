@@ -4,8 +4,10 @@ var wave = 1
 var bits = 0
 var base_health = 100
 var wave_started = false
+var looped_once = false # 40+'ed
 
 @onready var wave_text = $Control/ShopBar/Label2/Label3
+@onready var time_scale_slider = $Control/EditorBar/HSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,13 +63,15 @@ var wave_list = [
 
 #region wavelist
 func start_wave():
+	wave_started = true
+	time_scale_slider.editable = false
 	# this works by wave is going from 1 onwards
 	# wave_list returns a string based on index
 	# to insert a wave, instead just insert a new string
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	var wave = 1
+	#var wave = 1
 	
 	wave_text.text = str(wave)
 	
@@ -220,6 +224,12 @@ func _on_bug_reached_end(damage: int):
 	
 	if base_health <= 0:
 		lost_game()
+		wave_started = false
+		time_scale_slider.editable = true
+		
+	if len(get_tree().get_nodes_in_group("bugs")) == 0:
+		wave_started = false
+		time_scale_slider.editable = true
 	
 func _on_bug_died(value: int, type: String, death_position):
 	# give gold to player
@@ -237,6 +247,10 @@ func _on_bug_died(value: int, type: String, death_position):
 			bug.damage = 4
 			path.add_child(bug)
 			path.add_child(bug)
+	
+	if len(get_tree().get_nodes_in_group("bugs")) == 0:
+		wave_started = false
+		time_scale_slider.editable = true
 
 #endregion
 

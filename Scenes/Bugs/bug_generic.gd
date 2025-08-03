@@ -54,6 +54,7 @@ signal bug_reached_end
 # @emits an int, how much the bug was worth
 signal bug_died
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	base_speed = speed

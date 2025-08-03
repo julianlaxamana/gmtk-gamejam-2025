@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckqubtmlg6vu"]
 
-[ext_resource type="Script" uid="uid://dowq4m47os2w3" path="res://scenes/Blocks/Projectiles/Spike/spike.gd" id="1_1eilg"]
+[ext_resource type="Script" uid="uid://dowq4m47os2w3" path="res://Scenes/Blocks/Projectiles/Spike/spike.gd" id="1_1eilg"]
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_na6ix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
