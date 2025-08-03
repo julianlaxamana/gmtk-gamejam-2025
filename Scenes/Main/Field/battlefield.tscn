@@ -1,16 +1,17 @@
-[gd_scene load_steps=18 format=4 uid="uid://cmgf7skrjaw1y"]
+[gd_scene load_steps=19 format=4 uid="uid://cmgf7skrjaw1y"]
 
-[ext_resource type="Script" uid="uid://kss4wmpvnccg" path="res://scenes/Main/Field/battlefield.gd" id="1_01cof"]
+[ext_resource type="Script" uid="uid://kss4wmpvnccg" path="res://Scenes/Main/Field/battlefield.gd" id="1_01cof"]
 [ext_resource type="Texture2D" uid="uid://cc5uff36s0mui" path="res://Assets/Tilemap/tilemap_test.png" id="1_pp5yg"]
-[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
+[ext_resource type="Script" uid="uid://bl8jgaory23dw" path="res://Scenes/Main/Field/camera_2d.gd" id="1_yh2a8"]
 [ext_resource type="Texture2D" uid="uid://cv1gf3jq5ak8b" path="res://Assets/Tilemap/griddy.png" id="2_u50xy"]
-[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://scenes/Main/Field/slide.gd" id="3_pp5yg"]
-[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://scenes/Main/Field/griddy.gd" id="4_vyvae"]
-[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://scenes/Main/IDE/path.gd" id="6_57q4d"]
-[ext_resource type="PackedScene" uid="uid://c70q6kdv0s7bl" path="res://scenes/Main/Field/spawn.tscn" id="8_0ehjo"]
+[ext_resource type="Script" uid="uid://dm1al67lp1v4p" path="res://Scenes/Main/Field/slide.gd" id="3_pp5yg"]
+[ext_resource type="Script" uid="uid://b2iwafs5j4nis" path="res://Scenes/Main/Field/griddy.gd" id="4_vyvae"]
+[ext_resource type="Script" uid="uid://cl54fkurjcjxd" path="res://Scenes/Main/IDE/path.gd" id="6_57q4d"]
+[ext_resource type="PackedScene" uid="uid://c70q6kdv0s7bl" path="res://Scenes/Main/Field/spawn.tscn" id="8_0ehjo"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="9_7jpgn"]
 [ext_resource type="StyleBox" uid="uid://dt0exs88b5p6i" path="res://Scenes/Main/Field/computer.tres" id="9_86n7r"]
 [ext_resource type="Script" uid="uid://cvqydh3mah06x" path="res://Scenes/Main/Field/label.gd" id="10_uarvp"]
+[ext_resource type="Texture2D" uid="uid://dg5ft0l3iuobq" path="res://Assets/Particles/fire.png" id="12_8yxh0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp5yg"]
 texture = ExtResource("1_pp5yg")
@@ -102,19 +103,6 @@ point_count = 23
 
 [sub_resource type="Theme" id="Theme_bexw6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr1en"]
-bg_color = Color(0.201527, 0.201527, 0.201526, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 1
-
 [sub_resource type="LabelSettings" id="LabelSettings_0ehjo"]
 font = ExtResource("9_7jpgn")
 font_size = 30
@@ -194,3 +182,26 @@ label_settings = SubResource("LabelSettings_0ehjo")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("10_uarvp")
+
+[node name="FireParticles" type="CPUParticles2D" parent="Label"]
+texture_filter = 1
+position = Vector2(34.8563, 27.3322)
+emitting = false
+amount = 2
+texture = ExtResource("12_8yxh0")
+lifetime = 0.36
+speed_scale = 0.6
+randomness = 0.2
+emission_shape = 2
+emission_sphere_radius = 21.63
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angular_velocity_min = -135.0
+angular_velocity_max = 135.0
+angle_min = -30.0
+angle_max = 30.0
+scale_amount_min = 0.5
+scale_amount_max = 0.9

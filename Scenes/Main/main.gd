@@ -179,6 +179,7 @@ func start_wave():
 
 
 func lost_game():
+	Global.computer_terminal.reset()
 	#TODO reset board and all units
 	# queue_free it all
 	pass
@@ -193,7 +194,7 @@ func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
-		bug = create_bug("smorg")
+		bug = create_custom_bug(100, 0, 20, 26)
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()
@@ -213,6 +214,7 @@ func _on_bug_reached_end(damage: int):
 	# hurt the thing
 	base_health -= damage
 	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
+	Global.computer_terminal.update(base_health)
 	
 	if base_health <= 0:
 		lost_game()
@@ -261,6 +263,19 @@ func spawn_bugs_in_timeframe(initial_delay, duration, count, type: String):
 
 func spawn_bug(delay, type: String):
 	get_tree().create_timer(delay / Global.timeScale).timeout.connect(create_bug.bind(type))
+
+func create_custom_bug(health, value, speed, damage):
+	var bug = bug_generic.instantiate()
+	bug.type = "meep"
+	
+	bug.health = health
+	bug.value = value
+	bug.speed = speed
+	bug.damage = damage
+	connect_bug_signals(bug)
+	path.add_child(bug)
+	return bug
+	
 
 func create_bug(type: String):
 	# things to apply for all bugs, like size
