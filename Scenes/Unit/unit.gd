@@ -4,7 +4,7 @@ var radius = 2;
 var level = 1
 var currentBlocks = 0
 var maxBlocks = 8
-
+var delay
 var target: Vector2
 
 
@@ -53,7 +53,7 @@ func _process(delta):
 	$Unit.skew = (-abs(b) + 1)  * deg_to_rad(3) + deg_to_rad(15)
 	
 	
-	if Input.is_action_pressed("debug_a") && self == Global.selectedUnit:
+	if Input.is_action_pressed("shift") && self == Global.selectedUnit:
 		$Target.position = get_local_mouse_position()
 	queue_redraw()
 func _ready() -> void:

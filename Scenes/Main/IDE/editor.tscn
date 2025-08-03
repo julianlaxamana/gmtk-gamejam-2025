@@ -32,6 +32,7 @@ mouse_filter = 1
 color = Color(0.1512, 0.24, 0.24, 1)
 
 [node name="Inventory" parent="Camera2D" instance=ExtResource("6_tsjlf")]
+z_index = 2000
 position = Vector2(-180, 236)
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]

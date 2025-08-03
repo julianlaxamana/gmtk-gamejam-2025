@@ -6,7 +6,7 @@ var editor
 var disableMouse = false
 
 var unitBaseCost = 50
-var bits = 75
+var bits = 7500000
 
 var timeScale = 1.0
 
@@ -104,7 +104,7 @@ var BLOCKS_DICTIONARY = {
 		"basic" = (func ():
 	var blockScene = preload("res://scenes/Blocks/loop_block.tscn")
 	var block = blockScene.instantiate()
-	block.functionName = "basic_shoo ("
+	block.functionName = "basic_shoot ("
 	block.unit =Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Basic/basic.tscn")
 	block.bottomText = ")"
