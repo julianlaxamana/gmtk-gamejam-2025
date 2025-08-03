@@ -97,8 +97,7 @@ func _process(delta: float) -> void:
 		augments = variable.duplicate()
 		if get_child_count() == 7 && get_child(6) != null && get_child(6).typeOf == "augment":
 			augments.append_array(get_child(6).augments)
-		
-	print(get_parent())
+
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
 		holeArea.monitoring = true

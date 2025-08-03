@@ -3,7 +3,8 @@ extends Node2D
 var target
 var speed
 var MAX_TARGETS = 1
-var damage = 1.0
+var damage = Global.baseDmg["chain"]
+var dmg = damage
 var dir
 
 var targets = []
@@ -22,6 +23,10 @@ func set_direction() -> void:
 func set_pos(pos):
 	set_direction()
 	
+var fire = false
+var ice = false
+var slow = false
+var poison = false
 func _process(delta: float) -> void:
 	if augments != null:
 		for x in augments:
@@ -29,9 +34,17 @@ func _process(delta: float) -> void:
 				MAX_TARGETS += 1
 			elif x == "big":
 				scale = baseScale * 1.75
-				damage = damage * 1.25
+				dmg = damage * 1.25
 			elif x == "explode":
 				explode = true
+			elif x == "fire":
+				fire = true
+			elif x == "ice":
+				fire = true
+			elif x == "slow":
+				fire = true	
+			elif x == "slow":
+				poison = true	
 	if dir != null:
 		global_position += dir * speed * delta  * Global.timeScale
 		
@@ -51,4 +64,13 @@ func _on_timer_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().get_parent() && targets.size() < MAX_TARGETS && area.get_parent().get_parent().is_in_group("bugs"):
 		targets.append(area.get_parent().get_parent())
+		area.get_parent().get_parent().health -= dmg
+		if fire:
+			area.get_parent().get_parent().apply_fire()
+		if ice:
+			area.get_parent().get_parent().apply_stun()
+		if slow:
+			area.get_parent().get_parent().apply_slow(20 / damage / 7.5)
+		if poison:
+			area.get_parent().get_parent().apply_poison()
 	pass # Replace with function body.

@@ -159,10 +159,9 @@ func _process(delta: float) -> void:
 		
 	if $outside.get_child_count() > 1:
 		$outside.get_child(1).reparent(Global.editor)
-		print("a")
 	if $inside.get_child_count() > 1:
 		$inside.get_child(1).reparent(Global.editor)
-		print("n")
+
 	
 	# Dynamic Dragging
 	if pressed && state == "on" && Global.cursorGrab == false:
@@ -255,5 +254,6 @@ func _on_hole_area_area_exited(area: Area2D) -> void:
 func _on_timer_timeout() -> void:
 	if $inside.get_child_count() == 1:
 		$inside.get_child(0).test.call($inside.get_child(0))
+		
 		print("shoot!")
 	pass # Replace with function body.
