@@ -107,12 +107,14 @@ func _process(delta):
 	
 	if progress_ratio > .999:
 		bug_reached_end.emit(damage)
+		self.remove_from_group("bugs")
 		self.queue_free()
 		
 	if health <= 0:
 		# cant write tini_spoid spawn logic here because each bug needs to be tied
 		# to various signals in main
 		bug_died.emit(value, type, position) 
+		self.remove_from_group("bugs")
 		self.queue_free()
 
 

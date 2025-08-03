@@ -180,6 +180,8 @@ func start_wave():
 
 func lost_game():
 	Global.computer_terminal.reset()
+	base_health = 100
+	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	#TODO reset board and all units
 	# queue_free it all
 	pass

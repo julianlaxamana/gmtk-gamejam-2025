@@ -13,14 +13,11 @@ func _process(delta):
 	
 # gets passed new health to update
 func update(health):
-	
 	if health <= 25:
-		fire_particles.emitting = 6
-		print("25")
+		fire_particles.amount = 6
 	elif health <= 50:
-		fire_particles.amount = 4
+		fire_particles.amount = 3
 		fire_particles.gravity = Vector2(0, -500)
-		print("50")
 	elif health <= 75:
 		fire_particles.emitting = true
 		
