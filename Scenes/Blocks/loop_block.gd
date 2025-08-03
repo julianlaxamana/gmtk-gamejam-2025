@@ -120,7 +120,7 @@ func _process(delta: float) -> void:
 		delay = unit.delay
 	if delay != null:
 		$Timer.wait_time = delay
-	print(delay)
+
 	task.call(self)
 	await get_tree().process_frame 
 	

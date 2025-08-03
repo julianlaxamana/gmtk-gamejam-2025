@@ -24,8 +24,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	unit.enable_target()
-	print(delay)
-	print($Timer.wait_time)
 	if augments != null:
 		for x in augments:
 			if x == "projectile":

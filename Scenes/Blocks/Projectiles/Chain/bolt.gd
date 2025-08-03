@@ -20,6 +20,5 @@ func _process(delta):
 
 
 func _on_timer_timeout() -> void:
-	print("hi")
 	queue_free()
 	pass # Replace with function body.
