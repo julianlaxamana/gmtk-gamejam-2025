@@ -44,6 +44,7 @@ func start_wave():
 				winner_text.visible = false
 			print(wave, " has started")
 			# 10 basic
+			spawn_lezzz(0, 0.6, 10)
 			spawn_many_bugs(0, 2.0, 10, "meep")
 		2: 
 			print(wave, " has started")
@@ -182,7 +183,7 @@ func start_wave():
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		29:
 			print(wave, " has started")
-			spawn_lezzz(0, 2, 10)
+			spawn_lezzz(0, 0.3, 10)
 			spawn_many_bugs(0, 1.5, 3, "borf")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
