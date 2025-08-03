@@ -13,7 +13,6 @@ var looped_once = false # 40+'ed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	wave = 40
 	pass # Replace with function body.
 
 
@@ -328,9 +327,9 @@ func create_bug(type: String):
 	return bug
 	
 # specialized spawner for this entity
-func spawn_lezzz():
-	var step = .20
-	var middle_count = 100
+func spawn_lezzz(step, middle_count):
+	#var step = .20
+	#var middle_count = 100
 	spawn_bug(0, "lezzz_head")
 	spawn_many_bugs(step, step, middle_count, "lezzz_middle")
 	spawn_bug(step * middle_count + step, "lezzz_tail")

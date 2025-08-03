@@ -28,7 +28,7 @@ var is_stunned = false
 var is_on_fire = false
 
 var fire_damage = 3
-var poison_damage = 1.3
+var poison_damage = 1.5
 
 var fire_length = 5
 var poison_length = 2.5

@@ -28,10 +28,10 @@ var wave
 #region dmg
 var baseDmg = {
 	"melee": 20.0,
-	"ranged": 5.0,
-	"homing": 5.0,
-	"spike": 3.0,
-	"chain": 10.0
+	"ranged": 18.0,
+	"homing": 12.0,
+	"spike": 3.5,
+	"chain": 7,
 }
 
 var shopBase = {
@@ -63,6 +63,7 @@ var shopScales = {
 	"reroll": 1.0,
 	"shop": 1.0,
 }
+
 
 #region Weights
 var blockTypeWeights = {
@@ -473,72 +474,72 @@ const BUG_SPRITE_DICTIONARY = {
 
 const BUG_STAT_DICTIONARY = {
 	"meep": {
-		"health": 50,
+		"health": 20,
 		"value": 2,
 		"speed": 1.578,
-		"damage": 3,
+		"damage": 2,
 		},
 	"fob": {
-		"health": 30,
+		"health": 15,
 		"value": 1,
 		"speed": 3.5,
 		"damage": 1,
 		},
 	"borf": {
-		"health": 200,
+		"health": 50,
 		"value": 5,
 		"speed": 1,
-		"damage": 10,
+		"damage": 5,
 		},
 	"spoid": {
-		"health": 80,
-		"value": 2,
+		"health": 43,
+		"value": 4,
 		"speed": 1.276,
 		"damage": 4,
 		},
 	"tini_spoid": {
-		"health": 40,
-		"value":  1,
+		"health": 10,
+		"value":  3,
 		"speed":  3.578,
 		"damage":  4,
 		},
 	"bleep": 
 		{
-		"health": 65,
-		"value": 8,
-		"speed": 2.11,
+		"health": 45,
+		"value": 7,
+		"speed": 1.94,
 		"damage": 4,
 		},
 	"zonk": {
 		"health": 25,
-		"value": 10,
+		"value": 12,
 		"speed": 5.8,
-		"damage": 30,
+		"damage": 7,
 		},
 	#region lez stats
 	"lezzz_tail": {
-		"health": 100,
-		"value": .5,
+		"health": 40,
+		"value": 2,
 		"speed": 1.578,
-		"damage": .25,
+		"damage": .75,
 		},
 	"lezzz_middle": {
-		"health": 100,
-		"value": .5,
+		"health": 40,
+		"value": 2,
 		"speed": 1.578,
-		"damage": .25,
+		"damage": .75,
 		},
 	"lezzz_head": {
-		"health": 100,
-		"value": .5,
+		"health": 40,
+		"value": 2,
 		"speed": 1.578,
-		"damage": .25,
+		"damage": .75,
 		},
 		#endregion lez stats
 	"smorg": {
-		"health": 5000,
+		"health": 1200,
 		"value": 50,
 		"speed": .5,
-		"damage": 35,
+		"damage": 13,
 	}
 }
