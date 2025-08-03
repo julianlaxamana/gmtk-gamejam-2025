@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlmdswquwdicb"]
 
-[ext_resource type="Script" path="res://bit.gd" id="1_8tieq"]
+[ext_resource type="Script" uid="uid://dj1046uervteg" path="res://bit.gd" id="1_8tieq"]
 
 [node name="Bit" type="TextureRect"]
 offset_right = 40.0
