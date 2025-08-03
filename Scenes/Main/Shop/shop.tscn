@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh35vn223u34"]
+[gd_scene load_steps=8 format=3 uid="uid://dh35vn223u34"]
 
 [ext_resource type="Script" uid="uid://bymmwvhri72eu" path="res://scenes/Main/Shop/shop.gd" id="1_u48ok"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="2_spp1s"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_jesjl"]
+[ext_resource type="PackedScene" uid="uid://dlmdswquwdicb" path="res://Assets/bit/bit.tscn" id="4_exeu5"]
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="4_wbbdr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u48ok"]
@@ -87,7 +88,16 @@ text = "50"
 label_settings = SubResource("LabelSettings_exeu5")
 horizontal_alignment = 2
 
+[node name="Bit" parent="Reroll" instance=ExtResource("4_exeu5")]
+layout_mode = 0
+offset_left = 160.0
+offset_top = -14.25
+offset_right = 248.0
+offset_bottom = 83.75
+scale = Vector2(0.1, 0.1)
+
 [node name="Icon" type="Sprite2D" parent="Reroll"]
+visible = false
 position = Vector2(177.5, -1.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_wbbdr")

@@ -18,5 +18,9 @@ func reroll():
 
 
 func _on_reroll_button_down() -> void:
+	if Global.bits >= int(int(Global.shopBase["reroll"] * Global.shopScales["reroll"])):
+		Global.bits -= int(int(Global.shopBase["reroll"] * Global.shopScales["reroll"]))
+	else:
+		return
 	reroll()
 	pass # Replace with function body.

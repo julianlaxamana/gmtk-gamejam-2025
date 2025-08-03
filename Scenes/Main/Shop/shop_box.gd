@@ -3,6 +3,10 @@ var bought = false
 var up = false
 var block
 func _on_button_button_down() -> void:
+	if Global.bits >= int($Button/Label3.text):
+		Global.bits -= int($Button/Label3.text)
+	else:
+		return
 	if !bought:
 		Global.inventory.append(block)
 	bought = true
@@ -39,7 +43,6 @@ func _ready() -> void:
 		block.position = Vector2(20.0, 40.0)
 	else:
 		block.position = Vector2(20.0, 50.0)
-	print(block)
 	$Button.add_child(block)
 	
 func _process(delta: float) -> void:

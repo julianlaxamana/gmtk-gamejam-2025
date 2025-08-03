@@ -7,7 +7,7 @@ var base_speed: float # speed in pixels
 var speed
 var damage: float  # how much damage to deal
 
-@onready var hp_bar = $HP
+@onready var hp_bar = $ProgressBar
 
 # status effect variables
 @onready var fire_timer = $FireTimer
@@ -115,6 +115,7 @@ func _process(delta):
 		# cant write tini_spoid spawn logic here because each bug needs to be tied
 		# to various signals in main
 		bug_died.emit(value, type, position) 
+		Global.bits += int(value)
 		self.remove_from_group("bugs")
 		self.queue_free()
 

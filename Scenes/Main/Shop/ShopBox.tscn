@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_5idpc"]
 [ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://scenes/Main/Shop/shop_box.gd" id="1_f6317"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="1_uhh8t"]
-[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="4_f6317"]
+[ext_resource type="PackedScene" uid="uid://dlmdswquwdicb" path="res://Assets/bit/bit.tscn" id="4_f6317"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6317"]
 bg_color = Color(0.901961, 0.337255, 0.901961, 1)
@@ -87,9 +87,12 @@ text = "50"
 label_settings = SubResource("LabelSettings_f6317")
 horizontal_alignment = 2
 
-[node name="Icon" type="Sprite2D" parent="Button"]
-position = Vector2(255, 57)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_f6317")
+[node name="Bit" parent="Button" instance=ExtResource("4_f6317")]
+layout_mode = 0
+offset_left = 238.065
+offset_top = 45.595
+offset_right = 278.065
+offset_bottom = 85.595
+scale = Vector2(0.1, 0.1)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

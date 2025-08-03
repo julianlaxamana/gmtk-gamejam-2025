@@ -6,7 +6,7 @@ var editor
 var disableMouse = false
 
 var unitBaseCost = 50
-var bits = 0
+var bits = 75
 
 var timeScale = 1.0
 
@@ -21,7 +21,7 @@ var path_node
 var battlefield
 var grid
 
-var computer_terminal_style_box = preload("res://Scenes/Main/Field/computer.tres")
+var computer_terminal_style_box = load("res://Scenes/Main/Field/computer.tres")
 var computer_terminal # the node that is the computer terminal
 
 var wave

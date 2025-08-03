@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		
 	elif Global.selectedUnit != null:
 		$Button2.visible = false
-		$Button4/Label5.text = "unit_level = " + str(Global.selectedUnit.level) + "\ncurrent_blocks = " + str(Global.selectedUnit.currentBlocks) + "\nmax_blocks = "
+		$Button4/Label5.text = "unit_level = " + str(Global.selectedUnit.level) + "\ncurrent_blocks = " + str(Global.selectedUnit.currentBlocks) + "\nmax_blocks = " + str(Global.selectedUnit.maxBlocks)
 		$Button4/Label3.text = str(int(Global.selectedUnit.level * Global.shopBase["upgrade"] * Global.shopScales["upgrade"]))
 		$Button4.visible = true
 	else: 
@@ -79,9 +79,22 @@ func _on_button_2_mouse_exited() -> void:
 
 
 func _on_button_2_button_down() -> void:
+	if Global.bits >= int(int(Global.shopBase["unit"] * Global.shopScales["unit"])):
+		Global.bits -= int(int(Global.shopBase["unit"] * Global.shopScales["unit"]))
+	else:
+		return
 	a = false
 	Global.disableMouse = true
 	Global.battlefield.grid.placeUnit()
 	await get_tree().create_timer(0.1).timeout 
 	a = true
+	pass # Replace with function body.
+
+
+func _on_button_4_button_down() -> void:
+	if Global.bits >= int(int(Global.shopBase["upgrade"] * Global.shopScales["upgrade"] * Global.selectedUnit.level)):
+		Global.bits -= int(int(Global.shopBase["upgrade"] * Global.shopScales["upgrade"] * Global.selectedUnit.level))		
+	else:
+		return
+	Global.selectedUnit.level += 1
 	pass # Replace with function body.
