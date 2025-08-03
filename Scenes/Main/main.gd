@@ -68,52 +68,123 @@ func start_wave():
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		7:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		8:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		9:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		10:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		11:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		12:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		13:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		14:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		15:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		16:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		17:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		18:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		19:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		20:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		21:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		22:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		23:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		24:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		25:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		26:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		27:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		28:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		29:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		30:
+			print(wave, " has started")
+			spawn_lezzz(0, 2, 10)
 			pass
 		31:
 			pass
