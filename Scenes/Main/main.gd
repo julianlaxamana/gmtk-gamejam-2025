@@ -72,12 +72,12 @@ func start_wave():
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		7:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(0, 1.5, 3, "bleep")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		8:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(0, 1.5, 3, "zonk")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		9:
@@ -87,12 +87,12 @@ func start_wave():
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		10:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(0, 1.5, 1, "smorg")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		11:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(0, 1.5, 1, "spoid")
 			spawn_many_bugs(7, 0.5, 10, "meep")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		12:
