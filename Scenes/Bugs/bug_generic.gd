@@ -7,6 +7,8 @@ var base_speed: float # speed in pixels
 var speed
 var damage: float  # how much damage to deal
 
+@onready var hp_bar = $HP
+
 # status effect variables
 @onready var fire_timer = $FireTimer
 @onready var fire_ticker = $FireTimer/FireTicker
@@ -58,10 +60,18 @@ func _ready():
 	fire_ticker.timeout.connect(apply_fire_tick)
 	
 	stun_timer.timeout.connect(stun_clear)
-	pass
+	
+	hp_bar.max_value = health
+	global_skew = 0
+	global_rotation = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# update hp
+	hp_bar.value = health
+	
+	
+	
 	
 	if not is_stunned:
 		# determine velocity direction
