@@ -92,7 +92,7 @@ func start_wave():
 		11:
 			print(wave, " has started")
 			spawn_many_bugs(0, 1.5, 1, "spoid")
-			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(7, 0.5, 10, "zonk")
 			spawn_many_bugs(15, 0.1, 15, "fob")
 		12:
 			print(wave, " has started")
