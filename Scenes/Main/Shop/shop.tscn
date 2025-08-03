@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh35vn223u34"]
+[gd_scene load_steps=7 format=3 uid="uid://dh35vn223u34"]
 
 [ext_resource type="Script" uid="uid://bymmwvhri72eu" path="res://scenes/Main/Shop/shop.gd" id="1_u48ok"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="2_spp1s"]
+[ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_jesjl"]
+[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="4_wbbdr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u48ok"]
 bg_color = Color(0.664783, 0.0894219, 0.670572, 1)
@@ -16,20 +18,11 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 2
+expand_margin_top = 40.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jesjl"]
-bg_color = Color(0.936694, 0.535051, 0.929246, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.901961, 0.337255, 0.901961, 1)
-border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 2
+[sub_resource type="LabelSettings" id="LabelSettings_exeu5"]
+font = ExtResource("3_jesjl")
+font_size = 40
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_u48ok")
@@ -77,11 +70,26 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_u48ok")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jesjl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u48ok")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u48ok")
 text = "Reroll"
+
+[node name="Label" type="Label" parent="Reroll"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -22.0
+offset_right = 149.0
+offset_bottom = 22.0
+text = "50"
+label_settings = SubResource("LabelSettings_exeu5")
+horizontal_alignment = 2
+
+[node name="Icon" type="Sprite2D" parent="Reroll"]
+position = Vector2(177.5, -1.25)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_wbbdr")
 
 [connection signal="button_down" from="Reroll" to="." method="_on_reroll_button_down"]

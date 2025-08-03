@@ -34,6 +34,36 @@ var baseDmg = {
 	"chain": 10.0
 }
 
+var shopBase = {
+	"upgrade": 50.0,
+	"unit": 20.0,
+	"reroll": 5.0,
+	"basic": 10.0,
+	"radial": 20.0,
+	"gatling": 25.0,
+	"spread": 15.0,
+	"melee": 10.0,
+	"ranged": 10.0,
+	"chain": 15.0,
+	"homing": 15.0,
+	"spike": 20.0,
+	"slow": 20,
+	"pierce": 20,
+	"burn": 25,
+	"poison": 25,
+	"ice":  25,
+	"big": 20,
+	"explode": 30,
+	"projectile": 20
+}
+
+var shopScales = {
+	"upgrade": 1.0,
+	"unit": 1.0,
+	"reroll": 1.0,
+	"shop": 1.0,
+}
+
 #region Weights
 var blockTypeWeights = {
 	"attack": 0.5,
