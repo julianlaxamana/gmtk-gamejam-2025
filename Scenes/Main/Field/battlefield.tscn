@@ -163,7 +163,11 @@ tile_map_data = PackedByteArray("AADh//r/AQAEAAEAAADi//r/AQAFAAEAAADh//v/AQAEAAI
 tile_set = SubResource("TileSet_vyvae")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(480, 366)
+position = Vector2(448.897, 544.35)
+limit_left = -500
+limit_top = -25
+limit_right = 1500
+limit_bottom = 1210
 script = ExtResource("1_yh2a8")
 
 [node name="Spawn" parent="." instance=ExtResource("8_0ehjo")]
