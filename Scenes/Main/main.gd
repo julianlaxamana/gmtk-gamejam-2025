@@ -4,8 +4,10 @@ var wave = 1
 var bits = 0
 var base_health = 100
 var wave_started = false
+var looped_once = false # 40+'ed
 
 @onready var wave_text = $Control/ShopBar/Label2/Label3
+@onready var time_scale_slider = $Control/EditorBar/HSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,13 +63,15 @@ var wave_list = [
 
 #region wavelist
 func start_wave():
+	wave_started = true
+	time_scale_slider.editable = false
 	# this works by wave is going from 1 onwards
 	# wave_list returns a string based on index
 	# to insert a wave, instead just insert a new string
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	var wave = 1
+	#var wave = 1
 	
 	wave_text.text = str(wave)
 	
@@ -179,6 +183,9 @@ func start_wave():
 
 
 func lost_game():
+	Global.computer_terminal.reset()
+	base_health = 100
+	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	#TODO reset board and all units
 	# queue_free it all
 	pass
@@ -193,7 +200,7 @@ func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
-		bug = create_bug("smorg")
+		bug = create_custom_bug(100, 0, 20, 26)
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()
@@ -213,9 +220,16 @@ func _on_bug_reached_end(damage: int):
 	# hurt the thing
 	base_health -= damage
 	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
+	Global.computer_terminal.update(base_health)
 	
 	if base_health <= 0:
 		lost_game()
+		wave_started = false
+		time_scale_slider.editable = true
+		
+	if len(get_tree().get_nodes_in_group("bugs")) == 0:
+		wave_started = false
+		time_scale_slider.editable = true
 	
 func _on_bug_died(value: int, type: String, death_position):
 	# give gold to player
@@ -233,6 +247,10 @@ func _on_bug_died(value: int, type: String, death_position):
 			bug.damage = 4
 			path.add_child(bug)
 			path.add_child(bug)
+	
+	if len(get_tree().get_nodes_in_group("bugs")) == 0:
+		wave_started = false
+		time_scale_slider.editable = true
 
 #endregion
 
@@ -261,6 +279,19 @@ func spawn_bugs_in_timeframe(initial_delay, duration, count, type: String):
 
 func spawn_bug(delay, type: String):
 	get_tree().create_timer(delay / Global.timeScale).timeout.connect(create_bug.bind(type))
+
+func create_custom_bug(health, value, speed, damage):
+	var bug = bug_generic.instantiate()
+	bug.type = "meep"
+	
+	bug.health = health
+	bug.value = value
+	bug.speed = speed
+	bug.damage = damage
+	connect_bug_signals(bug)
+	path.add_child(bug)
+	return bug
+	
 
 func create_bug(type: String):
 	# things to apply for all bugs, like size

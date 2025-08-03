@@ -54,6 +54,7 @@ signal bug_reached_end
 # @emits an int, how much the bug was worth
 signal bug_died
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	base_speed = speed
@@ -107,12 +108,14 @@ func _process(delta):
 	
 	if progress_ratio > .999:
 		bug_reached_end.emit(damage)
+		self.remove_from_group("bugs")
 		self.queue_free()
 		
 	if health <= 0:
 		# cant write tini_spoid spawn logic here because each bug needs to be tied
 		# to various signals in main
 		bug_died.emit(value, type, position) 
+		self.remove_from_group("bugs")
 		self.queue_free()
 
 
