@@ -135,7 +135,7 @@ func _process(delta: float) -> void:
 
 	
 	if "count" in get_parent():
-		get_parent().count = count + 2.2
+		get_parent().count = count + 2.2 + $outside.count
 	
 	# shtuff
 	sideArea.position.y = side.position.y + side.scale.y * side.region_rect.size.y / 2
@@ -250,10 +250,14 @@ func _on_hole_area_area_exited(area: Area2D) -> void:
 	entered = false
 	pass # Replace with function body.
 
-
+func run_thing(obj):
+		obj.test.call(obj)
+		if obj.get_child(9).get_child_count() == 1:
+			run_thing(obj.get_child(9).get_child(0))
+			
 func _on_timer_timeout() -> void:
 	if $inside.get_child_count() == 1:
-		$inside.get_child(0).test.call($inside.get_child(0))
+		run_thing($inside.get_child(0))
+
 		
-		print("shoot!")
 	pass # Replace with function body.

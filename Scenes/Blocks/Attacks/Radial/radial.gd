@@ -59,6 +59,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if "target" in newProjectile:
 				newProjectile.target = area.get_parent().get_parent()
 				unit.target = area.get_parent().get_parent().global_position
+			newProjectile.dmg /= NUM_PROJECTILES
 			Global.battlefield.call_deferred("add_child", newProjectile)
 			call_deferred("test", newProjectile, direction)
 		

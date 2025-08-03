@@ -44,11 +44,11 @@ func _process(delta):
 			elif x == "fire":
 				fire = true
 			elif x == "ice":
-				fire = true
+				ice = true
 			elif x == "slow":
-				fire = true	
-			elif x == "slow":
-				poison = true	
+				slow = true	
+			elif x == "poison":
+				poison = true
 				
 	global_position = origin + dir * 50
 	pass
@@ -77,9 +77,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			area.get_parent().get_parent().apply_slow(20 / damage / 7.5)
 		if poison:
 			area.get_parent().get_parent().apply_poison()
-		# bug hit
-		#for bug in targets:
-		#	bug.health -= damage
-		#	pass
-		
+
 	pass # Replace with function body.

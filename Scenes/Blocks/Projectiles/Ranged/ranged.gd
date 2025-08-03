@@ -40,11 +40,11 @@ func _process(delta: float) -> void:
 			elif x == "fire":
 				fire = true
 			elif x == "ice":
-				fire = true
+				ice = true
 			elif x == "slow":
-				fire = true	
-			elif x == "slow":
-				poison = true	
+				slow = true	
+			elif x == "poison":
+				poison = true
 	if dir != null:
 		global_position += dir * speed * delta  * Global.timeScale
 		
