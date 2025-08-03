@@ -3,6 +3,8 @@ var open = true
 @onready var editor = $Editor
 @onready var button = $Button
 
+@onready var player = $"../../BugHit"
+
 func _on_button_button_down() -> void:
 	open = !open
 	pass # Replace with function body.
@@ -101,5 +103,5 @@ func _on_button_4_button_down() -> void:
 
 
 func _on_audio_stream_player_finished() -> void:
-	$"../../BugHit".play()
+	player.play()
 	pass # Replace with function body.
