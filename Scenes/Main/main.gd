@@ -57,8 +57,6 @@ var wave_list = [
 	40, #40
 ]
 
-
-
 #region wavelist
 func start_wave():
 	# this works by wave is going from 1 onwards
@@ -67,32 +65,36 @@ func start_wave():
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
+	var wave = 2
+	
 	match wave_list[wave - 1]:
 		1: # 20 basic
-			print("wave 1 has started")
+			print(wave, " has started")
 			spawn_many_bugs(0, 1.25, 20, "meep")
 		2: # 20 basic 30 swarm
+			print(wave, " has started")
 			spawn_many_bugs(0, 1.25, 20, "meep")
 			spawn_many_bugs(10, 1.5, 30, "fob")
 		3:
+			print(wave, " has started")
 			spawn_many_bugs(0, 1, 30, "meep")
 			spawn_many_bugs(0, 2, 5, "borf")
 		4:
+			print(wave, " has started")
 			spawn_many_bugs(0, 1, 30, "meep")
 			spawn_many_bugs(0, 1.25, 40, "fob")
 			spawn_many_bugs(0, 1, 10, "borf")
 			spawn_bugs_in_timeframe(13, 10, 9, "borf")
-			pass
 		5:
+			print(wave, " has started")
 			for i in range(10):
 				spawn_bugs_in_timeframe(i, 10, 20, "meep")
-			pass
 		6:
+			print(wave, " has started")
 			var i = 0
 			while i < .47 * 10:
 				spawn_bugs_in_timeframe(i, 5, 20, "fob")
 				i += .47
-			pass
 		7:
 			pass
 		8:

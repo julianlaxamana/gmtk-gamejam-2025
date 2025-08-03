@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTK Gamejam 2025"
 run/main_scene="uid://b051s7k4rtfht"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -24,6 +25,7 @@ Global="*res://global.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [input]
 
