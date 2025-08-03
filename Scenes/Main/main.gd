@@ -65,35 +65,38 @@ func start_wave():
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	var wave = 4
+	var wave = 6
 	
 	match wave_list[wave - 1]:
-		1: # 20 basic
+		1: 
 			print(wave, " has started")
+			# 20 basic
 			spawn_many_bugs(0, 1.25, 20, "meep")
-		2: # 20 basic 30 swarm
+		2: 
 			print(wave, " has started")
+			# 20 basic 30 swarm
 			spawn_many_bugs(0, 1.25, 20, "meep")
 			spawn_many_bugs(10, 1.5, 30, "fob")
 		3:
 			print(wave, " has started")
+			# 30 basic 10 strong
 			spawn_many_bugs(.7, 1, 30, "meep")
 			spawn_bugs_in_timeframe(0, 30, 10, "borf")
 		4:
 			print(wave, " has started")
+			# 30 basic 40 swarm 10 strong
 			spawn_many_bugs(0, 1, 30, "meep")
 			spawn_many_bugs(0, 1.25, 40, "fob")
 			spawn_bugs_in_timeframe(0, 40 * 1.3, 10, "borf")
-			
 		5:
 			print(wave, " has started")
-			for i in range(10):
-				spawn_bugs_in_timeframe(i, 10, 20, "meep")
+			for i in range(6):
+				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 7, 10, "fob")
 		6:
 			print(wave, " has started")
 			var i = 0
 			while i < .47 * 10:
-				spawn_bugs_in_timeframe(i, 5, 20, "fob")
+				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 5, 3, "meep")
 				i += .47
 		7:
 			pass
@@ -167,6 +170,8 @@ func start_wave():
 
 #endregion wave list
 
+
+
 func lost_game():
 	#TODO reset board and all units
 	# queue_free it all
@@ -182,8 +187,8 @@ func _input(event):
 	if event.is_action_pressed("debug_add_bug"):
 		start_wave()
 	if event.is_action_pressed("debug_a"):
-		print("a pressed")
-		bug = create_bug("fob")
+		#bug = create_bug("smorg")
+		spawn_lezzz()
 	if event.is_action_pressed("debug_d"):
 		print("d pressed")
 		bug.apply_poison()
@@ -290,20 +295,41 @@ func create_bug(type: String):
 		"zonk":
 			bug.health = 25
 			bug.value = 10
-			bug.speed = 5.8
+			bug.speed = 1.578
 			bug.damage = 30
-		"lez_tail":
-			pass
-		"lez_middle":
-			pass
-		"lez_head":
-			pass
+		#region lez stats
+		"lezzz_tail":
+			bug.health = 100
+			bug.value = .5
+			bug.speed = 1.578
+			bug.damage = .25
+		"lezzz_middle":
+			bug.health = 100
+			bug.value = .5
+			bug.speed = 1.578
+			bug.damage = .25
+		"lezzz_head":
+			bug.health = 100
+			bug.value = .5
+			bug.speed = 1.578
+			bug.damage = .25
+			#endregion lez stats
 		"smorg":
-			pass
-	
+			bug.health = 5000
+			bug.value = 50
+			bug.speed = .5
+			bug.damage = 35
 	# do for all bugs
 	path.add_child(bug)
 	return bug
+	
+# specialized spawner for this entity
+func spawn_lezzz():
+	var step = .25
+	var middle_count = 1
+	spawn_bug(0, "lezzz_head")
+	spawn_many_bugs(step, step, middle_count, "lezzz_middle")
+	spawn_bug(step * middle_count + step, "lezzz_tail")
 
 
 func connect_bug_signals(n):
