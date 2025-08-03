@@ -28,7 +28,6 @@ func _process(delta):
 		for x in range(NUM_PROJECTILES):
 			randomize()
 			var angleShift = randf_range(-MAX_ANGLE, MAX_ANGLE)
-			print(angleShift)
 			# create a projectile
 			var newProjectile = projectile.instantiate()
 			if "speed" in newProjectile:

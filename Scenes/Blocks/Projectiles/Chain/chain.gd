@@ -86,7 +86,6 @@ func test(proj, dir, pos) -> void:
 		proj.origin= pos
 		
 	if "dir" in proj:
-		print(dir)
 		proj.dir = dir
 		
 	pass # Replace with function body.

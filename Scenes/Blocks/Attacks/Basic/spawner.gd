@@ -4,7 +4,6 @@ var augments
 var unit
 @onready var obj = preload("res://scenes/Blocks/Attacks/Basic/basic.tscn")
 func _ready() -> void:
-	print("hi")
 	self.timeout.connect(_on_timeout)
 	
 func spawn():

@@ -21,6 +21,8 @@ var path_node
 var battlefield
 var grid
 
+var hit_sfx
+
 var computer_terminal_style_box = load("res://Scenes/Main/Field/computer.tres")
 var computer_terminal # the node that is the computer terminal
 
