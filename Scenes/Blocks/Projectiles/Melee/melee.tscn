@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c05fskwlgyegw"]
+[gd_scene load_steps=3 format=3 uid="uid://c05fskwlgyegw"]
 
 [ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="2_nxhs3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
 radius = 100.0
@@ -15,10 +14,6 @@ position = Vector2(2.51728e-08, -5.57863e-08)
 rotation = 0.610865
 skew = 0.698132
 
-[node name="Icon" type="Sprite2D" parent="Node2D"]
-position = Vector2(1, -1.23028e-07)
-texture = ExtResource("2_nxhs3")
-
 [node name="Timer" type="Timer" parent="Node2D"]
 wait_time = 0.1
 
@@ -27,6 +22,30 @@ position = Vector2(-2.51728e-08, 5.57863e-08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource("CircleShape2D_8u35o")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(6.18375e-08, 7.8502e-08)
+rotation = -1.14691
+scale = Vector2(0.82145, 1.6533)
+skew = 0.279478
+emitting = false
+amount = 100
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 83.95
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 500.0
+linear_accel_min = -50.0
+scale_amount_min = 0.8
+scale_amount_max = 25.35
+color = Color(0.259875, 0.778368, 0.778134, 1)
+hue_variation_max = 0.4
 
 [connection signal="timeout" from="Node2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]

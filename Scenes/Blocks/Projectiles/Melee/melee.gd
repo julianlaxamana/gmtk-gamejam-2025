@@ -19,6 +19,7 @@ func set_direction() -> void:
 var baseScale
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Node2D/CPUParticles2D.emitting = true
 	$Node2D/Timer.start()
 	baseScale = scale
 	pass # Replace with function body.
