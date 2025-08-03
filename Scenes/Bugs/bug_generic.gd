@@ -76,6 +76,8 @@ func _process(delta):
 	# update hp
 	hp_bar.value = health
 	
+	z_index = -1 * position.y + 1000
+	
 	
 	
 	
