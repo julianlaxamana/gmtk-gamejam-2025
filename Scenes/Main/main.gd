@@ -325,8 +325,8 @@ func create_bug(type: String):
 	
 # specialized spawner for this entity
 func spawn_lezzz():
-	var step = .25
-	var middle_count = 1
+	var step = .20
+	var middle_count = 100
 	spawn_bug(0, "lezzz_head")
 	spawn_many_bugs(step, step, middle_count, "lezzz_middle")
 	spawn_bug(step * middle_count + step, "lezzz_tail")

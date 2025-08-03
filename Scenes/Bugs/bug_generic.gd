@@ -54,8 +54,9 @@ signal bug_died
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	base_speed = speed
-	h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
-	v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+	if (type != "lezzz_tail" and type != "lezzz_head" and type != "lezzz_middle"):
+		h_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
+		v_offset += randf() * pixel_offset_range - pixel_offset_range/2.0
 	fire_timer.timeout.connect(fire_clear)
 	fire_ticker.timeout.connect(apply_fire_tick)
 	
