@@ -65,7 +65,7 @@ func start_wave():
 	# to make switching around waves easier than manually changing
 	# all the integers past a certain point up a number
 	
-	var wave = 2
+	var wave = 4
 	
 	match wave_list[wave - 1]:
 		1: # 20 basic
@@ -77,14 +77,14 @@ func start_wave():
 			spawn_many_bugs(10, 1.5, 30, "fob")
 		3:
 			print(wave, " has started")
-			spawn_many_bugs(0, 1, 30, "meep")
-			spawn_many_bugs(0, 2, 5, "borf")
+			spawn_many_bugs(.7, 1, 30, "meep")
+			spawn_bugs_in_timeframe(0, 30, 10, "borf")
 		4:
 			print(wave, " has started")
 			spawn_many_bugs(0, 1, 30, "meep")
 			spawn_many_bugs(0, 1.25, 40, "fob")
-			spawn_many_bugs(0, 1, 10, "borf")
-			spawn_bugs_in_timeframe(13, 10, 9, "borf")
+			spawn_bugs_in_timeframe(0, 40 * 1.3, 10, "borf")
+			
 		5:
 			print(wave, " has started")
 			for i in range(10):
@@ -265,7 +265,7 @@ func create_bug(type: String):
 		"borf":
 			bug.health = 200
 			bug.value = 5
-			bug.speed = 1.236
+			bug.speed = 1
 			bug.damage = 10
 		"spoid":
 			bug.health = 80

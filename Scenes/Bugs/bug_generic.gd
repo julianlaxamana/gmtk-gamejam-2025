@@ -1,10 +1,10 @@
 extends PathFollow2D
 
 var type: String
-var health: int # health of unit
-var value: int  # money on death
-var speed: int # speed in pixels
-var damage: int  # how much damage to deal
+var health: float # health of unit
+var value: float  # money on death
+var speed: float # speed in pixels
+var damage: float  # how much damage to deal
 
 
 # status effect variables
