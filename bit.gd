@@ -10,7 +10,7 @@ var zero = preload("res://Assets/bit/BIT_0.webp")
 # Called when the node enters the scene tree for the first time.
 
 func inverse_pdf_sample():
-	return log(0.0676676416183 * randf_range(0, 14.777)) / -2.0
+	return log(randf_range(0, 2)) / -2.0 + 0.34657359028
 
 func _ready():
 	timer.start(inverse_pdf_sample())
