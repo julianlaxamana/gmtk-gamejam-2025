@@ -15,7 +15,9 @@ var looped_once = false # 40+'ed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	spawn_bug(20, "spoid")
+	spawn_lezzz(25, 20)
+	spawn_bug(3, "smorg")
+	spawn_bug(3, "zonk")
 
 	pass # Replace with function body.
 
