@@ -168,7 +168,7 @@ const bug_generic = preload("res://Scenes/Bugs/bug_generic.tscn")
 var bug
 @onready var path = Global.path_node
 func _input(event):
-	if event.is_action_pressed("debug_add_bug"):
+	if event.is_action_pressed("alt"):
 		start_wave()
 
 
