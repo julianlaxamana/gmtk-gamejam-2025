@@ -15,12 +15,10 @@ func inverse_pdf_sample():
 func _ready():
 	timer.start(inverse_pdf_sample())
 	timer.timeout.connect(flip)
-	print("time start")
 	
 	pass # Replace with function body.
 
 func flip():
-	print("timeout")
 	if is_one:
 		texture = zero
 		is_one = false

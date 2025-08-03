@@ -13,7 +13,7 @@ var looped_once = false # 40+'ed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	wave = 39
+	wave = 40
 	pass # Replace with function body.
 
 
@@ -134,11 +134,16 @@ func start_wave():
 			pass
 		40:
 			pass
+			
+			
+			if looped_once:
+				wave = 0
+				# add scaling here too
 		41:
-			wave = 0
-			looped_once = true
-			wave_text.text = str(wave)
-			winner_text.visible = true
+				wave = 0
+				looped_once = true
+				wave_text.text = str(wave)
+				winner_text.visible = true
 			# we could easily scale such stats here by looping through the dictionary and upping them
 	wave += 1
 
