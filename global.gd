@@ -470,3 +470,75 @@ const BUG_SPRITE_DICTIONARY = {
 		"UL": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp"),
 		"UR": preload("res://Assets/Bugs/Smorg/SMORG_SAMPLE.webp")},
 }
+
+const BUG_STAT_DICTIONARY = {
+	"meep": {
+		"health": 50,
+		"value": 2,
+		"speed": 1.578,
+		"damage": 3,
+		},
+	"fob": {
+		"health": 30,
+		"value": 1,
+		"speed": 3.5,
+		"damage": 1,
+		},
+	"borf": {
+		"health": 200,
+		"value": 5,
+		"speed": 1,
+		"damage": 10,
+		},
+	"spoid": {
+		"health": 80,
+		"value": 2,
+		"speed": 1.276,
+		"damage": 4,
+		},
+	"tini_spoid": {
+		"health": 40,
+		"value":  1,
+		"speed":  3.578,
+		"damage":  4,
+		},
+	"bleep": 
+		{
+		"health": 65,
+		"value": 8,
+		"speed": 2.11,
+		"damage": 4,
+		},
+	"zonk": {
+		"health": 25,
+		"value": 10,
+		"speed": 5.8,
+		"damage": 30,
+		},
+	#region lez stats
+	"lezzz_tail": {
+		"health": 100,
+		"value": .5,
+		"speed": 1.578,
+		"damage": .25,
+		},
+	"lezzz_middle": {
+		"health": 100,
+		"value": .5,
+		"speed": 1.578,
+		"damage": .25,
+		},
+	"lezzz_head": {
+		"health": 100,
+		"value": .5,
+		"speed": 1.578,
+		"damage": .25,
+		},
+		#endregion lez stats
+	"smorg": {
+		"health": 5000,
+		"value": 50,
+		"speed": .5,
+		"damage": 35,
+	}
+}

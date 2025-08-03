@@ -245,10 +245,10 @@ func _on_bug_died(value: int, type: String, death_position):
 			bug.type = "tini_spoid"
 			bug.position = position
 			# stats
-			bug.health = 40
-			bug.value = 1
-			bug.speed = 3.578
-			bug.damage = 4
+			bug.health = Global.BUG_STAT_DICTIONARY["tini_spoid"]["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY["tini_spoid"]["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY["tini_spoid"]["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY["tini_spoid"]["damage"]
 			path.add_child(bug)
 			path.add_child(bug)
 	
@@ -304,59 +304,55 @@ func create_bug(type: String):
 	connect_bug_signals(bug)
 	match type:
 		"meep":
-			bug.health = 50
-			bug.value = 2
-			bug.speed = 1.578 # good
-			bug.damage = 3
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"fob":
-			bug.health = 30
-			bug.value = 1
-			bug.speed = 3.5
-			bug.damage = 1
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"borf":
-			bug.health = 200
-			bug.value = 5
-			bug.speed = 1
-			bug.damage = 10
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"spoid":
-			bug.health = 80
-			bug.value = 2
-			bug.speed = 1.276
-			bug.damage = 4
-			pass
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"bleep":
-			bug.health = 65
-			bug.value = 8
-			bug.speed = 2.11
-			bug.damage = 4
-			pass
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"zonk":
-			bug.health = 25
-			bug.value = 10
-			bug.speed = 1.578
-			bug.damage = 30
-		#region lez stats
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"lezzz_tail":
-			bug.health = 100
-			bug.value = .5
-			bug.speed = 1.578
-			bug.damage = .25
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"lezzz_middle":
-			bug.health = 100
-			bug.value = .5
-			bug.speed = 1.578
-			bug.damage = .25
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"lezzz_head":
-			bug.health = 100
-			bug.value = .5
-			bug.speed = 1.578
-			bug.damage = .25
-			#endregion lez stats
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 		"smorg":
-			bug.health = 5000
-			bug.value = 50
-			bug.speed = .5
-			bug.damage = 35
+			bug.health = Global.BUG_STAT_DICTIONARY['meep']["health"]
+			bug.value = Global.BUG_STAT_DICTIONARY['meep']["value"]
+			bug.speed = Global.BUG_STAT_DICTIONARY['meep']["speed"]
+			bug.damage = Global.BUG_STAT_DICTIONARY['meep']["damage"]
 	# do for all bugs
 	path.add_child(bug)
 	return bug
