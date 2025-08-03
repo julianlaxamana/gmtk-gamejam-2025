@@ -1,5 +1,6 @@
 extends TileMapLayer
 var prevPos;
+var pos
 
 @onready var unit = preload("res://scenes/Unit/unit.tscn")
 @onready var tileMap = $TileMapLayer
@@ -12,7 +13,7 @@ func _physics_process(delta):
 	if Global.disableMouse:
 		return
 		
-	var pos = local_to_map(get_local_mouse_position())
+	pos = local_to_map(get_local_mouse_position())
 	if pos.x <= -23 && pos.x >= -47 && pos.y <= 16 && pos.y >= -8:
 		
 		for i in range(-47, -22):
@@ -21,17 +22,22 @@ func _physics_process(delta):
 		
 		if tileMap.get_cell_atlas_coords(pos).x > 3:
 			set_cell(local_to_map(get_local_mouse_position()), 1, Vector2i(1, 0))
-		
-		print(tileMap.get_cell_atlas_coords(pos).x)
+		if Global.selectedBlock != null:
+			set_cell(Global.selectedBlock, 1, Vector2i(1, 0))
+
 		if Input.is_action_just_pressed("click") && tileMap.get_cell_atlas_coords(pos).x > 3:
+			Global.selectedBlock = pos
 			if tileSet.has(map_to_local(local_to_map(get_local_mouse_position()))):
 				Global.selectedUnit = tileSet[map_to_local(local_to_map(get_local_mouse_position()))]
 			else:
-				var newUnit = unit.instantiate()
-				newUnit.position = map_to_local(local_to_map(get_local_mouse_position()))
-				newUnit.z_index = -(sqrt(pos.x * pos.x + pos.y * pos.y)) + 100
-				add_child(newUnit)
-				tileSet[newUnit.position] = newUnit
-				Global.selectedUnit = newUnit
-			
+				Global.selectedUnit = null
 		prevPos = pos
+
+func placeUnit():
+	if !tileSet.has(map_to_local(Global.selectedBlock)):
+		var newUnit = unit.instantiate()
+		newUnit.position = map_to_local(Global.selectedBlock)
+		newUnit.z_index = -(sqrt(pos.x * pos.x + pos.y * pos.y)) + 100
+		add_child(newUnit)
+		tileSet[newUnit.position] = newUnit
+		Global.selectedUnit = newUnit

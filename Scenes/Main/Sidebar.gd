@@ -12,6 +12,16 @@ func _ready() -> void:
 	editor.offset.x = -360
 	
 func _process(delta: float) -> void:
+	if Global.selectedBlock == null:
+		$Button2.visible = false
+		$Button4.visible = false
+	elif Global.selectedUnit != null:
+		$Button2.visible = false
+		$Button4/Label5.text = "unit_level = " + str(Global.selectedUnit.level) + "\ncurrent_blocks = " + str(Global.selectedUnit.currentBlocks) + "\nmax_blocks = "
+		$Button4.visible = true
+	else: 
+		$Button2.visible = true
+		$Button4.visible = false
 	if open:
 		position.x = lerp(position.x, -360.0, delta * 5)
 		editor.offset.x = lerp(editor.offset.x, -360.0, delta * 5)
@@ -56,7 +66,17 @@ func _on_button_2_mouse_entered() -> void:
 	pass # Replace with function body.
 	
 
-
+var a = true
 func _on_button_2_mouse_exited() -> void:
-	Global.disableMouse = false
+	if a:
+		Global.disableMouse = false
+	pass # Replace with function body.
+
+
+func _on_button_2_button_down() -> void:
+	a = false
+	Global.disableMouse = true
+	Global.battlefield.grid.placeUnit()
+	await get_tree().create_timer(0.1).timeout 
+	a = true
 	pass # Replace with function body.

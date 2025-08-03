@@ -5,11 +5,15 @@ var inventory = []
 var editor
 var disableMouse = false
 
+var unitBaseCost = 50
+var bits = 0
+
 var timeScale = 1.0
 
 var currBlock;
 
 var selectedUnit
+var selectedBlock
 var unitScripts = {
 }
 
@@ -57,16 +61,15 @@ var BLOCKS_DICTIONARY = {
 		"basic" = (func ():
 	var blockScene = preload("res://scenes/Blocks/loop_block.tscn")
 	var block = blockScene.instantiate()
-	block.functionName = "basic_shoot ("
-	block.unit = Global.selectedUnit
+	block.functionName = "basic_shoo ("
+	block.unit =Global.selectedUnit
 	block.variable = preload("res://scenes/Blocks/Attacks/Basic/basic.tscn")
-	print(block.variable)
 	block.bottomText = ")"
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.projectile = obj.get_child(9).get_child(0).variable
-			
+			attack.unit = obj.unit
 			var attackBlock = obj.get_child(9).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
 				attack.augments = attackBlock.get_child(6).augments
@@ -84,7 +87,11 @@ var BLOCKS_DICTIONARY = {
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
+			attack.unit = obj.unit
 			attack.projectile = obj.get_child(9).get_child(0).variable
+			var attackBlock = obj.get_child(9).get_child(0)
+			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
+				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
 	return block
 			),
@@ -101,6 +108,9 @@ var BLOCKS_DICTIONARY = {
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
 			attack.projectile = obj.get_child(9).get_child(0).variable
+			var attackBlock = obj.get_child(9).get_child(0)
+			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
+				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
 	return block
 			),
@@ -115,7 +125,11 @@ var BLOCKS_DICTIONARY = {
 	block.test = func (obj):
 		if obj.get_child(9).get_child_count() == 1 && "variable" in obj.get_child(9).get_child(0):
 			var attack = obj.variable.instantiate()
+			attack.unit = obj.unit
 			attack.projectile = obj.get_child(9).get_child(0).variable
+			var attackBlock = obj.get_child(9).get_child(0)
+			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
+				attack.augments = attackBlock.get_child(6).augments
 			obj.unit.add_child(attack)
 	return block
 			)

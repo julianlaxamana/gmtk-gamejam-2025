@@ -1,7 +1,7 @@
 extends Node2D
 
 var MAX_TARGETS = 1
-var NUM_PROJECTILES = 5
+var NUM_PROJECTILES = 3
 var MAX_ANGLE = deg_to_rad(20.0)
 
 var targets = []
@@ -18,6 +18,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	NUM_PROJECTILES = 3
+	if augments != null:
+		for x in augments:
+			if x == "projectile":
+				NUM_PROJECTILES += 1
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
 		for x in range(NUM_PROJECTILES):
@@ -57,6 +62,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				newProjectile.speed = 1000
 			if "target" in newProjectile:
 				newProjectile.target = area.get_parent().get_parent()
+				unit.target = area.get_parent().get_parent().global_position
+				
 			Global.battlefield.call_deferred("add_child", newProjectile)
 			call_deferred("test", newProjectile, angleShift)
 		

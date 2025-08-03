@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=20 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://scenes/Main/main.gd" id="1_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://scenes/Main/IDE/ide.tscn" id="2_br8qb"]
@@ -28,7 +28,25 @@ expand_margin_right = 73.0
 [sub_resource type="LabelSettings" id="LabelSettings_qiqqp"]
 font_size = 60
 
-[sub_resource type="LabelSettings" id="LabelSettings_8x5ba"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8x5ba"]
+bg_color = Color(0.819608, 0.678431, 0.313726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.537255, 0.431373, 0.152941, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3348s"]
+paragraph_spacing = -10.0
+font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiqqp"]
 bg_color = Color(0.819608, 0.678431, 0.313726, 1)
@@ -157,18 +175,62 @@ text = "0"
 label_settings = SubResource("LabelSettings_qiqqp")
 horizontal_alignment = 2
 
-[node name="Label3" type="Label" parent="Control/EditorBar/Button2/Label3"]
-visible = false
+[node name="TextureRect2" type="TextureRect" parent="Control/EditorBar/Button2"]
 layout_mode = 0
-offset_left = -663.0
-offset_top = 606.0
-offset_right = -152.0
-offset_bottom = 727.0
+offset_left = 336.0
+offset_top = 13.0
+offset_right = 464.0
+offset_bottom = 141.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_k7uo0")
+
+[node name="Button4" type="Button" parent="Control/EditorBar"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 631.0
+offset_right = 367.0
+offset_bottom = 695.0
+theme = ExtResource("4_rdp1x")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_rdp1x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k7uo0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k7uo0")
+text = "Upgrade Unit"
+alignment = 0
+
+[node name="Label3" type="Label" parent="Control/EditorBar/Button4"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 63.0
 text = "0"
-label_settings = SubResource("LabelSettings_8x5ba")
+label_settings = SubResource("LabelSettings_qiqqp")
 horizontal_alignment = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Control/EditorBar/Button2"]
+[node name="Label5" type="Label" parent="Control/EditorBar/Button4"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -107.0
+offset_right = 253.0
+offset_bottom = -44.0
+theme = ExtResource("4_rdp1x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8x5ba")
+text = "unit lvl. 1
+max_blocks = 5"
+label_settings = SubResource("LabelSettings_3348s")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/EditorBar/Button4"]
 layout_mode = 0
 offset_left = 336.0
 offset_top = 13.0
@@ -271,7 +333,6 @@ offset = Vector2(920, 0)
 transform = Transform2D(1, 0, 0, 1, 920, 0)
 
 [node name="Label" type="Label" parent="Control/ShopBar"]
-visible = false
 layout_mode = 0
 offset_left = 455.0
 offset_top = 599.0
@@ -320,8 +381,11 @@ texture = ExtResource("9_k7uo0")
 [connection signal="mouse_exited" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="Control/EditorBar/ColorRect" to="Control/EditorBar" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/ColorRect" to="Control/EditorBar" method="_on_color_rect_mouse_exited"]
+[connection signal="button_down" from="Control/EditorBar/Button2" to="Control/EditorBar" method="_on_button_2_button_down"]
 [connection signal="mouse_entered" from="Control/EditorBar/Button2" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/Button2" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
+[connection signal="mouse_entered" from="Control/EditorBar/Button4" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/EditorBar/Button4" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="mouse_entered" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar/Button3" to="Control/EditorBar" method="_on_button_2_mouse_exited"]
 [connection signal="value_changed" from="Control/EditorBar/HSlider" to="Control/EditorBar/HSlider" method="_on_value_changed"]

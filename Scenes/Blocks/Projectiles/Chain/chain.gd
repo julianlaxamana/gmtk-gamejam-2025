@@ -9,6 +9,8 @@ var origin
 
 var bolt
 var target
+
+var augments
 # Called when the node enters the scene tree for the first time.
 @onready var projectile = preload("res://scenes/Blocks/Projectiles/Chain/chain.tscn")
 @onready var boltScn = preload("res://scenes/Blocks/Projectiles/Chain/bolt.tscn")

@@ -52,6 +52,4 @@ func _process(delta):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["UR"]
 	elif theta <= deg_to_rad(105):
 		sprite.texture = Global.BUG_SPRITE_DICTIONARY[type]["DR"]
-	else:
-		print("downleft")
 	

@@ -1,4 +1,5 @@
 extends Node2D
+var blockCount = 6
 
 func _ready() -> void:
 	$"Action Block".holey = false

@@ -17,6 +17,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if augments != null:
+		for x in augments:
+			if x == "projectile":
+				NUM_PROJECTILES += 1
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
 		for x in range(NUM_PROJECTILES):
@@ -54,6 +58,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				newProjectile.speed = 1000
 			if "target" in newProjectile:
 				newProjectile.target = area.get_parent().get_parent()
+				unit.target = area.get_parent().get_parent().global_position
 			Global.battlefield.call_deferred("add_child", newProjectile)
 			call_deferred("test", newProjectile, direction)
 		
@@ -67,7 +72,6 @@ func test(proj, dir) -> void:
 		proj.origin= global_position
 		
 	if "dir" in proj:
-		print(dir)
 		proj.dir = dir
 		
 	pass # Replace with function body.

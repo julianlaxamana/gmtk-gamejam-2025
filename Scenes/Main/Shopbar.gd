@@ -12,6 +12,7 @@ func _ready() -> void:
 	editor.offset.x = 1280.0
 	
 func _process(delta: float) -> void:
+	$Label.text = str(Global.bits)
 	if open:
 		position.x = lerp(position.x, 920.0, delta * 5)
 		editor.offset.x = lerp(editor.offset.x, 1280.0, delta * 5)

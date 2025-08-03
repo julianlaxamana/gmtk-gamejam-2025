@@ -18,11 +18,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if augments != null:
+		for x in augments:
+			if x == "projectile":
+				NUM_PROJECTILES += 1
 	if projectile.get_state().get_node_name(0) == "spike":
 		# create a projectile
 		var newProjectile = projectile.instantiate()
 		Global.battlefield.call_deferred("add_child", newProjectile)
-		call_deferred("test", newProjectile)
+		call_deferred("test", newProjectile, 0)
 		queue_free()
 	pass
 	unit.enable_target()
@@ -50,7 +54,8 @@ func test(proj, angle) -> void:
 
 
 func _on_timer_2_timeout() -> void:
-	print("test")
+	if projectile.get_state().get_node_name(0) == "spike":
+		return
 	randomize()
 	var angleShift = randf_range(-MAX_ANGLE, MAX_ANGLE)
 	
@@ -61,6 +66,7 @@ func _on_timer_2_timeout() -> void:
 		newProjectile.speed = 1000
 	if "target" in newProjectile:
 		newProjectile.target = unit.get_target()
+		unit.target = unit.get_target().global_position
 		
 	Global.battlefield.call_deferred("add_child", newProjectile)
 	call_deferred("test", newProjectile, angleShift)

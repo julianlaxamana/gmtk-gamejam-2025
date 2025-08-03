@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 
 	
 	if block != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block.location == "inventory":
+		currScript.blockCount += 1
 		block.reparent(currScript)
 		block.location = "editor"
 		block.z_index = 0
@@ -41,6 +42,7 @@ func _process(delta: float) -> void:
 		block.scale = Vector2(1.5, 1.5)
 		
 	if block2 != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block2.location == "editor":
+		currScript.blockCount -= 1
 		block2.location = "inventory"
 		block2.z_index = 3
 		block2.unit = null
