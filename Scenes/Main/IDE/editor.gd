@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 			add_child(currScript)
 
 	
-	if block != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block.location == "inventory":
+	if block != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block.location == "inventory" && Global.selectedUnit.currentBlocks!= Global.selectedUnit.maxBlocks:
 		currScript.blockCount += 1
 		block.reparent(currScript)
 		block.location = "editor"

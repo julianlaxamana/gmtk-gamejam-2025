@@ -1,6 +1,7 @@
 extends Label
 
 @onready var fire_particles = $FireParticles
+@onready var style = load("res://scenes/Main/Field/computer.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

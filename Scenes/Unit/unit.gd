@@ -3,7 +3,7 @@ extends Node2D
 var radius = 2;
 var level = 1
 var currentBlocks = 0
-var maxBlocks = 10
+var maxBlocks = 8
 
 var target: Vector2
 
@@ -27,6 +27,7 @@ var b = 0
 var c = 0
 
 func _process(delta):
+	maxBlocks = 6 + 2 * level
 	$Target.visible =false
 	currentBlocks = Global.unitScripts[self].blockCount
 	
