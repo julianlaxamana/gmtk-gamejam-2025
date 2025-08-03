@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		# set scene as editor
 		Global.editor = currScript
 		if currScript in get_children():
-			currScript.scale = Vector2(1, 1)
+			currScript.scale = Vector2(.8, .8)
 		else:
 			add_child(currScript)
 
@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 		block.scale = Vector2(1.5, 1.5)
 		
 	if block2 != null && !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && block2.location == "editor":
+		block2.state = "off"
 		currScript.blockCount -= 1
 		block2.location = "inventory"
 		block2.z_index = 3000

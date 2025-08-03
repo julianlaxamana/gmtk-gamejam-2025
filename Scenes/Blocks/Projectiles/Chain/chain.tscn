@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjiggyyiqwnjt"]
+[gd_scene load_steps=5 format=3 uid="uid://bjiggyyiqwnjt"]
 
 [ext_resource type="Script" uid="uid://d5pk3afcdve7" path="res://scenes/Blocks/Projectiles/Chain/chain.gd" id="1_wkl7m"]
+[ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="2_wkl7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
 radius = 100.0
@@ -31,6 +32,10 @@ position = Vector2(-2.51728e-08, 5.57863e-08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
 shape = SubResource("CircleShape2D_wkl7m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wkl7m")
+volume_db = 0.5
 
 [connection signal="timeout" from="Node2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]

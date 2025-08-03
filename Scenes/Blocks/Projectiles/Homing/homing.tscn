@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfms065sgqgof"]
+[gd_scene load_steps=6 format=3 uid="uid://dfms065sgqgof"]
 
 [ext_resource type="Script" uid="uid://cccsg78u2c48f" path="res://scenes/Blocks/Projectiles/Homing/homing.gd" id="1_oldo5"]
 [ext_resource type="Texture2D" uid="uid://bwriwbmjycr3u" path="res://Assets/Particles/SPHERE_PROJECTILE.png" id="2_oldo5"]
+[ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="3_660w8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_660w8"]
 radius = 23.29
@@ -43,6 +44,10 @@ scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="homingArea"]
 shape = SubResource("CircleShape2D_oldo5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_660w8")
+volume_db = 0.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

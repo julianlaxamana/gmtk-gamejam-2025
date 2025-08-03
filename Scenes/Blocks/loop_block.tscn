@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://h1s0cu3kw1e7"]
+[gd_scene load_steps=14 format=3 uid="uid://h1s0cu3kw1e7"]
 
 [ext_resource type="Script" uid="uid://cnc7lpatepptg" path="res://scenes/Blocks/loop_block.gd" id="1_p5g84"]
 [ext_resource type="Texture2D" uid="uid://c5unkivqmhhte" path="res://Assets/GUI/BLOCKS_SPRITE_SHEET-modified.png" id="2_ckr6r"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ggxt46vuwq" path="res://Assets/Sounds/202313__7778__click-2.mp3" id="4_4865h"]
 [ext_resource type="Texture2D" uid="uid://c3kqado1dd3sy" path="res://Assets/GUI/blocks_sheet1.png" id="5_bp8s6"]
 [ext_resource type="Script" uid="uid://bt0jeb1kt5k1d" path="res://scenes/Blocks/inside.gd" id="5_p03ba"]
+[ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="7_bp8s6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5g84"]
 font = ExtResource("3_tttqk")
@@ -244,6 +245,10 @@ script = ExtResource("5_p03ba")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bp8s6")
+autoplay = true
 
 [connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
 [connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]

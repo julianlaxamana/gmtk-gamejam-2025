@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b051s7k4rtfht"]
+[gd_scene load_steps=22 format=3 uid="uid://b051s7k4rtfht"]
 
 [ext_resource type="Script" uid="uid://evcsqmcd6c4p" path="res://scenes/Main/main.gd" id="1_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://dt744m0awmxy1" path="res://scenes/Main/IDE/ide.tscn" id="2_br8qb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dy7jp51rudqnd" path="res://scenes/Main/h_slider.gd" id="8_qiqqp"]
 [ext_resource type="Texture2D" uid="uid://ym538kbvpl4g" path="res://icon.svg" id="9_k7uo0"]
 [ext_resource type="PackedScene" uid="uid://dlmdswquwdicb" path="res://Assets/bit/bit.tscn" id="11_8x5ba"]
+[ext_resource type="AudioStream" uid="uid://cwgihi46womqx" path="res://Assets/Sounds/bug.wav" id="12_3348s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7uo0"]
 bg_color = Color(0.819608, 0.678431, 0.313726, 1)
@@ -399,6 +400,11 @@ label_settings = SubResource("LabelSettings_k7uo0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3348s")
+volume_db = 0.5
+autoplay = true
+
 [connection signal="mouse_entered" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/EditorBar" to="Control/EditorBar" method="_on_mouse_exited"]
 [connection signal="button_down" from="Control/EditorBar/Button" to="Control/EditorBar" method="_on_button_button_down"]
@@ -425,3 +431,4 @@ vertical_alignment = 1
 [connection signal="mouse_exited" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_mouse_exited"]
 [connection signal="mouse_entered" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="Control/EditorBar" method="_on_audio_stream_player_finished"]

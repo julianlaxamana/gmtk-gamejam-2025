@@ -115,6 +115,7 @@ var BLOCKS_DICTIONARY = {
 	block.test = func (obj):
 		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
+			attack.delay = obj.unit.delay
 			attack.projectile = obj.get_child(8).get_child(0).variable
 			attack.unit = obj.unit
 			var attackBlock = obj.get_child(8).get_child(0)
@@ -139,6 +140,7 @@ var BLOCKS_DICTIONARY = {
 		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
+			attack.delay = obj.unit.delay
 			attack.projectile = obj.get_child(8).get_child(0).variable
 			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
@@ -162,6 +164,7 @@ var BLOCKS_DICTIONARY = {
 		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
+			attack.delay = obj.unit.delay
 			attack.projectile = obj.get_child(8).get_child(0).variable
 			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":
@@ -185,6 +188,7 @@ var BLOCKS_DICTIONARY = {
 		if obj.get_child(8).get_child_count() == 1 && "variable" in obj.get_child(8).get_child(0):
 			var attack = obj.variable.instantiate()
 			attack.unit = obj.unit
+			attack.delay = obj.unit.delay
 			attack.projectile = obj.get_child(8).get_child(0).variable
 			var attackBlock = obj.get_child(8).get_child(0)
 			if attackBlock.get_child_count() == 7 && attackBlock.get_child(6) != null && attackBlock.get_child(6).typeOf == "augment":

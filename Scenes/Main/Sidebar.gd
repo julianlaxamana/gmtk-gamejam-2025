@@ -98,3 +98,8 @@ func _on_button_4_button_down() -> void:
 		return
 	Global.selectedUnit.level += 1
 	pass # Replace with function body.
+
+
+func _on_audio_stream_player_finished() -> void:
+	$"../../AudioStreamPlayer".play()
+	pass # Replace with function body.
