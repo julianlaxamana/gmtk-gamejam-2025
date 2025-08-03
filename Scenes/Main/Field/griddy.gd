@@ -35,6 +35,7 @@ func _physics_process(delta):
 
 func placeUnit():
 	if !tileSet.has(map_to_local(Global.selectedBlock)):
+		print("")
 		var newUnit = unit.instantiate()
 		newUnit.position = map_to_local(Global.selectedBlock)
 		newUnit.z_index = -(sqrt(pos.x * pos.x + pos.y * pos.y)) + 100

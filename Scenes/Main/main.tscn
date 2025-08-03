@@ -388,6 +388,7 @@ offset_bottom = 700.515
 scale = Vector2(0.3, 0.3)
 
 [node name="Winner" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_top = 172.0
