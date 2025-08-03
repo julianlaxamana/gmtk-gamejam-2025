@@ -16,12 +16,16 @@ var delay = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	$Timer.wait_time = delay + 0.5
+	$Timer2.wait_time = delay / 7.0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	unit.enable_target()
+	print(delay)
+	print($Timer.wait_time)
 	if augments != null:
 		for x in augments:
 			if x == "projectile":
@@ -35,8 +39,7 @@ func _process(delta):
 			call_deferred("test", newProjectile, 0)
 		queue_free()
 	pass
-	unit.enable_target()
-	pass
+
 
 func _fire(mods: Array):
 	pass
@@ -77,5 +80,5 @@ func _on_timer_2_timeout() -> void:
 	newProjectile.dmg *= 0.75
 	Global.battlefield.call_deferred("add_child", newProjectile)
 	call_deferred("test", newProjectile, angleShift)
-		
+	$Timer2.start()	
 	pass # Replace with function body.

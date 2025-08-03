@@ -54,6 +54,7 @@ func _process(delta):
 	
 	
 	if Input.is_action_pressed("shift") && self == Global.selectedUnit:
+		print("hi")
 		$Target.position = get_local_mouse_position()
 	queue_redraw()
 func _ready() -> void:
