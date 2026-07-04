@@ -193,7 +193,7 @@ func _on_bug_reached_end(damage: int):
 	Global.computer_terminal_style_box.bg_color = Color((-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
 	Global.computer_terminal.update(base_health)
 	
-	print("COLOR CHANGER", (-2.04 * base_health + 255) / 255, (.51 * base_health)/255, (.51 * base_health)/255)
+	
 	
 	if base_health <= 0:
 		lost_game()

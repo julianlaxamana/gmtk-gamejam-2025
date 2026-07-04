@@ -177,16 +177,13 @@ func apply_slow(scaler):
 
 	if not is_slowed:
 		speed -= base_speed * (1.0 - scaler)
-		print(speed)
 		slow_timer.timeout.connect(slow_clear.bind(scaler)) # pass to future one
 	is_slowed = true
 	slow_timer.start(5 / Global.timeScale)
-	print("slow")
 
 func slow_clear(scaler):
 	sprite.material.set_shader_parameter("mix_value", 0)
 	speed += base_speed * (1.0 - scaler)
-	print(speed)
 	is_slowed = false
 	slow_timer.stop()
 	slow_particles.emitting = false
@@ -209,5 +206,4 @@ func stun_clear():
 		sprite.material.set_shader_parameter("mix_value", 0)
 	is_stunned = false
 	stun_timer.stop()
-	print("stun stop")
 	ice_particles.emitting = false
