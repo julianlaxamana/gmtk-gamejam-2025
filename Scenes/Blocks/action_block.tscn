@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://crrc11gx445cn"]
 
-[ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://scenes/Blocks/action_block.gd" id="1_w3nc2"]
+[ext_resource type="Script" uid="uid://d2fd18q0jtdl4" path="res://Scenes/Blocks/action_block.gd" id="1_w3nc2"]
 [ext_resource type="Texture2D" uid="uid://c5unkivqmhhte" path="res://Assets/GUI/BLOCKS_SPRITE_SHEET-modified.png" id="2_4aedn"]
 [ext_resource type="Texture2D" uid="uid://c3kqado1dd3sy" path="res://Assets/GUI/blocks_sheet1.png" id="3_vn2g7"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="4_4aedn"]
@@ -121,7 +121,7 @@ collision_layer = 4
 position = Vector2(29, 2)
 shape = SubResource("RectangleShape2D_5t2f7")
 
-[node name="click" type="AudioStreamPlayer" parent="."]
+[node name="click" type="AudioStreamPlayer" parent="." groups=["SFX"]]
 stream = ExtResource("4_5t2f7")
 volume_db = -2.0
 

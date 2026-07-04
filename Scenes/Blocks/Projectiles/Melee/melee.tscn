@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c05fskwlgyegw"]
 
-[ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
+[ext_resource type="Script" uid="uid://ivn4bhm7r8kc" path="res://Scenes/Blocks/Projectiles/Melee/melee.gd" id="1_j3vgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8u35o"]
 radius = 100.0

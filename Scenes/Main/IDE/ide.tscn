@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dt744m0awmxy1"]
 
-[ext_resource type="Script" uid="uid://cssdysgjljcmu" path="res://scenes/Main/IDE/ide.gd" id="1_7qxh7"]
-[ext_resource type="PackedScene" uid="uid://c7nqr5jp6d8gs" path="res://scenes/Main/IDE/editor.tscn" id="1_t2xf5"]
+[ext_resource type="Script" uid="uid://cssdysgjljcmu" path="res://Scenes/Main/IDE/ide.gd" id="1_7qxh7"]
+[ext_resource type="PackedScene" uid="uid://c7nqr5jp6d8gs" path="res://Scenes/Main/IDE/editor.tscn" id="1_t2xf5"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_a827d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8i2ax"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfms065sgqgof"]
 
-[ext_resource type="Script" uid="uid://cccsg78u2c48f" path="res://scenes/Blocks/Projectiles/Homing/homing.gd" id="1_oldo5"]
+[ext_resource type="Script" uid="uid://cccsg78u2c48f" path="res://Scenes/Blocks/Projectiles/Homing/homing.gd" id="1_oldo5"]
 [ext_resource type="Texture2D" uid="uid://bwriwbmjycr3u" path="res://Assets/Particles/SPHERE_PROJECTILE.png" id="2_oldo5"]
 [ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="3_660w8"]
 

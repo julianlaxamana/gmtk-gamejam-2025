@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0sp610i5rvx5"]
 
-[ext_resource type="Script" uid="uid://ctuv4yxpuhksb" path="res://scenes/Unit/unit.gd" id="1_i8q7a"]
+[ext_resource type="Script" uid="uid://ctuv4yxpuhksb" path="res://Scenes/Unit/unit.gd" id="1_i8q7a"]
 [ext_resource type="Texture2D" uid="uid://dgeq65r3emdwj" path="res://Assets/C5_Grey.png" id="3_ibc5n"]
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_upu8o"]
 

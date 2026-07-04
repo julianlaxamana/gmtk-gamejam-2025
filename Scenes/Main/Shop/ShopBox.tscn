@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bs1i565yhtcck"]
 
 [ext_resource type="FontFile" uid="uid://ricvkaxjia5v" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_5idpc"]
-[ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://scenes/Main/Shop/shop_box.gd" id="1_f6317"]
+[ext_resource type="Script" uid="uid://c5s3euvvwdho2" path="res://Scenes/Main/Shop/shop_box.gd" id="1_f6317"]
 [ext_resource type="Theme" uid="uid://baa8hhlkq0brg" path="res://Assets/Themes/main.tres" id="1_uhh8t"]
 [ext_resource type="PackedScene" uid="uid://dlmdswquwdicb" path="res://Assets/bit/bit.tscn" id="4_f6317"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxubg82tvpmvm"]
 
-[ext_resource type="Script" uid="uid://ndqrnqphtfni" path="res://scenes/Blocks/Projectiles/Ranged/ranged.gd" id="1_g82wv"]
+[ext_resource type="Script" uid="uid://ndqrnqphtfni" path="res://Scenes/Blocks/Projectiles/Ranged/ranged.gd" id="1_g82wv"]
 [ext_resource type="Texture2D" uid="uid://bwriwbmjycr3u" path="res://Assets/Particles/SPHERE_PROJECTILE.png" id="2_g82wv"]
 [ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="3_pp0k8"]
 

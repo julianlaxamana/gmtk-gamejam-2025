@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxqsalm7yckpc"]
 
-[ext_resource type="Script" uid="uid://ccd72x4ptgqcw" path="res://scenes/Blocks/Projectiles/Chain/bolt.gd" id="1_088kt"]
+[ext_resource type="Script" uid="uid://ccd72x4ptgqcw" path="res://Scenes/Blocks/Projectiles/Chain/bolt.gd" id="1_088kt"]
 
 [node name="Bolt" type="Node2D"]
 script = ExtResource("1_088kt")

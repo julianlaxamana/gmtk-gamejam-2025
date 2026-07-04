@@ -10,7 +10,11 @@ var looped_once = false # 40+'ed
 @onready var time_scale_slider = $Control/EditorBar/HSlider
 @onready var next_wave_button = $Control/EditorBar/Button3
 @onready var winner_text = $Control/Winner
-@onready var music_player = $AudioStreamPlayer
+@onready var music_player = $music
+
+
+var game_over_song = preload("res://Assets/Sounds/again (1).wav")
+var boss_song = preload("res://Assets/Sounds/big enemy (question mark) (1).wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,82 +43,158 @@ func start_wave():
 			if looped_once:
 				winner_text.visible = false
 			print(wave, " has started")
-			# 20 basic
-			spawn_many_bugs(0, 1.25, 20, "meep")
+			# 10 basic
+			spawn_lezzz(0, 0.9, 10)
+			spawn_many_bugs(0, 2.0, 10, "meep")
 		2: 
 			print(wave, " has started")
 			# 20 basic 30 swarm
-			spawn_many_bugs(0, 1.25, 20, "meep")
-			spawn_many_bugs(10, 1.5, 30, "fob")
+			spawn_many_bugs(0, 1.5, 15, "meep")
+			spawn_many_bugs(10, 1.5, 1, "borf")
 		3:
 			print(wave, " has started")
 			# 30 basic 10 strong
-			spawn_many_bugs(.7, 1, 30, "meep")
-			spawn_bugs_in_timeframe(0, 30, 10, "borf")
+			spawn_many_bugs(.7, 1, 10, "meep")
+			spawn_bugs_in_timeframe(0, 10, 5, "borf")
 		4:
 			print(wave, " has started")
 			# 30 basic 40 swarm 10 strong
-			spawn_many_bugs(0, 1, 30, "meep")
-			spawn_many_bugs(0, 1.25, 40, "fob")
-			spawn_bugs_in_timeframe(0, 40 * 1.3, 10, "borf")
+			spawn_many_bugs(0, 1.5, 10, "meep")
+			spawn_many_bugs(17, 1, 5, "borf")
+			spawn_many_bugs(23, 1.5, 10, "meep")
 		5:
 			print(wave, " has started")
-			for i in range(6):
-				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 7, 10, "fob")
+			spawn_many_bugs(0, 0.2, 15, "fob")
+			spawn_many_bugs(5, 1.5, 10, "meep")
 		6:
 			print(wave, " has started")
-			var i = 0
-			while i < .47 * 10:
-				spawn_bugs_in_timeframe(i + randf_range(-.5, .5), 5, 3, "meep")
-				i += .47
+			spawn_many_bugs(0, 1.5, 3, "spoid")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		7:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "bleep")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		8:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		9:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		10:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "smorg")
+			spawn_many_bugs(7, 0.5, 10, "zonk")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		11:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 1, "spoid")
+			spawn_many_bugs(7, 0.5, 10, "zonk")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		12:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "spoid")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		13:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		14:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		15:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		16:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		17:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		18:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		19:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		20:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		21:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		22:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		23:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		24:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		25:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		26:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		27:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		28:
-			pass
+			print(wave, " has started")
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		29:
-			pass
+			print(wave, " has started")
+			spawn_lezzz(0, 0.3, 10)
+			spawn_many_bugs(0, 1.5, 3, "borf")
+			spawn_many_bugs(7, 0.5, 10, "meep")
+			spawn_many_bugs(15, 0.1, 15, "fob")
 		30:
-			pass
+			music_player.stream = boss_song
+			music_player.play()
+			print(wave, " has started")
+			spawn_lezzz(0, 2, 10)
+			if looped_once:
+				wave = 0
+				# add scaling here too
 		31:
 			pass
 		32:
@@ -199,6 +279,8 @@ func _on_bug_reached_end(damage: int):
 		lost_game()
 		wave_started = false
 		time_scale_slider.editable = true
+		music_player.stream = game_over_song
+		music_player.play()
 		
 	if len(get_tree().get_nodes_in_group("bugs")) == 0:
 		wave_started = false

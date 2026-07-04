@@ -437,7 +437,7 @@ label_settings = SubResource("LabelSettings_k7uo0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Control/PauseMenu/NinePatchRect/Vol"]
+[node name="music" type="HSlider" parent="Control/PauseMenu/NinePatchRect/Vol"]
 layout_mode = 0
 offset_left = 139.0
 offset_top = 197.0
@@ -468,6 +468,9 @@ offset_top = 197.0
 offset_right = 389.0
 offset_bottom = 213.0
 theme = ExtResource("4_rdp1x")
+min_value = -24.0
+max_value = 5.0
+step = 0.05
 script = ExtResource("14_2ok46")
 
 [node name="SFX2" type="Label" parent="Control/PauseMenu/NinePatchRect"]
@@ -527,7 +530,7 @@ script = ExtResource("14_vk4q2")
 [connection signal="mouse_exited" from="Control/ShopBar/ShopButton" to="Control/ShopBar" method="_on_shop_button_mouse_exited"]
 [connection signal="mouse_entered" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="Control/ShopBar/ColorRect" to="Control/ShopBar" method="_on_color_rect_mouse_exited"]
-[connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/Vol/HSlider" to="AudioStreamPlayer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/Vol/music" to="AudioStreamPlayer" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Control/PauseMenu/NinePatchRect/SFX/HSlider" to="Control/PauseMenu/NinePatchRect/SFX/HSlider" method="_on_value_changed"]
 [connection signal="pressed" from="Control/PauseMenu/NinePatchRect/Button" to="Control/PauseMenu" method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="Control/EditorBar" method="_on_audio_stream_player_finished"]

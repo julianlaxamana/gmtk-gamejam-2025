@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck421obyjdwnh"]
 
-[ext_resource type="Script" uid="uid://dfg1pjpll6iip" path="res://scenes/Blocks/Projectiles/Explode/explode.gd" id="1_n2fhp"]
+[ext_resource type="Script" uid="uid://dfg1pjpll6iip" path="res://Scenes/Blocks/Projectiles/Explode/explode.gd" id="1_n2fhp"]
 [ext_resource type="AudioStream" uid="uid://bux1xhi2gtng7" path="res://Assets/Sounds/Hit (1).wav" id="2_0jr1v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n2fhp"]

@@ -1,6 +1,8 @@
 extends HSlider
 
 
+var previous_value = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,5 +14,6 @@ func _process(delta):
 
 
 func _on_value_changed(value):
-	for node in get_tree().get_nodes_in_group("bugs"):
-		node.get_child(node.get_child_count() - 1).volume_db = value
+	var delta = value - previous_value
+	for node in get_tree().get_nodes_in_group("SFX"):
+		node.volume_db += delta
